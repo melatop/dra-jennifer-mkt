@@ -1,0 +1,9 @@
+[[redirects]]
+  from = "/"
+  to = "/a-selva-em-casa/"
+  status = 302
+
+[[headers]]
+  for = "/*/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
