@@ -146,7 +146,11 @@ a.handle:focus-visible{outline:3px solid var(--teal-d);outline-offset:2px;border
         <input type="email" id="f-email" name="email" autocomplete="email" inputmode="email" placeholder="seu@email.com" required maxlength="200">
       </label>
       <p class="err" id="e-email" hidden>Confira o e-mail, parece que falta alguma coisa.</p>
-      <label class="check" for="f-ok"><input type="checkbox" id="f-ok" name="ok" required> <span>Concordo em receber o ebook e conteúdos da Dra. Jennifer por e-mail</span></label>
+      <label for="f-zap">WhatsApp
+        <input type="tel" id="f-zap" name="whatsapp" autocomplete="tel-national" inputmode="numeric" placeholder="(00) 00000-0000" required maxlength="15">
+      </label>
+      <p class="err" id="e-zap" hidden>Confira o número com DDD, no formato (00) 00000-0000.</p>
+      <label class="check" for="f-ok"><input type="checkbox" id="f-ok" name="ok" required> <span>Concordo em receber o ebook e conteúdos da Dra. Jennifer por e-mail e WhatsApp</span></label>
       <p class="err" id="e-ok" hidden>Marque esta opção para receber o ebook.</p>
       <div class="hp" aria-hidden="true"><label>Não preencha <input type="text" name="site" id="f-site" tabindex="-1" autocomplete="off"></label></div>
       <button type="submit" id="f-btn">Quero o ebook</button>
@@ -218,19 +222,29 @@ var CFG = {
 (function () {
   var f = document.getElementById('lead-form'), btn = document.getElementById('f-btn');
   var q = new URLSearchParams(location.search);
+  var zap = f.whatsapp;
+  function fmtZap(v) {
+    var d = v.replace(/\D/g, '').slice(0, 11);
+    if (d.length <= 2) return d.length ? '(' + d : '';
+    if (d.length <= 6) return '(' + d.slice(0, 2) + ') ' + d.slice(2);
+    if (d.length <= 10) return '(' + d.slice(0, 2) + ') ' + d.slice(2, 6) + '-' + d.slice(6);
+    return '(' + d.slice(0, 2) + ') ' + d.slice(2, 7) + '-' + d.slice(7);
+  }
+  zap.addEventListener('input', function () { zap.value = fmtZap(zap.value); });
   function show(id, on, input) { document.getElementById(id).hidden = !on; if (input) input.setAttribute('aria-invalid', on ? 'true' : 'false'); }
   f.addEventListener('submit', function (e) {
     e.preventDefault();
     var nome = f.nome.value.trim(), email = f.email.value.trim().toLowerCase(), ok = f.ok.checked;
     var vN = nome.length > 1, vE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
-    show('e-nome', !vN, f.nome); show('e-email', !vE, f.email); show('e-ok', !ok); show('e-geral', false);
-    if (!vN || !vE || !ok) return;
+    var zd = zap.value.replace(/\D/g, ''), vZ = /^[1-9][0-9](9[0-9]{8}|[2-8][0-9]{7})$/.test(zd);
+    show('e-nome', !vN, f.nome); show('e-email', !vE, f.email); show('e-zap', !vZ, zap); show('e-ok', !ok); show('e-geral', false);
+    if (!vN || !vE || !vZ || !ok) return;
     if (f.site.value) { done(); return; }
     btn.disabled = true; btn.textContent = 'Enviando...';
     fetch(CFG.supabaseUrl + '/rest/v1/leads', {
       method: 'POST',
       headers: { 'apikey': CFG.supabaseKey, 'Content-Type': 'application/json', 'Prefer': 'return=minimal' },
-      body: JSON.stringify({ nome: nome, email: email, consentimento: true, ebook: CFG.ebook,
+      body: JSON.stringify({ nome: nome, email: email, whatsapp: zd, consentimento: true, ebook: CFG.ebook,
         utm_source: q.get('utm_source'), utm_medium: q.get('utm_medium'), utm_campaign: q.get('utm_campaign'),
         referrer: document.referrer || null })
     }).then(function (r) {
