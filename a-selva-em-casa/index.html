@@ -82,6 +82,8 @@ a.handle:focus-visible{outline:3px solid var(--teal-d);outline-offset:2px;border
 .final h2{color:#fff}
 .btn{display:inline-block;background:#fff;color:var(--mauve);font-weight:700;font-size:18px;letter-spacing:.04em;text-decoration:none;padding:16px 34px;border-radius:999px}
 .foot{padding-block:24px;text-align:center;font-size:13px;color:var(--muted)}
+.privacy a,.foot a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+.privacy a:hover,.foot a:hover{color:var(--mauve)}
 
 @media (max-width:760px){
   section{padding-block:48px}
@@ -155,7 +157,7 @@ a.handle:focus-visible{outline:3px solid var(--teal-d);outline-offset:2px;border
       <div class="hp" aria-hidden="true"><label>Não preencha <input type="text" name="site" id="f-site" tabindex="-1" autocomplete="off"></label></div>
       <button type="submit" id="f-btn">Quero o ebook</button>
       <p class="err" id="e-geral" hidden>Não conseguimos registrar agora. Tente de novo em instantes.</p>
-      <p class="privacy">Seus dados são usados só para enviar o ebook e conteúdos da Dra. Jennifer. Você pode pedir para sair a qualquer momento.</p>
+      <p class="privacy">Seus dados são usados só para enviar o ebook e conteúdos da Dra. Jennifer. Você pode pedir para sair a qualquer momento. <a href="/privacidade/">Política de privacidade</a></p>
     </form>
     <div class="done" id="done" hidden tabindex="-1">
       <h2>Prontinho!</h2>
@@ -210,7 +212,7 @@ a.handle:focus-visible{outline:3px solid var(--teal-d);outline-offset:2px;border
   </div>
 </section>
 
-<p class="foot">Dra. Jennifer Aragão · Médica Veterinária · Medicina Felina · Belo Horizonte/MG</p>
+<p class="foot">Dra. Jennifer Aragão · Médica Veterinária · Medicina Felina · Belo Horizonte/MG · <a href="/privacidade/">Privacidade</a></p>
 <script>
 /* Configuração · Supabase do projeto dra-jennifer-marketing (chave pública: só permite cadastrar contatos) */
 var CFG = {
