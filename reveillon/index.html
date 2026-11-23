@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Réveillon na Chácara</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1f7a47">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f7a47'/%3E%3Cg stroke='%23ff3d6e' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M16 6v6M16 20v6M6 16h6M20 16h6M9 9l4 4M19 19l4 4M23 9l-4 4M13 19l-4 4'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* VOICE everyday, festa entre amigos: leve, direto, um pouco de humor nas legendas
+   IDEA a comanda/lista de compras do réveillon, preenchida por cada um
+   PICTURE faixa verde de chácara com fogos estourando; o próprio formulário logo abaixo
+   COLOUR branco, tinta quase preta, verde gramado #1f7a47 dominante, rosa fogos #ff3d6e de acento
+   TYPE Unbounded 800 nos títulos + Inter no texto
+   LAYOUT faixa de título com fogos à direita; formulário em uma coluna de 720px; no celular tudo empilhado */
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#0e1210);--ink:light-dark(#141815,#eef3ef);--mute:light-dark(#5b665e,#a3b0a7);--line:light-dark(#dfe6e1,#2a332d);--card:light-dark(#f6f9f7,#151b17);--green:#1f7a47;--green2:light-dark(#e3f2e9,#173323);--pink:#ff3d6e;--pinkbg:light-dark(#ffe6ed,#3a1420)}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,sans-serif;overflow-x:clip}
+.top{background:var(--green);color:#fff;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);align-items:end;gap:16px;padding:clamp(24px,4vw,48px) max(5vw,16px) 0}
+.top h1{font:800 clamp(30px,5vw,48px)/1.05 Unbounded,Inter,sans-serif;letter-spacing:-.02em;margin:0 0 10px;text-wrap:balance}
+.top p{margin:0 0 clamp(24px,4vw,40px);max-width:46ch;color:#e3f2e9}
+.fx{height:clamp(150px,22vw,220px);display:block;width:100%}
+.burst{transform-origin:center;transform-box:fill-box;animation:pop 1.4s ease-out both}
+.b2{animation-delay:.25s}.b3{animation-delay:.5s}
+@keyframes pop{from{transform:scale(.2);opacity:0}to{transform:scale(1);opacity:1}}
+@media(prefers-reduced-motion:reduce){.burst{animation:none}}
+main{max-width:760px;margin:0 auto;padding:24px max(4vw,16px) 64px}
+.who{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 20px;font-size:14px;color:var(--mute)}
+.who b{color:var(--ink);font-weight:600}
+.dot{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:99px;border:1px solid var(--line);font-size:13px}
+.dot.ok{background:var(--green2);border-color:transparent;color:var(--ink)}
+.dot.ok::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green)}
+section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:clamp(18px,3vw,28px);margin-bottom:16px}
+h2{font:600 22px/1.15 Unbounded,Inter,sans-serif;letter-spacing:-.01em;margin:0 0 4px}
+.sub{margin:0 0 18px;color:var(--mute);font-size:15px}
+.q{margin:0 0 22px}
+.q:last-child{margin-bottom:0}
+.lab{display:block;font-weight:600;margin:0 0 4px}
+.hint{display:block;font-size:14px;color:var(--mute);margin:0 0 10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:inherit;font-size:15px;min-height:44px;padding:8px 14px;border-radius:99px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.chip:hover{border-color:var(--green)}
+.chip[aria-pressed=true]{background:var(--green);border-color:var(--green);color:#fff}
+.chips.no .chip[aria-pressed=true]{background:var(--pink);border-color:var(--pink)}
+.names .chip{font-weight:600;min-width:7.5em}
+button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--pink);outline-offset:2px}
+input[type=text],textarea{font:inherit;font-size:16px;width:100%;padding:11px 14px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink)}
+textarea{min-height:96px;resize:vertical}
+.other{margin-top:10px}
+.seg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;max-width:420px}
+.seg .chip{border-radius:10px}
+.reveal{margin-top:14px;padding:14px;border-radius:10px;background:var(--bg);border:1px dashed var(--line)}
+.reveal[hidden]{display:none}
+.three{display:grid;gap:8px}
+.three label{display:grid;grid-template-columns:1.6em minmax(0,1fr);align-items:center;gap:6px;font-weight:600;color:var(--mute)}
+.meter{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;margin-top:6px}
+.lvl{font:600 18px/1 Unbounded,Inter,sans-serif;min-height:52px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.lvl[aria-pressed=true]{background:var(--pink);border-color:var(--pink);color:#fff}
+.ends{display:flex;justify-content:space-between;gap:12px;font-size:13px;color:var(--mute);margin-top:6px}
+.readout{margin-top:14px;padding:14px 16px;border-radius:10px;background:var(--pinkbg);min-height:60px}
+.readout b{display:block;font:600 18px/1.2 Unbounded,Inter,sans-serif}
+.send{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:8px}
+.go{font:600 17px/1 Unbounded,Inter,sans-serif;min-height:54px;padding:0 28px;border-radius:12px;border:0;background:var(--pink);color:#fff;cursor:pointer}
+.go:disabled{opacity:.55;cursor:wait}
+.msg{font-size:15px}
+.msg.err{color:var(--pink);font-weight:600}
+.msg.okm{color:var(--green);font-weight:600}
+.note{font-size:14px;color:var(--mute);margin:0 0 14px}
+@media(max-width:600px){.top{grid-template-columns:1fr}.top p{margin-bottom:0}.fx{height:140px}.meter{grid-template-columns:repeat(3,minmax(0,1fr))}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div>
+    <h1>Réveillon na chácara</h1>
+    <p>4 dias, 8 pessoas. Responde aqui o que você come, o que não come e o quanto vai beber, que a lista de compras sai daqui.</p>
+  </div>
+  <svg class="fx" id="fx" viewBox="0 0 400 220" preserveAspectRatio="xMidYMax meet" aria-hidden="true"></svg>
+</header>
+
+<main>
+  <div class="who" id="who"><span>Carregando quem já respondeu…</span></div>
+
+  <form id="f" novalidate>
+    <section>
+      <h2>Quem é você?</h2>
+      <p class="sub">Se já respondeu, escolher seu nome traz suas respostas de volta. Enviar de novo substitui a anterior.</p>
+      <div class="chips names" id="nome" role="radiogroup" aria-label="Participante"></div>
+      <p class="note" id="prev" hidden></p>
+    </section>
+
+    <section>
+      <h2>Comida</h2>
+      <p class="sub">Marque quantos quiser. Tem campo de "outro" em cada pergunta.</p>
+      <div class="q">
+        <span class="lab">O que é indispensável na noite da virada?</span>
+        <div class="chips" data-g="noite"></div>
+        <input class="other" type="text" id="noite_outro" placeholder="Outro (ex.: torta de frango da vó)" maxlength="200">
+      </div>
+      <div class="q">
+        <span class="lab">E nos outros dias?</span>
+        <div class="chips" data-g="dias"></div>
+        <input class="other" type="text" id="dias_outro" placeholder="Outro" maxlength="200">
+      </div>
+      <div class="q">
+        <span class="lab">O que você não come de jeito nenhum?</span>
+        <span class="hint">Inclui restrições alimentares.</span>
+        <div class="chips no" data-g="naocome"></div>
+        <input class="other" type="text" id="naocome_outro" placeholder="Outro" maxlength="200">
+      </div>
+      <div class="q">
+        <span class="lab">Se um prato da maioria tiver isso, como fica?</span>
+        <div class="chips seg" data-g="separar" data-single></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Bebida</h2>
+      <p class="sub">É daqui que sai a conta de quantas caixas, garrafas e sacos de gelo.</p>
+      <div class="q">
+        <span class="lab">Vai beber cerveja?</span>
+        <div class="chips seg" data-g="cerveja" data-single></div>
+      </div>
+      <div class="q">
+        <span class="lab">Vai beber drinks?</span>
+        <div class="chips seg" data-g="drinks" data-single></div>
+        <div class="reveal" id="drinksBox" hidden>
+          <span class="lab">Seus 3 drinks indispensáveis</span>
+          <div class="three">
+            <label>1 <input type="text" id="d1" maxlength="80" placeholder="ex.: caipirinha de limão"></label>
+            <label>2 <input type="text" id="d2" maxlength="80" placeholder="ex.: gin tônica"></label>
+            <label>3 <input type="text" id="d3" maxlength="80" placeholder="ex.: Aperol spritz"></label>
+          </div>
+        </div>
+      </div>
+      <div class="q">
+        <span class="lab">Vai tomar destilado puro (dose)?</span>
+        <div class="chips seg" data-g="destilado" data-single></div>
+        <div class="reveal" id="destBox" hidden>
+          <span class="lab">Quais?</span>
+          <div class="chips" data-g="destilados"></div>
+        </div>
+      </div>
+      <div class="q">
+        <span class="lab">E sem álcool?</span>
+        <span class="hint">Pra quem não bebe ou pra intercalar.</span>
+        <div class="chips" data-g="semalcool"></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Quanto você vai beber?</h2>
+      <p class="sub">Seja honesto, a conta depende disso.</p>
+      <div class="meter" id="meter" role="radiogroup" aria-label="Nível de bebida de 0 a 5"></div>
+      <div class="ends"><span>0 · Straight Edge</span><span>5 · Zeca Pagodinho</span></div>
+      <div class="readout" id="readout"><b>Escolha de 0 a 5</b><span>Toque num número.</span></div>
+    </section>
+
+    <section>
+      <h2>Observações</h2>
+      <p class="sub">Sugestões, alergias que não apareceram, quem leva caixa de som. Opcional.</p>
+      <textarea id="obs" maxlength="1000"></textarea>
+    </section>
+
+    <div class="send">
+      <button class="go" id="go" type="submit">Enviar respostas</button>
+      <span class="msg" id="msg" role="status" aria-live="polite"></span>
+    </div>
+  </form>
+</main>
+
+<script>
+{
+const NOMES = ["Pedro","Fefe","Sarxixa","Lisa","Junim","Tai","Nadu","Andressa"];
+const slug = n => n.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9]/g,"");
+const G = {
+  noite: ["Churrasco","Pernil ou lombo","Chester ou peru","Bacalhau","Salpicão","Farofa","Arroz à grega","Lentilha","Salada","Frutas da virada (uva, romã)","Sobremesa","Panetone ou chocotone"],
+  dias: ["Churrasco","Café da manhã caprichado","Feijoada","Macarronada","Hambúrguer","Pizza","Caldo","Petiscos","Pão de alho","Salada e frutas","Açaí","Lanche da madrugada"],
+  naocome: ["Uva-passa","Azeitona","Maionese","Cebola","Coentro","Pimentão","Pimenta","Frutos do mar","Carne de porco","Carne vermelha","Sou vegetariano(a)","Lactose","Glúten"],
+  separar: ["Dá pra separar um pratinho sem","Prefiro que o prato nem tenha"],
+  cerveja: ["Sim","Não"],
+  drinks: ["Sim","Não"],
+  destilado: ["Sim","Não"],
+  destilados: ["Vodka","Gin","Whisky","Cachaça","Tequila","Rum","Licor"],
+  semalcool: ["Refrigerante","Refri zero","Suco","Água com gás","Energético","Água de coco","Chá gelado","Só água mesmo"]
+};
+const NIVEIS = [
+  ["Straight Edge","Nem uma gota. Vou de refri e água."],
+  ["Só pra brindar","Uma taça na virada e olhe lá."],
+  ["Social","Umas duas ou três por dia, com calma."],
+  ["Animado","Bebo bem, mas lembro de tudo no dia seguinte."],
+  ["Quase Zeca","Já vou estar chamando todo mundo de irmão."],
+  ["Zeca Pagodinho","Copo nunca vazio, do café da manhã à virada."]
+];
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const chip = (v,role) => `<button type="button" class="chip" ${role?`role="${role}"`:""} aria-pressed="false" data-v="${esc(v)}">${esc(v)}</button>`;
+
+$("nome").innerHTML = NOMES.map(n=>chip(n,"radio")).join("");
+document.querySelectorAll("[data-g]").forEach(el=>{el.innerHTML = G[el.dataset.g].map(v=>chip(v)).join("")});
+$("meter").innerHTML = NIVEIS.map((_,i)=>`<button type="button" class="lvl" role="radio" aria-pressed="false" data-n="${i}">${i}</button>`).join("");
+
+let nivel = null;
+const pick = (box,v) => box.querySelectorAll(".chip").forEach(b=>b.setAttribute("aria-pressed", b.dataset.v===v ? "true":"false"));
+const getMulti = g => [...document.querySelectorAll(`[data-g="${g}"] [aria-pressed=true]`)].map(b=>b.dataset.v);
+const getOne = g => getMulti(g)[0] ?? null;
+const setMulti = (g,vals) => document.querySelectorAll(`[data-g="${g}"] .chip`).forEach(b=>b.setAttribute("aria-pressed", (vals||[]).includes(b.dataset.v) ? "true":"false"));
+const sync = () => {
+  $("drinksBox").hidden = getOne("drinks") !== "Sim";
+  $("destBox").hidden = getOne("destilado") !== "Sim";
+};
+const setNivel = n => {
+  nivel = n;
+  $("meter").querySelectorAll(".lvl").forEach(b=>b.setAttribute("aria-pressed", +b.dataset.n===n ? "true":"false"));
+  const r = $("readout");
+  if (n===null){ r.innerHTML = "<b>Escolha de 0 a 5</b><span>Toque num número.</span>"; return; }
+  r.innerHTML = `<b>${n} · ${esc(NIVEIS[n][0])}</b><span>${esc(NIVEIS[n][1])}</span>`;
+};
+
+document.querySelectorAll("[data-g]").forEach(box=>{
+  box.addEventListener("click", e=>{
+    const b = e.target.closest(".chip"); if(!b) return;
+    if (box.hasAttribute("data-single")) pick(box, b.getAttribute("aria-pressed")==="true" ? null : b.dataset.v);
+    else b.setAttribute("aria-pressed", b.getAttribute("aria-pressed")==="true" ? "false":"true");
+    sync();
+  });
+});
+$("meter").addEventListener("click", e=>{const b=e.target.closest(".lvl"); if(b) setNivel(+b.dataset.n)});
+
+const API = "https://bhydgbvthgpggknzymmy.supabase.co/rest/v1/reveillon_respostas";
+const KEY = "sb_publishable_gC2jz8ozu16fg_TwuM9_Uw_AvEGZW2o";
+const api = (q, opt={}) => fetch(API + q, {...opt, headers:{apikey:KEY, "Content-Type":"application/json", ...(opt.headers||{})}});
+let nome = null, respondidos = {};
+const clearForm = () => {
+  Object.keys(G).forEach(g=>setMulti(g,[]));
+  ["noite_outro","dias_outro","naocome_outro","d1","d2","d3","obs"].forEach(id=>$(id).value="");
+  setNivel(null); sync();
+};
+const fill = d => {
+  setMulti("noite", d.noite); setMulti("dias", d.outros_dias); setMulti("naocome", d.nao_come);
+  setMulti("separar", d.separar?[d.separar]:[]);
+  setMulti("cerveja", d.cerveja===true?["Sim"]:d.cerveja===false?["Não"]:[]);
+  setMulti("drinks", d.drinks===true?["Sim"]:d.drinks===false?["Não"]:[]);
+  setMulti("destilado", d.destilado===true?["Sim"]:d.destilado===false?["Não"]:[]);
+  setMulti("destilados", d.destilados); setMulti("semalcool", d.sem_alcool);
+  $("noite_outro").value = d.noite_outro||""; $("dias_outro").value = d.outros_dias_outro||""; $("naocome_outro").value = d.nao_come_outro||"";
+  const fav = d.drinks_favoritos||[]; $("d1").value=fav[0]||""; $("d2").value=fav[1]||""; $("d3").value=fav[2]||"";
+  $("obs").value = d.observacoes||"";
+  setNivel(Number.isInteger(d.nivel)?d.nivel:null); sync();
+};
+
+$("nome").addEventListener("click", async e=>{
+  const b = e.target.closest(".chip"); if(!b) return;
+  nome = b.dataset.v; pick($("nome"), nome);
+  $("msg").textContent = ""; $("msg").className = "msg";
+  const p = $("prev"); p.hidden = true;
+  clearForm();
+  try {
+    const r = await api("?select=*&nome=eq."+encodeURIComponent(nome));
+    const rows = r.ok ? await r.json() : [];
+    if (rows.length && nome===b.dataset.v) {
+      const d = rows[0]; fill(d);
+      const t = d.atualizado_em ? new Date(d.atualizado_em).toLocaleString("pt-BR",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"}) : "";
+      p.textContent = `Você já respondeu${t?" em "+t:""}. Suas respostas foram carregadas; enviar de novo substitui.`; p.hidden = false;
+    }
+  } catch(err) {}
+});
+
+const renderWho = () => {
+  const n = NOMES.filter(x=>respondidos[slug(x)]).length;
+  $("who").innerHTML = `<span><b>${n} de 8</b> já responderam</span>` + NOMES.map(x=>`<span class="dot ${respondidos[slug(x)]?"ok":""}">${esc(x)}</span>`).join("");
+};
+
+$("f").addEventListener("submit", async e=>{
+  e.preventDefault();
+  const m = $("msg"); m.className = "msg err";
+  const falta = [];
+  if (!nome) falta.push("seu nome");
+  if (!getOne("cerveja")) falta.push("cerveja");
+  if (!getOne("drinks")) falta.push("drinks");
+  if (getOne("drinks")==="Sim" && ![$("d1").value,$("d2").value,$("d3").value].some(v=>v.trim())) falta.push("pelo menos 1 drink favorito");
+  if (nivel===null) falta.push("o nível de 0 a 5");
+  if (falta.length){ m.textContent = "Falta responder: " + falta.join(", ") + "."; return; }
+  const drinks = getOne("drinks")==="Sim", dest = getOne("destilado")==="Sim";
+  const doc = {
+    nome,
+    noite: getMulti("noite"), noite_outro: $("noite_outro").value.trim(),
+    outros_dias: getMulti("dias"), outros_dias_outro: $("dias_outro").value.trim(),
+    nao_come: getMulti("naocome"), nao_come_outro: $("naocome_outro").value.trim(),
+    separar: getOne("separar"),
+    cerveja: getOne("cerveja")==="Sim",
+    drinks, drinks_favoritos: drinks ? [$("d1").value,$("d2").value,$("d3").value].map(v=>v.trim()).filter(Boolean) : [],
+    destilado: getOne("destilado")===null ? null : dest, destilados: dest ? getMulti("destilados") : [],
+    sem_alcool: getMulti("semalcool"),
+    nivel, nivel_nome: NIVEIS[nivel][0],
+    observacoes: $("obs").value.trim(),
+    atualizado_em: new Date().toISOString()
+  };
+  $("go").disabled = true; m.className = "msg"; m.textContent = "Enviando…";
+  try {
+    const r = await api("?on_conflict=nome", {method:"POST", headers:{Prefer:"resolution=merge-duplicates,return=minimal"}, body:JSON.stringify(doc)});
+    if (!r.ok) throw new Error(r.status);
+    m.className = "msg okm"; m.textContent = `Valeu, ${nome}! Resposta salva. Se mudar de ideia, é só escolher seu nome e enviar de novo.`;
+    respondidos[slug(nome)] = true; renderWho();
+  } catch(err) {
+    m.className = "msg err";
+    m.textContent = "Não deu para salvar agora. Tenta de novo em alguns segundos.";
+  } finally { $("go").disabled = false; }
+});
+
+const drawFx = () => {
+  const s = $("fx"); let seed = 7;
+  const rnd = () => (seed = seed*16807 % 2147483647) / 2147483647;
+  const burst = (cx,cy,r,col,cls) => {
+    let g = `<g class="burst ${cls}">`;
+    for (let i=0;i<18;i++){ const a=i/18*Math.PI*2, l=r*(.7+rnd()*.3);
+      g += `<line x1="${cx+Math.cos(a)*r*.25}" y1="${cy+Math.sin(a)*r*.25}" x2="${cx+Math.cos(a)*l}" y2="${cy+Math.sin(a)*l}" stroke="${col}" stroke-width="3" stroke-linecap="round"/>`;
+      g += `<circle cx="${cx+Math.cos(a)*(l+7)}" cy="${cy+Math.sin(a)*(l+7)}" r="2.4" fill="${col}"/>`; }
+    return g + `</g>`;
+  };
+  let h = burst(270,70,58,"#ff3d6e","") + burst(140,95,40,"#ffffff","b2") + burst(355,125,30,"#ffd84d","b3");
+  h += `<path d="M0 220 V178 C70 150 140 168 210 160 C280 152 340 140 400 150 V220Z" fill="#165c35"/>`;
+  h += `<path d="M0 220 V196 C90 182 190 196 260 186 C320 178 360 184 400 180 V220Z" fill="#0f4628"/>`;
+  h += `<g fill="#0f4628"><rect x="60" y="150" width="54" height="30"/><path d="M52 152 L87 128 L122 152Z"/></g><rect x="80" y="160" width="12" height="20" fill="#ffd84d"/>`;
+  s.innerHTML = h;
+};
+drawFx();
+
+(async () => {
+  try {
+    const r = await api("?select=nome");
+    if (!r.ok) throw new Error(r.status);
+    respondidos = {}; (await r.json()).forEach(x=>{ respondidos[slug(x.nome)] = true; });
+    renderWho();
+  } catch(err) { $("who").innerHTML = "<span>Não consegui ver quem já respondeu. Você pode responder mesmo assim.</span>"; }
+})();
+}
+</script>
+</body>
+</html>
