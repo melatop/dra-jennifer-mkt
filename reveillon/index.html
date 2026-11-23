@@ -188,33 +188,43 @@ const fogos = () => {
   if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   const c = document.getElementById("fogos"), ctx = c.getContext("2d");
   const dpr = Math.min(devicePixelRatio || 1, 2);
-  const W = innerWidth, H = innerHeight;
+  const W = innerWidth, H = innerHeight, cel = W < 600;
   c.width = W*dpr; c.height = H*dpr; c.hidden = false; ctx.setTransform(dpr,0,0,dpr,0,0);
-  const cores = ["#ff3d6e","#f5b700","#8b5cf6","#1fa85a","#1e90ff","#ff7a00"];
-  const foguetes = [], faiscas = [];
-  const total = W < 600 ? 7 : 11;
-  for (let i=0;i<total;i++) foguetes.push({x:W*(.1+Math.random()*.8), y:H+10, vy:-(H*.012+Math.random()*H*.006), alvo:H*(.12+Math.random()*.35), cor:cores[i%cores.length], atraso:i*9, rastro:[]});
+  const cores = ["#ff3d6e","#f5b700","#8b5cf6","#1fa85a","#1e90ff","#ff7a00","#e11d48","#06b6d4"];
+  const cor = () => cores[Math.floor(Math.random()*cores.length)];
+  const foguetes = [], faiscas = [], MAX = cel ? 2600 : 4500;
+  const lanca = (atraso, x) => foguetes.push({x: x ?? W*(.05+Math.random()*.9), y:H+10, vy:-(H*.011+Math.random()*H*.008), alvo:H*(.06+Math.random()*.5), cor:cor(), cor2:cor(), tipo:Math.floor(Math.random()*4), atraso, rastro:[]});
+  const ondas = cel ? 4 : 5, porOnda = cel ? 9 : 14;
+  for (let o=0;o<ondas;o++) for (let i=0;i<porOnda;i++) lanca(o*45 + Math.floor(Math.random()*30));
+  for (let i=0;i<(cel?12:20);i++) lanca(215 + (i%3)*4, W*(i+.5)/(cel?12:20));
+  const estoura = (x,y,f,escala=1) => {
+    const n = Math.round((90 + Math.random()*70)*escala), v = (3.5 + Math.random()*3)*escala*(cel?.85:1);
+    for (let k=0;k<n && faiscas.length<MAX;k++){
+      const a = k/n*Math.PI*2 + Math.random()*.05;
+      let s = v*(.55+Math.random()*.5);
+      if (f.tipo===1) s = v*(k%2 ? .5 : 1);
+      if (f.tipo===2) s = v;
+      faiscas.push({x, y, vx:Math.cos(a)*s, vy:Math.sin(a)*s, vida:1, dec:.008+Math.random()*.008, cor: f.tipo===1 && k%2 ? f.cor2 : (Math.random()<.85 ? f.cor : "#f5b700"), r: 2+Math.random()*1.8, estala: f.tipo===3 && Math.random()<.12, pisca: Math.random()<.3});
+    }
+  };
   let t = 0;
   const passo = () => {
     t++;
     ctx.clearRect(0,0,W,H);
     foguetes.forEach(f=>{
       if (f.explodiu || t < f.atraso) return;
-      f.rastro.push([f.x,f.y]); if (f.rastro.length>8) f.rastro.shift();
-      f.y += f.vy; f.x += Math.sin((t+f.atraso)/6)*.6;
+      f.rastro.push([f.x,f.y]); if (f.rastro.length>10) f.rastro.shift();
+      f.y += f.vy; f.x += Math.sin((t+f.atraso)/5)*.8;
       ctx.strokeStyle = f.cor; ctx.lineWidth = 3; ctx.lineCap = "round"; ctx.beginPath();
       f.rastro.forEach(([x,y],k)=> k ? ctx.lineTo(x,y) : ctx.moveTo(x,y)); ctx.lineTo(f.x,f.y); ctx.stroke();
-      if (f.y <= f.alvo) {
-        f.explodiu = true;
-        const n = 48 + Math.floor(Math.random()*24), v = 3 + Math.random()*2.5;
-        for (let k=0;k<n;k++){ const a = k/n*Math.PI*2, s = v*(.6+Math.random()*.5);
-          faiscas.push({x:f.x, y:f.y, vx:Math.cos(a)*s, vy:Math.sin(a)*s, vida:1, cor: Math.random()<.8 ? f.cor : "#f5b700"}); }
-      }
+      if (f.y <= f.alvo) { f.explodiu = true; estoura(f.x, f.y, f, f.tipo===2 ? 1.3 : 1); }
     });
     for (let i=faiscas.length-1;i>=0;i--){ const p = faiscas[i];
-      p.x += p.vx; p.y += p.vy; p.vx *= .975; p.vy = p.vy*.975 + .06; p.vida -= .012;
+      p.x += p.vx; p.y += p.vy; p.vx *= .972; p.vy = p.vy*.972 + .055; p.vida -= p.dec;
+      if (p.estala && p.vida < .55){ p.estala = false; estoura(p.x, p.y, {tipo:0, cor:p.cor}, .18); }
       if (p.vida <= 0){ faiscas.splice(i,1); continue; }
-      ctx.globalAlpha = p.vida; ctx.fillStyle = p.cor; ctx.beginPath(); ctx.arc(p.x,p.y,2.4,0,Math.PI*2); ctx.fill(); }
+      ctx.globalAlpha = p.pisca && t%6<3 ? p.vida*.35 : p.vida;
+      ctx.fillStyle = p.cor; ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill(); }
     ctx.globalAlpha = 1;
     if (foguetes.some(f=>!f.explodiu) || faiscas.length) requestAnimationFrame(passo);
     else { ctx.clearRect(0,0,W,H); c.hidden = true; }
