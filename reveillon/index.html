@@ -73,6 +73,7 @@ textarea{min-height:96px;resize:vertical}
 .msg.err{color:var(--pink);font-weight:600}
 .msg.okm{color:var(--green);font-weight:600}
 .note{font-size:14px;color:var(--mute);margin:0 0 14px}
+#fogos{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:50}
 @media(max-width:600px){.top{grid-template-columns:1fr}.top p{margin-bottom:0}.fx{height:140px}.meter{grid-template-columns:repeat(3,minmax(0,1fr))}}
 </style>
 </head>
@@ -176,8 +177,50 @@ textarea{min-height:96px;resize:vertical}
   </form>
 </main>
 
+<canvas id="fogos" aria-hidden="true" hidden></canvas>
 <script>
 {
+const wow = new Audio("wow.mp3"); wow.preload = "auto";
+let tocando = false;
+const destravaSom = () => { tocando = false; try { wow.muted = true; const p = wow.play(); if (p) p.then(()=>{ if (!tocando){ wow.pause(); wow.currentTime = 0; } wow.muted = false; }).catch(()=>{ wow.muted = false; }); } catch(e) {} };
+const tocaSom = () => { tocando = true; try { wow.muted = false; wow.currentTime = 0; const p = wow.play(); if (p) p.catch(()=>{}); } catch(e) {} };
+const fogos = () => {
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const c = document.getElementById("fogos"), ctx = c.getContext("2d");
+  const dpr = Math.min(devicePixelRatio || 1, 2);
+  const W = innerWidth, H = innerHeight;
+  c.width = W*dpr; c.height = H*dpr; c.hidden = false; ctx.setTransform(dpr,0,0,dpr,0,0);
+  const cores = ["#ff3d6e","#f5b700","#8b5cf6","#1fa85a","#1e90ff","#ff7a00"];
+  const foguetes = [], faiscas = [];
+  const total = W < 600 ? 7 : 11;
+  for (let i=0;i<total;i++) foguetes.push({x:W*(.1+Math.random()*.8), y:H+10, vy:-(H*.012+Math.random()*H*.006), alvo:H*(.12+Math.random()*.35), cor:cores[i%cores.length], atraso:i*9, rastro:[]});
+  let t = 0;
+  const passo = () => {
+    t++;
+    ctx.clearRect(0,0,W,H);
+    foguetes.forEach(f=>{
+      if (f.explodiu || t < f.atraso) return;
+      f.rastro.push([f.x,f.y]); if (f.rastro.length>8) f.rastro.shift();
+      f.y += f.vy; f.x += Math.sin((t+f.atraso)/6)*.6;
+      ctx.strokeStyle = f.cor; ctx.lineWidth = 3; ctx.lineCap = "round"; ctx.beginPath();
+      f.rastro.forEach(([x,y],k)=> k ? ctx.lineTo(x,y) : ctx.moveTo(x,y)); ctx.lineTo(f.x,f.y); ctx.stroke();
+      if (f.y <= f.alvo) {
+        f.explodiu = true;
+        const n = 48 + Math.floor(Math.random()*24), v = 3 + Math.random()*2.5;
+        for (let k=0;k<n;k++){ const a = k/n*Math.PI*2, s = v*(.6+Math.random()*.5);
+          faiscas.push({x:f.x, y:f.y, vx:Math.cos(a)*s, vy:Math.sin(a)*s, vida:1, cor: Math.random()<.8 ? f.cor : "#f5b700"}); }
+      }
+    });
+    for (let i=faiscas.length-1;i>=0;i--){ const p = faiscas[i];
+      p.x += p.vx; p.y += p.vy; p.vx *= .975; p.vy = p.vy*.975 + .06; p.vida -= .012;
+      if (p.vida <= 0){ faiscas.splice(i,1); continue; }
+      ctx.globalAlpha = p.vida; ctx.fillStyle = p.cor; ctx.beginPath(); ctx.arc(p.x,p.y,2.4,0,Math.PI*2); ctx.fill(); }
+    ctx.globalAlpha = 1;
+    if (foguetes.some(f=>!f.explodiu) || faiscas.length) requestAnimationFrame(passo);
+    else { ctx.clearRect(0,0,W,H); c.hidden = true; }
+  };
+  requestAnimationFrame(passo);
+};
 const NOMES = ["Pedro","Fefe","Sarxixa","Lisa","Junim","Tai","Nadu","Andressa"];
 const slug = n => n.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9]/g,"");
 const G = {
@@ -303,12 +346,14 @@ $("f").addEventListener("submit", async e=>{
     observacoes: $("obs").value.trim(),
     atualizado_em: new Date().toISOString()
   };
+  destravaSom();
   $("go").disabled = true; m.className = "msg"; m.textContent = "Enviando…";
   try {
     const r = await api("?on_conflict=nome", {method:"POST", headers:{Prefer:"resolution=merge-duplicates,return=minimal"}, body:JSON.stringify(doc)});
     if (!r.ok) throw new Error(r.status);
     m.className = "msg okm"; m.textContent = `Valeu, ${nome}! Resposta salva. Se mudar de ideia, é só escolher seu nome e enviar de novo.`;
     respondidos[slug(nome)] = true; renderWho();
+    tocaSom(); fogos();
   } catch(err) {
     m.className = "msg err";
     m.textContent = "Não deu para salvar agora. Tenta de novo em alguns segundos.";
