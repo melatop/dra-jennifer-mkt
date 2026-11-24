@@ -159,7 +159,7 @@ details summary{cursor:pointer;font-weight:600;font-size:14px;min-height:44px;di
     <ul class="livres" id="obs"></ul>
   </section>
 
-  <section class="linha16" id="orc">
+  <section class="linha16 privado" id="orc" hidden>
     <h2>Orçamento</h2>
     <p class="sub">Quanto a lista estimada custa contra o que o grupo está juntando.</p>
     <div class="termo">
@@ -173,7 +173,7 @@ details summary{cursor:pointer;font-weight:600;font-size:14px;min-height:44px;di
     </div>
   </section>
 
-  <section class="linha16">
+  <section class="linha16 privado" hidden>
     <h2>Lista de compras estimada</h2>
     <p class="sub">Bebida calculada pelo nível de 0 a 5 de cada um; comida pelos pratos que o grupo marcou, para 8 pessoas. Mude as premissas e os preços ao lado e tudo se refaz.</p>
     <div class="compras">
@@ -214,6 +214,8 @@ const API = "https://bhydgbvthgpggknzymmy.supabase.co/rest/v1/reveillon_resposta
 const KEY = "sb_publishable_gC2jz8ozu16fg_TwuM9_Uw_AvEGZW2o";
 const NOMES = ["Pedro","Fefe","Sarxixa","Lisa","Junim","Tai","Nadu","Andressa"];
 const NIVEIS = ["Straight Edge","Só pra brindar","Social","Animado","Quase Zeca","Zeca Pagodinho"];
+const PRIVADO = new URLSearchParams(location.search).get("chave") === "caixinha2027";
+if (PRIVADO) document.querySelectorAll(".privado").forEach(el => el.hidden = false);
 const PADRAO = {dias:4, cerv:[0,1,3,6,9,12], drk:[0,0,1,2,4,6], dose:[0,0,1,2,3,4], mix:50, mldrk:50, gelo:1.5, sem:1.5, pessoas:8, mensal:75, meses:4, corte:25, extra:0, vezes:{}, precoPrato:{},
   preco:{lata:4, "cachaça":30, vodka:40, gin:60, rum:45, tequila:110, whisky:100, aperol:55, espumante:35, licor:50, outro:50, pronta:7, gelo:15, sem:9, limao:7, copos:8, carvao:30, basicos:25}};
 const $ = id => document.getElementById(id);
