@@ -114,6 +114,15 @@ details summary{cursor:pointer;font-weight:600;font-size:14px;min-height:44px;di
 .ec b{font:800 clamp(34px,4vw,44px)/1 Unbounded,Inter,sans-serif;color:var(--green);font-variant-numeric:tabular-nums;margin-top:6px}
 .ec em{font-style:normal;font-size:14px}
 .ec small{font-size:13px;color:var(--mute)}
+.nuvem{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px 16px;padding:18px 8px;background:var(--bg);border:1px solid var(--line);border-radius:12px;min-height:180px}
+.nuvem span{font-family:Unbounded,Inter,sans-serif;font-weight:600;line-height:1.1;letter-spacing:-.01em;overflow-wrap:anywhere;text-align:center}
+.c1{color:var(--green)}.c2{color:#2563eb}.c3{color:var(--pink)}.c4{color:#b45309}
+:root[data-theme=dark] .c2{color:#7aa7ff}:root[data-theme=dark] .c4{color:#f5b041}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .c2{color:#7aa7ff}:root:not([data-theme=light]) .c4{color:#f5b041}}
+.nleg{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;margin-top:10px;color:var(--mute)}
+.nleg span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;background:currentColor;vertical-align:-1px}
+.nleg .c1::before{background:var(--green)}.nleg .c3::before{background:var(--pink)}
+.nleg span{color:var(--mute)}.nleg .c2::before{background:#2563eb}.nleg .c4::before{background:#b45309}
 @media(max-width:820px){.duas,.compras{grid-template-columns:1fr}.top .wrap{grid-template-columns:1fr}}
 @media(max-width:600px){.zr,.eixo{grid-template-columns:5em minmax(0,1fr)}.zr .lbl,.eixo>span:last-child{display:none}.bar{grid-template-columns:minmax(0,8.5em) minmax(0,1fr) 2em;font-size:14px}table{font-size:14px}th,td{padding:8px 4px}}
 </style>
@@ -217,6 +226,13 @@ details summary{cursor:pointer;font-weight:600;font-size:14px;min-height:44px;di
     </div>
   </section>
 
+  <section class="linha16">
+    <h2>Nuvem do réveillon</h2>
+    <p class="sub">Tudo o que o grupo marcou e escreveu. Quanto maior, mais vezes apareceu.</p>
+    <div class="nuvem" id="nuvem"></div>
+    <div class="nleg"><span class="c1">comida</span><span class="c2">bebida</span><span class="c3">não come</span><span class="c4">escrito à mão</span></div>
+  </section>
+
   <div class="rodape"><span id="atual">Atualiza sozinho a cada minuto.</span><button type="button" class="btn" id="refresh">Atualizar agora</button></div>
 </main>
 
@@ -287,6 +303,7 @@ const render = () => {
   barras("destilados", contar(rows.filter(r=>r.destilado),"destilados"), Math.max(dst,1), {quem:true, vazio:"Ninguém vai tomar dose, por enquanto."});
 
   livres("obs","observacoes");
+  nuvem();
   if (!rows.some(r=>(r.observacoes||"").trim())) $("obs").innerHTML = '<li>Ninguém escreveu observação ainda.</li>';
   calcula();
   $("atual").textContent = `Atualizado às ${new Date().toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit"})}. Atualiza sozinho a cada minuto.`;
@@ -471,6 +488,38 @@ const limpaDrinks = lista => {
     if (!out.includes(nome)) out.push(nome);
   });
   return out;
+};
+const STOP = new Set("a o as os e é de da do das dos em no na nos nas um uma uns umas com sem por pra para pro que se ou mas mais muito muita como eu me mim meu minha voce vc vcs ele ela eles elas isso esse essa este esta ja tem ter ser vai vou der dar tipo etc so tbm tambem nao sim ai la aqui bem kk kkk kkkk kkkkk rs haha".split(" "));
+const nuvem = () => {
+  const m = new Map();
+  const soma = (txt, cat, peso=1) => { const k = norm(txt); if (!k) return; const e = m.get(k) || {t:txt, n:0, cat}; e.n += peso; m.set(k, e); };
+  rows.forEach(r => {
+    (r.noite||[]).forEach(x=>soma(x,"c1")); (r.outros_dias||[]).forEach(x=>soma(x,"c1"));
+    (r.drinks_favoritos||[]).forEach(x=>soma(x,"c2")); (r.destilados||[]).forEach(x=>soma(x,"c2")); (r.sem_alcool||[]).forEach(x=>soma(x,"c2"));
+    if (r.cerveja) soma("Cerveja","c2");
+    (r.nao_come||[]).forEach(x=>soma(x,"c3"));
+    ["noite_outro","outros_dias_outro","nao_come_outro","observacoes"].forEach(c => {
+      String(r[c]||"").replace(/alho[\s-]+por[oó]|cachorro[\s-]+quente|p[aã]o de queijo|frutos do mar|feij[aã]o tropeiro|torresmo de rolo|carne de sol|queijo coalho|p[aã]o de alho/gi, x => x.replace(/\s+/g,"\u00a0")).split(/[()\[\],.;:!?"/]+|\s+e\s+|\s+-\s+/i).forEach(frase => {
+        let ws = frase.split(/[ \t\r\n]+/).filter(w => w && !/^k+$/i.test(norm(w)));
+        while (ws.length && STOP.has(norm(ws[0]))) ws.shift();
+        while (ws.length && STOP.has(norm(ws[ws.length-1]))) ws.pop();
+        if (!ws.length) return;
+        const cap = t => t[0].toUpperCase() + t.slice(1).toLowerCase();
+        if (ws.length <= 3) { const t = ws.join(" "); if (norm(t).length >= 3) soma(cap(t), "c4"); return; }
+        ws.forEach(w => { const k = norm(w); if (k.length < 3 || STOP.has(k) || /^\d+$/.test(k)) return; soma(cap(w), "c4"); });
+      });
+    });
+  });
+  const itens = [...m.values()];
+  if (!itens.length) { $("nuvem").innerHTML = '<p class="vazio-txt">A nuvem aparece quando chegar a primeira resposta.</p>'; return; }
+  const max = Math.max(...itens.map(i=>i.n)), min = Math.min(...itens.map(i=>i.n));
+  let seed = 11; const rnd = () => (seed = seed*16807 % 2147483647) / 2147483647;
+  const ordem = itens.sort((a,b)=>b.n-a.n || a.t.localeCompare(b.t)).map(i=>({...i, r:rnd()})).sort((a,b)=>a.r-b.r);
+  $("nuvem").innerHTML = ordem.map(i => {
+    const f = max===min ? .5 : (i.n-min)/(max-min);
+    const size = Math.round(15 + f*33);
+    return `<span class="${i.cat}" style="font-size:${size}px;opacity:${(.6+f*.4).toFixed(2)}" title="${esc(i.t)}: ${i.n}">${esc(i.t)}</span>`;
+  }).join("");
 };
 const carrega = async () => {
   try {
