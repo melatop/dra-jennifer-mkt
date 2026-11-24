@@ -423,11 +423,34 @@ $("prem").addEventListener("input", e => {
 });
 $("reset").addEventListener("click", () => { P = JSON.parse(JSON.stringify(PADRAO)); salva(); premissas(); calcula(); });
 
+// Padroniza os drinks: o texto livre vira um nome só ("mojito cubano", "mojito se der kkk" -> "Mojito")
+const CANON = [
+  ["Whisky Sour",["whisky sour","whiskey sour"]],["Gin Tônica",["gin tonica","gin e tonica","gin com tonica","gin tonic","gt "]],
+  ["Moscow Mule",["moscow mule","moscow"]],["Aperol",["aperol","spritz"]],["Mojito",["mojito"]],
+  ["Caipiroska",["caipiroska","caipivodka","caipirosca"]],["Caipirinha",["caipirinha","capirinha","caipira","caipi"]],
+  ["Fitzgerald",["fitzgerald","fitz"]],["Mimosa",["mimosa"]],["Skol Beats",["skol beats","beats"]],["Negroni",["negroni"]],
+  ["Margarita",["margarita","marguerita"]],["Cuba Libre",["cuba libre"]],["Piña Colada",["pina colada"]],
+  ["Sex on the Beach",["sex on the beach"]],["Cosmopolitan",["cosmopolitan"]],["Daiquiri",["daiquiri"]],["Lagoa Azul",["lagoa azul"]],
+  ["Old Fashioned",["old fashioned"]],["Clericot",["clericot"]],["Sangria",["sangria"]],["Batida",["batida"]],["Rabo de Galo",["rabo de galo"]],
+  ["Tequila Sunrise",["tequila sunrise"]],["Bloody Mary",["bloody mary"]],["Espanhola",["espanhola"]],["Mojito",["mohito"]]
+];
+const limpaDrinks = lista => {
+  const out = [];
+  (lista||[]).forEach(d => {
+    const k = " " + norm(d).replace(/[^a-z0-9 ]/g," ").replace(/\s+/g," ") + " ";
+    const hit = CANON.find(([,ps]) => ps.some(p => k.includes(" " + p.trim() + (p.endsWith(" ") ? " " : ""))));
+    let nome = hit ? hit[0] : String(d).trim().replace(/\s+(kk+|rs+|haha+|se der|se tiver|se possivel)[\s\S]*$/i,"").trim();
+    if (!nome) return;
+    if (!hit) nome = nome[0].toUpperCase() + nome.slice(1).toLowerCase();
+    if (!out.includes(nome)) out.push(nome);
+  });
+  return out;
+};
 const carrega = async () => {
   try {
     const r = await fetch(API, {headers:{apikey:KEY}});
     if (!r.ok) throw new Error(r.status);
-    rows = (await r.json()).filter(x => NOMES.includes(x.nome)).map(x => ({...x, nivel: Math.max(0, Math.min(5, +x.nivel || 0))}));
+    rows = (await r.json()).filter(x => NOMES.includes(x.nome)).map(x => ({...x, nivel: Math.max(0, Math.min(5, +x.nivel || 0)), drinks_favoritos: limpaDrinks(x.drinks_favoritos)}));
     render();
   } catch(e) {
     $("placarTxt").textContent = "Não consegui carregar as respostas agora. Tento de novo em 1 minuto.";
