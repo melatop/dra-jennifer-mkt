@@ -17,7 +17,7 @@
    COLOUR branco, tinta quase preta, verde gramado #1f7a47 dominante, rosa fogos #ff3d6e de acento
    TYPE Unbounded nos títulos e números + Inter no texto
    LAYOUT faixa verde com placar; Zecômetro largo; grades de 2 colunas; no celular uma coluna */
-:root{color-scheme:light dark;--bg:light-dark(#ffffff,#0e1210);--ink:light-dark(#141815,#eef3ef);--mute:light-dark(#5b665e,#a3b0a7);--line:light-dark(#dfe6e1,#2a332d);--card:light-dark(#f6f9f7,#151b17);--green:#1f7a47;--green2:light-dark(#e3f2e9,#173323);--pink:#ff3d6e;--pinkbg:light-dark(#ffe6ed,#3a1420);--track:light-dark(#e8eeea,#222b25)}
+:root{color-scheme:light dark;--red:light-dark(#c1121f,#ff4d4d);--bg:light-dark(#ffffff,#0e1210);--ink:light-dark(#141815,#eef3ef);--mute:light-dark(#5b665e,#a3b0a7);--line:light-dark(#dfe6e1,#2a332d);--card:light-dark(#f6f9f7,#151b17);--green:#1f7a47;--green2:light-dark(#e3f2e9,#173323);--pink:#ff3d6e;--pinkbg:light-dark(#ffe6ed,#3a1420);--track:light-dark(#e8eeea,#222b25)}
 :root[data-theme=light]{color-scheme:light}
 :root[data-theme=dark]{color-scheme:dark}
 *{box-sizing:border-box;min-width:0}
@@ -63,7 +63,8 @@ h3{font-size:17px;margin:0 0 10px}
 .bar .t{overflow-wrap:anywhere}
 .bar .tr{height:14px;border-radius:99px;background:var(--track);overflow:hidden}
 .bar .tr span{display:block;height:100%;background:var(--green);border-radius:99px}
-.bar.no .tr span{background:var(--pink)}
+.bar.no .tr span{background:var(--red)}
+.bar.no .t{color:var(--red);font-weight:600}
 .bar .v{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
 .bar .quem{grid-column:1/-1;margin-top:-4px;font-size:13px;color:var(--mute)}
 .vazio-txt{color:var(--mute);font-size:15px;margin:0}
@@ -116,12 +117,14 @@ details summary{cursor:pointer;font-weight:600;font-size:14px;min-height:44px;di
 .ec small{font-size:13px;color:var(--mute)}
 .nuvem{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px 16px;padding:18px 8px;background:var(--bg);border:1px solid var(--line);border-radius:12px;min-height:180px}
 .nuvem span{font-family:Unbounded,Inter,sans-serif;font-weight:600;line-height:1.1;letter-spacing:-.01em;overflow-wrap:anywhere;text-align:center}
-.c1{color:var(--green)}.c2{color:#2563eb}.c3{color:var(--pink)}.c4{color:#b45309}
+.c1{color:var(--green)}.c2{color:#2563eb}.c3{color:var(--red)}
+.nuvem .c3{font-weight:800;text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:var(--red)}
+.nuvem .c3::before{content:"✕ ";font-weight:800}.c4{color:#b45309}
 :root[data-theme=dark] .c2{color:#7aa7ff}:root[data-theme=dark] .c4{color:#f5b041}
 @media(prefers-color-scheme:dark){:root:not([data-theme=light]) .c2{color:#7aa7ff}:root:not([data-theme=light]) .c4{color:#f5b041}}
 .nleg{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;margin-top:10px;color:var(--mute)}
 .nleg span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;background:currentColor;vertical-align:-1px}
-.nleg .c1::before{background:var(--green)}.nleg .c3::before{background:var(--pink)}
+.nleg .c1::before{background:var(--green)}.nleg .c3::before{background:var(--red)}
 .nleg span{color:var(--mute)}.nleg .c2::before{background:#2563eb}.nleg .c4::before{background:#b45309}
 @media(max-width:820px){.duas,.compras{grid-template-columns:1fr}.top .wrap{grid-template-columns:1fr}}
 @media(max-width:600px){.zr,.eixo{grid-template-columns:5em minmax(0,1fr)}.zr .lbl,.eixo>span:last-child{display:none}.bar{grid-template-columns:minmax(0,8.5em) minmax(0,1fr) 2em;font-size:14px}table{font-size:14px}th,td{padding:8px 4px}}
@@ -497,7 +500,7 @@ const nuvem = () => {
     (r.noite||[]).forEach(x=>soma(x,"c1")); (r.outros_dias||[]).forEach(x=>soma(x,"c1"));
     (r.drinks_favoritos||[]).forEach(x=>soma(x,"c2")); (r.destilados||[]).forEach(x=>soma(x,"c2")); (r.sem_alcool||[]).forEach(x=>soma(x,"c2"));
     if (r.cerveja) soma("Cerveja","c2");
-    (r.nao_come||[]).forEach(x=>soma(x,"c3"));
+    (r.nao_come||[]).forEach(x=>soma(/vegetarian/i.test(x) ? "Carne" : x,"c3"));
     ["noite_outro","outros_dias_outro","nao_come_outro","observacoes"].forEach(c => {
       String(r[c]||"").replace(/alho[\s-]+por[oó]|cachorro[\s-]+quente|p[aã]o de queijo|frutos do mar|feij[aã]o tropeiro|torresmo de rolo|carne de sol|queijo coalho|p[aã]o de alho/gi, x => x.replace(/\s+/g,"\u00a0")).split(/[()\[\],.;:!?"/]+|\s+e\s+|\s+-\s+/i).forEach(frase => {
         let ws = frase.split(/[ \t\r\n]+/).filter(w => w && !/^k+$/i.test(norm(w)));
@@ -518,7 +521,7 @@ const nuvem = () => {
   $("nuvem").innerHTML = ordem.map(i => {
     const f = max===min ? .5 : (i.n-min)/(max-min);
     const size = Math.round(15 + f*33);
-    return `<span class="${i.cat}" style="font-size:${size}px;opacity:${(.6+f*.4).toFixed(2)}" title="${esc(i.t)}: ${i.n}">${esc(i.t)}</span>`;
+    return `<span class="${i.cat}" style="font-size:${size}px;opacity:${i.cat==="c3" ? 1 : (.6+f*.4).toFixed(2)}" title="${esc(i.t)}: ${i.n}">${esc(i.t)}</span>`;
   }).join("");
 };
 const carrega = async () => {
