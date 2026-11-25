@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Prévia do feed · Dra. Jennifer Aragão</title>
+<meta name="theme-color" content="#87495E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg fill='%2387495E'%3E%3Cellipse cx='9' cy='16' rx='3.6' ry='4.6'/%3E%3Cellipse cx='16' cy='8.5' rx='3.6' ry='4.8'/%3E%3Cellipse cx='24' cy='8.5' rx='3.6' ry='4.8'/%3E%3Cellipse cx='31' cy='16' rx='3.6' ry='4.6'/%3E%3Cpath d='M20 19c-5 0-10 6-10 11 0 4 3 5 6 4.4 2-.4 2.7-1 4-1s2 .6 4 1c3 .6 6-.4 6-4.4 0-5-5-11-10-11z'/%3E%3C/g%3E%3C/svg%3E">
+<script src="config.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Caladea:ital,wght@0,400;0,700;1,400&family=Carlito:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--mauve:#87495E;--mauve-d:#6D2E46;--teal:#5897A0;--teal-d:#3D6E76;--pink:#D1899D;--ink:#2D2D2D;--tp:#FAEEF3;--tt:#F0F8F9;--bg:#FCF8F9;--line:#E9DCE2;--muted:#7A6E73;--ok:#2E7D46;--no:#C0392B}
+*{box-sizing:border-box;margin:0;padding:0}
+img{max-width:100%;height:auto;display:block}
+body{font-family:'Carlito','Calibri',sans-serif;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.45}
+h1,h2,h3{font-family:'Caladea','Cambria',serif;font-weight:700}
+button,textarea{font:inherit;color:inherit}
+.kicker{font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal-d)}
+
+/* topo */
+.top{max-width:1000px;margin:0 auto;padding:28px 20px 8px;display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.top .brand{display:flex;align-items:center;gap:16px}
+.top .brand img{width:44px}
+.top h1{font-size:36px;line-height:1.05;color:var(--mauve)}
+.top p{color:var(--muted);font-size:15px;max-width:520px;margin-top:6px}
+.resumo{display:flex;gap:8px;flex-wrap:wrap}
+.chip{font-size:13px;font-weight:700;padding:6px 12px;border-radius:999px;background:#fff;border:1px solid var(--line);display:inline-flex;align-items:center;gap:6px}
+.dot{width:8px;height:8px;border-radius:50%;background:#C9BDC2;display:inline-block}
+.dot.aprovado{background:var(--ok)}.dot.reprovado{background:var(--no)}
+
+/* layout */
+.wrap{max-width:1000px;margin:0 auto;padding:20px;display:grid;grid-template-columns:400px minmax(0,520px);justify-content:center;gap:40px;align-items:start}
+.lado{position:sticky;top:20px}
+@media(max-width:900px){.wrap{grid-template-columns:minmax(0,520px);gap:28px}.lado{position:static}.top{max-width:560px}}
+
+/* perfil */
+.perfil{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.perfil .cab{padding:20px 18px 14px}
+.perfil .linha{display:flex;align-items:center;gap:18px}
+.avatar{border-radius:50%;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex:none;overflow:hidden}
+.avatar img{height:72%;width:auto}
+.perfil .avatar{width:78px;height:78px;box-shadow:0 0 0 3px #fff,0 0 0 5px var(--pink)}
+.perfil .handle{font-weight:700;font-size:18px}
+.perfil .nums{display:flex;gap:18px;font-size:13px;color:var(--muted);margin-top:4px}
+.perfil .nums b{color:var(--ink)}
+.perfil .bio{margin-top:12px;font-size:14px}
+.perfil .bio b{display:block}
+.perfil .bio span{display:block;color:var(--muted)}
+.perfil .bio .cat{color:var(--muted)}
+.tabs{display:flex;border-top:1px solid var(--line)}
+.tabs div{flex:1;text-align:center;padding:10px 0;color:var(--muted)}
+.tabs div.on{color:var(--ink);box-shadow:inset 0 -2px 0 var(--ink)}
+.tabs svg{width:22px;height:22px}
+.grade{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.grade a{text-decoration:none;position:relative;aspect-ratio:3/4;display:block;overflow:hidden;background:var(--tp)}
+.grade a img{width:100%;height:100%;object-fit:cover}
+.grade .tipo{position:absolute;top:6px;right:6px;width:20px;height:20px;color:#fff;filter:drop-shadow(0 1px 2px rgba(0,0,0,.45))}
+.grade .st{position:absolute;left:6px;bottom:6px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 7px;border-radius:999px;background:rgba(255,255,255,.92);color:var(--muted)}
+.grade .st.aprovado{background:var(--ok);color:#fff}.grade .st.reprovado{background:var(--no);color:#fff}
+.legenda-grade{font-size:13px;color:var(--muted);margin-top:10px;padding:0 4px}
+
+/* miniaturas sem imagem */
+.thumb-txt{width:100%;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:10px 10px 32px;font-family:'Caladea',serif;font-weight:700;font-size:14px;line-height:1.1}
+.thumb-txt.foto{background:var(--tp);color:var(--mauve-d)}
+.thumb-txt.reels{background:var(--mauve-d);color:#FBF5F7}
+.thumb-txt b{font:inherit;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.thumb-txt small{font-family:'Carlito',sans-serif;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px;opacity:.85}
+
+/* lista de posts */
+.lista{display:flex;flex-direction:column;gap:48px;width:100%;max-width:520px}
+.post-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;gap:10px}
+.post-meta h2{font-size:22px;color:var(--mauve);line-height:1.15}
+.pill{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:5px 11px;border-radius:999px;background:#EFE7EA;color:var(--muted);white-space:nowrap}
+.pill.aprovado{background:#E3F1E7;color:var(--ok)}.pill.reprovado{background:#F8E3E0;color:var(--no)}
+
+.ig{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 6px 24px rgba(109,46,70,.06)}
+.ig .h{display:flex;align-items:center;gap:10px;padding:10px 12px}
+.ig .h .avatar{width:34px;height:34px;box-shadow:0 0 0 2px #fff,0 0 0 3.5px var(--pink)}
+.ig .h b{font-size:14px;display:block;line-height:1.1}
+.ig .h span{font-size:12px;color:var(--muted)}
+.ig .h .mais{margin-left:auto;width:20px;color:var(--ink)}
+.midia{position:relative;aspect-ratio:4/5;background:#f3eef0;overflow:hidden}
+.trilho{display:flex;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.trilho::-webkit-scrollbar{display:none}
+.trilho img{flex:0 0 100%;width:100%;height:100%;object-fit:cover;scroll-snap-align:start}
+.cont{position:absolute;top:12px;right:12px;font-size:12px;font-weight:700;color:#fff;background:rgba(30,20,25,.6);padding:3px 9px;border-radius:999px}
+.seta{position:absolute;top:50%;transform:translateY(-50%);width:30px;height:30px;border-radius:50%;border:0;background:rgba(255,255,255,.88);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.2)}
+.seta svg{width:14px;height:14px}
+.seta.esq{left:10px}.seta.dir{right:10px}
+.seta[hidden]{display:none}
+.acoes{display:flex;align-items:center;gap:14px;padding:10px 12px 4px}
+.acoes svg{width:24px;height:24px}
+.acoes .salvar{margin-left:auto}
+.pontos{display:flex;gap:4px;position:absolute;left:50%;transform:translateX(-50%);top:21px}
+.acoes-wrap{position:relative}
+.pontos i{width:6px;height:6px;border-radius:50%;background:#D8CDD2}
+.pontos i.on{background:var(--teal)}
+.leg{padding:4px 12px 14px;font-size:14px}
+.leg .txt{white-space:pre-line}
+.leg .txt{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.leg.aberta .txt{display:block}
+.leg b{font-weight:700}
+.leg button{border:0;background:none;color:var(--muted);cursor:pointer;padding:0;font-size:14px}
+.leg .data{display:block;font-size:11px;letter-spacing:.5px;text-transform:uppercase;color:var(--muted);margin-top:8px}
+
+/* foto a tirar */
+.briefing{height:100%;background:var(--tp);padding:28px 26px;display:flex;flex-direction:column;gap:12px;overflow:auto}
+.briefing .cam{width:40px;height:40px;color:var(--teal)}
+.briefing h3{font-size:24px;color:var(--mauve-d);line-height:1.15}
+.briefing ul{list-style:none;display:flex;flex-direction:column;gap:9px;font-size:15px}
+.briefing li{padding-left:18px;position:relative}
+.briefing li::before{content:"";position:absolute;left:0;top:.55em;width:7px;height:7px;border-radius:50%;background:var(--pink)}
+
+/* reels */
+.capa-reels{height:100%;background:var(--mauve-d);color:#FBF5F7;display:flex;flex-direction:column;justify-content:flex-end;padding:30px 28px;position:relative}
+.capa-reels .play{position:absolute;top:50%;left:50%;transform:translate(-50%,-70%);width:64px;height:64px;border-radius:50%;border:2px solid rgba(251,245,247,.8);display:flex;align-items:center;justify-content:center}
+.capa-reels .play svg{width:24px;height:24px;margin-left:4px}
+.capa-reels .k{font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#A9D3D9}
+.capa-reels h3{font-size:38px;line-height:1.05;margin-top:10px}
+.capa-reels h3 em{font-style:normal;color:#F0B9C8}
+.roteiro{border-top:1px solid var(--line);margin:0 12px;padding:10px 0 4px}
+.roteiro summary{cursor:pointer;font-weight:700;font-size:14px;color:var(--mauve);list-style:none}
+.roteiro summary::-webkit-details-marker{display:none}
+.roteiro summary::after{content:" ▾"}
+.roteiro[open] summary::after{content:" ▴"}
+.roteiro ol{list-style:none;margin-top:10px;display:flex;flex-direction:column;gap:10px}
+.roteiro li{display:grid;grid-template-columns:64px 1fr;gap:10px;font-size:14px}
+.roteiro li .t{font-weight:700;color:var(--teal-d)}
+.roteiro li .fala{font-style:italic;color:var(--mauve-d)}
+.roteiro li .tela{font-size:13px;color:var(--muted)}
+
+/* aprovação */
+.aprov{margin-top:14px}
+.aprov label{display:block;font-size:13px;font-weight:700;color:var(--muted);margin-bottom:6px}
+.aprov textarea{width:100%;min-height:84px;resize:vertical;border:1.5px solid #E4D3DA;border-radius:14px;padding:12px 14px;background:#fff;font-size:15px}
+.aprov textarea:focus{outline:none;border-color:var(--mauve)}
+.botoes{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.botoes button{border:0;border-radius:999px;padding:13px 10px;font-weight:700;font-size:16px;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:transform .08s,opacity .15s}
+.botoes button:active{transform:scale(.98)}
+.botoes svg{width:18px;height:18px}
+.b-ok{background:var(--ok)}.b-no{background:var(--no)}
+.botoes button[disabled]{opacity:.6;cursor:wait}
+.aprov .msg{font-size:13px;color:var(--muted);margin-top:8px;min-height:18px}
+.aprov .msg.erro{color:var(--no)}
+.historico{margin-top:10px;font-size:13px;color:var(--muted);border-left:3px solid var(--line);padding-left:10px}
+.historico p+p{margin-top:4px}
+
+
+/* fotos enviadas */
+.fotos{margin-top:14px;background:#fff;border:1.5px dashed #D9C3CC;border-radius:16px;padding:14px}
+.fotos h4{font-size:14px;font-weight:700;color:var(--mauve-d)}
+.fotos p.dica{font-size:13px;color:var(--muted);margin-top:2px}
+.fotos .add{margin-top:10px;display:flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:11px;background:var(--tp);color:var(--mauve-d);font-weight:700;cursor:pointer;width:100%}
+.fotos .add svg{width:20px;height:20px}
+.fotos input[type=file]{display:none}
+.miniaturas{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.miniaturas:empty{display:none}
+.mini{position:relative;aspect-ratio:1;border-radius:10px;overflow:hidden;background:#f1eaee}
+.mini img{width:100%;height:100%;object-fit:cover}
+.mini button{position:absolute;top:5px;right:5px;border:0;border-radius:999px;background:rgba(30,20,25,.7);color:#fff;font-size:12px;font-weight:700;padding:3px 8px;cursor:pointer}
+.mini button.conf{background:var(--no)}
+.mini.enviando{opacity:.5}
+.fotos .msg{margin-top:8px}
+
+@media(max-width:480px){.briefing{padding:18px 18px;gap:8px}.briefing h3{font-size:19px}.briefing ul{font-size:13.5px;gap:6px}.briefing .cam{width:30px;height:30px}}
+footer{text-align:center;font-size:13px;color:var(--muted);padding:40px 20px 60px}
+
+/* senha */
+.portao[hidden]{display:none}
+.portao{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:20px;z-index:10}
+.portao form{background:#fff;border:1px solid var(--line);border-radius:20px;padding:32px 28px;width:100%;max-width:360px;text-align:center}
+.portao img{width:200px;margin:0 auto 18px}
+.portao input{width:100%;border:1.5px solid #E4D3DA;border-radius:999px;padding:12px 16px;font:inherit;text-align:center;margin-top:14px}
+.portao button{margin-top:12px;width:100%;border:0;border-radius:999px;padding:12px;background:var(--mauve);color:#fff;font:inherit;font-weight:700;cursor:pointer}
+.portao .erro{color:var(--no);font-size:13px;margin-top:8px;min-height:18px}
+</style>
+</head>
+<body>
+
+<div class="portao" id="portao" hidden>
+  <form id="form-senha">
+    <img src="img/logo.png" alt="Dra. Jennifer Aragão – Medicina Felina" width="1012" height="624">
+    <div class="kicker">Prévia do feed</div>
+    <input type="password" id="senha" placeholder="Senha" autocomplete="current-password" required>
+    <button type="submit">Entrar</button>
+    <p class="erro" id="erro-senha"></p>
+  </form>
+</div>
+
+<header class="top">
+  <div class="brand">
+    <img src="img/mark.png" alt="" width="371" height="624">
+    <div>
+      <div class="kicker">Prévia do feed · Aprovação</div>
+      <h1 id="mes"></h1>
+      <p>Confira cada post como vai aparecer no Instagram. Deixe seu comentário, se quiser, e toque em Aprovar ou Reprovar. Você pode mudar a decisão depois.</p>
+    </div>
+  </div>
+  <div class="resumo" id="resumo"></div>
+</header>
+
+<main class="wrap">
+  <aside class="lado">
+    <div class="perfil">
+      <div class="cab">
+        <div class="linha">
+          <div class="avatar"><img src="img/mark.png" alt="" width="371" height="624"></div>
+          <div>
+            <div class="handle" id="p-handle"></div>
+            <div class="nums"><span><b id="p-n"></b> posts no mês</span></div>
+          </div>
+        </div>
+        <div class="bio" id="p-bio"></div>
+      </div>
+      <div class="tabs">
+        <div class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg></div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M3 8h18M8 3l3 5M14 3l3 5M10 12v6l5-3z"/></svg></div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M6 19c1.5-3 3.5-4 6-4s4.5 1 6 4"/></svg></div>
+      </div>
+      <div class="grade" id="grade"></div>
+    </div>
+    <p class="legenda-grade">A grade mostra o mais recente primeiro, como no perfil. Toque num post para ir até ele.</p>
+  </aside>
+
+  <section class="lista" id="lista"></section>
+</main>
+
+<footer>Dra. Jennifer Aragão · Médica Veterinária · Medicina Felina · Prévia interna, não publicada</footer>
+
+<script>
+/* ---------- ícones ---------- */
+const I = {
+  carrossel:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 3h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-4 4v13a1 1 0 0 0 1 1h13v-2H5V7z"/></svg>',
+  reels:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 2h12a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V6a4 4 0 0 1 4-4zm-1.6 6h15.2L16.8 4h-2.5l2.8 4zm7.5 0L9 4H6.6l2.8 4zM10 11v7l6-3.5z"/></svg>',
+  foto:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13.5" r="3.5"/></svg>',
+  coracao:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 20s-7-4.4-9-9.2C1.8 7.6 3.9 4.5 7.2 4.5c2 0 3.4 1.1 4.8 2.9 1.4-1.8 2.8-2.9 4.8-2.9 3.3 0 5.4 3.1 4.2 6.3C19 15.6 12 20 12 20z"/></svg>',
+  coment:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3.5 20l1.2-4.2A8.5 8.5 0 1 1 20.5 11.5z"/></svg>',
+  envia:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M21.5 3 10 13.5M21.5 3l-7 18-4.5-7.5L2.5 9z"/></svg>',
+  salvar:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M19 21 12 16l-7 5V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1z"/></svg>',
+  mais:'<svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg>',
+  esq:'<svg viewBox="0 0 24 24" fill="none" stroke="#2D2D2D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>',
+  dir:'<svg viewBox="0 0 24 24" fill="none" stroke="#2D2D2D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>',
+  ok:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>',
+  no:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>',
+  clip:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>',
+  play:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 3.5v17l14-8.5z"/></svg>'
+};
+const ROTULO = {carrossel:'Carrossel', foto:'Foto a tirar', reels:'Reels'};
+const DIAS = ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'];
+const MESES = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const dataLonga = iso => { const d = new Date(iso + 'T12:00:00'); return `${DIAS[d.getDay()]}, ${d.getDate()} de ${MESES[d.getMonth()]}`; };
+const statusTxt = s => s === 'aprovado' ? 'Aprovado' : s === 'reprovado' ? 'Reprovado' : 'Aguardando';
+
+/* ---------- armazenamento das respostas ----------
+   CONFIG.backend = 'memoria' (mockup) ou 'supabase' (publicado).
+   No Supabase, tudo passa por duas funções RPC que conferem a senha. */
+const CONFIG = window.CONFIG || {backend:'memoria'};
+const API = {
+  senha: null,
+  async rpc(fn, args) {
+    const r = await fetch(`${CONFIG.url}/rest/v1/rpc/${fn}`, {
+      method:'POST', headers:{'apikey':CONFIG.key,'Content-Type':'application/json'},
+      body: JSON.stringify(args)
+    });
+    if (!r.ok) { const t = await r.text(); throw new Error(/28P01|senha/.test(t) ? 'senha' : (t || r.status)); }
+    return r.status === 204 ? null : r.json();
+  },
+  async fn(body, form) {
+    const r = await fetch(`${CONFIG.url}/functions/v1/previa-fotos`, form
+      ? {method:'POST', headers:{'apikey':CONFIG.key}, body: form}
+      : {method:'POST', headers:{'apikey':CONFIG.key,'Content-Type':'application/json'}, body: JSON.stringify(body)});
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok) throw new Error(j.erro || r.status);
+    return j;
+  },
+  async carregar() {
+    if (CONFIG.backend !== 'supabase') return [];
+    return await this.rpc('previa_listar', {p_senha: this.senha, p_mes: POSTS.mes_id});
+  },
+  async salvar(post, status, comentario) {
+    if (CONFIG.backend !== 'supabase') return {created_at: new Date().toISOString()};
+    const r = await this.rpc('previa_registrar', {p_senha: this.senha, p_mes: POSTS.mes_id, p_post_id: post.id, p_versao: post.versao, p_status: status, p_comentario: comentario || null});
+    return r && r[0];
+  },
+  async fotos() {
+    if (CONFIG.backend !== 'supabase') return [];
+    return await this.fn({acao:'listar', senha:this.senha, mes:POSTS.mes_id});
+  },
+  async enviarFoto(post, blob, nome) {
+    if (CONFIG.backend !== 'supabase') { await new Promise(r=>setTimeout(r,400)); return {id: Date.now()+Math.random(), post_id: post.id, url: URL.createObjectURL(blob)}; }
+    const fd = new FormData(); fd.append('senha', this.senha); fd.append('mes', POSTS.mes_id); fd.append('post_id', post.id); fd.append('arquivo', blob, nome);
+    return await this.fn(null, fd);
+  },
+  async removerFoto(id) {
+    if (CONFIG.backend !== 'supabase') return {ok:true};
+    return await this.fn({acao:'remover', senha:this.senha, id});
+  }
+};
+
+/* reduz a foto no próprio aparelho antes de enviar (lado maior até 3000 px, JPEG 90%) */
+async function reduzir(file) {
+  try {
+    const bmp = await createImageBitmap(file, {imageOrientation:'from-image'});
+    const k = Math.min(1, 3000 / Math.max(bmp.width, bmp.height));
+    const c = document.createElement('canvas'); c.width = Math.round(bmp.width * k); c.height = Math.round(bmp.height * k);
+    c.getContext('2d').drawImage(bmp, 0, 0, c.width, c.height);
+    const b = await new Promise(res => c.toBlob(res, 'image/jpeg', 0.9));
+    if (b) return {blob: b, nome: file.name.replace(/\.[^.]+$/, '') + '.jpg'};
+  } catch (e) {}
+  return {blob: file, nome: file.name};
+}
+
+/* ---------- estado ---------- */
+let POSTS, RESP = {}, FOTOS = {};  // RESP[post_id]: respostas (mais nova primeiro); FOTOS[post_id]: fotos enviadas
+const atual = p => (RESP[p.id] || []).find(r => r.versao === p.versao);
+const anteriores = p => (RESP[p.id] || []).filter(r => r.versao < p.versao);
+
+/* ---------- render ---------- */
+function thumb(p) {
+  if (p.tipo === 'carrossel' || p.imagens) return `<img src="${p.imagens[0]}" alt="" loading="lazy">`;
+  if (p.tipo === 'foto') return `<div class="thumb-txt foto"><small>Foto a tirar</small><b>${esc(p.tema)}</b></div>`;
+  return `<div class="thumb-txt reels"><small>Reels</small><b>${p.capa.titulo.replace(/<\/?em>/g,'')}</b></div>`;
+}
+function midia(p) {
+  if (p.imagens && p.imagens.length) {
+    const n = p.imagens.length;
+    return `<div class="midia" data-n="${n}">
+      <div class="trilho">${p.imagens.map((s,i)=>`<img src="${s}" alt="Slide ${i+1}" width="1080" height="1350" loading="lazy">`).join('')}</div>
+      ${n>1?`<span class="cont">1/${n}</span><button class="seta esq" hidden aria-label="Anterior">${I.esq}</button><button class="seta dir" aria-label="Próximo">${I.dir}</button>`:''}
+    </div>`;
+  }
+  if (p.tipo === 'foto') return `<div class="midia"><div class="briefing">
+      <div class="cam">${I.foto}</div><div class="kicker">Foto a tirar · briefing</div>
+      <h3>${esc(p.briefing.titulo)}</h3>
+      <ul>${p.briefing.itens.map(t=>`<li>${esc(t)}</li>`).join('')}</ul></div></div>`;
+  return `<div class="midia"><div class="capa-reels"><div class="play">${I.play}</div>
+      <div class="k">${esc(p.capa.kicker)}</div><h3>${p.capa.titulo}</h3></div></div>`;
+}
+function roteiro(p) {
+  if (!p.roteiro) return '';
+  return `<details class="roteiro"><summary>Ver roteiro do vídeo</summary><ol>${p.roteiro.map(r=>`
+    <li><span class="t">${esc(r.tempo)}</span><span>${esc(r.cena)}
+      ${r.fala?`<br><span class="fala">“${esc(r.fala)}”</span>`:''}
+      ${r.texto?`<br><span class="tela">Texto na tela: ${esc(r.texto)}</span>`:''}</span></li>`).join('')}</ol></details>`;
+}
+function card(p, idx) {
+  const r = atual(p), st = r ? r.status : 'pendente', n = p.imagens ? p.imagens.length : 0;
+  const hist = anteriores(p);
+  return `<article class="post" id="${p.id}">
+    <div class="post-meta">
+      <div><div class="kicker">Post ${String(idx+1).padStart(2,'0')} · ${ROTULO[p.tipo]} · ${dataLonga(p.data)}${p.versao>1?` · versão ${p.versao}`:''}</div>
+      <h2>${esc(p.tema)}</h2></div>
+      <span class="pill ${st}">${statusTxt(st)}</span>
+    </div>
+    <div class="ig">
+      <div class="h"><div class="avatar"><img src="img/mark.png" alt=""></div>
+        <div><b>${esc(POSTS.perfil.handle)}</b><span>Contagem, Minas Gerais</span></div><span class="mais">${I.mais}</span></div>
+      ${midia(p)}
+      <div class="acoes-wrap"><div class="acoes">${I.coracao}${I.coment}${I.envia}<span class="salvar">${I.salvar}</span></div>
+        ${n>1?`<div class="pontos">${Array.from({length:n},(_,i)=>`<i class="${i?'':'on'}"></i>`).join('')}</div>`:''}</div>
+      <div class="leg"><div class="txt"><b>${esc(POSTS.perfil.handle)}</b> ${esc(p.legenda)}</div>
+        <button type="button" class="ver">mais</button>
+        <span class="data">${dataLonga(p.data)}</span></div>
+      ${roteiro(p)}
+    </div>
+${p.tipo === 'foto' ? `<div class="fotos" data-post="${p.id}">
+      <h4>Suas fotos para este post</h4>
+      <p class="dica">Tire as fotos seguindo o briefing e envie aqui. Pode mandar mais de uma; eu escolho a melhor e monto o post.</p>
+      <div class="miniaturas">${(FOTOS[p.id]||[]).map(f=>`<div class="mini" data-id="${f.id}"><img src="${f.url}" alt=""><button type="button">✕</button></div>`).join('')}</div>
+      <label class="add">${I.clip} Adicionar fotos<input type="file" accept="image/*" multiple></label>
+      <p class="msg"></p>
+    </div>` : ''}
+    <div class="aprov">
+      <label for="c-${p.id}">Comentários da Dra.</label>
+      <textarea id="c-${p.id}" placeholder="O que precisa mudar? (opcional para aprovar)">${r && r.comentario ? esc(r.comentario) : ''}</textarea>
+      <div class="botoes">
+        <button class="b-ok" data-acao="aprovado">${I.ok} Aprovar</button>
+        <button class="b-no" data-acao="reprovado">${I.no} Reprovar</button>
+      </div>
+      <p class="msg">${r ? `${statusTxt(st)} em ${new Date(r.created_at).toLocaleString('pt-BR',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'})}` : ''}</p>
+      ${hist.length?`<div class="historico">${hist.map(h=>`<p><b>Versão ${h.versao}</b> · ${statusTxt(h.status)}${h.comentario?`: “${esc(h.comentario)}”`:''}</p>`).join('')}</div>`:''}
+    </div>
+  </article>`;
+}
+function resumo() {
+  const c = {aprovado:0, reprovado:0, pendente:0};
+  POSTS.posts.forEach(p => { const r = atual(p); c[r ? r.status : 'pendente']++; });
+  document.getElementById('resumo').innerHTML =
+    `<span class="chip"><i class="dot aprovado"></i>${c.aprovado} aprovado${c.aprovado===1?'':'s'}</span>
+     <span class="chip"><i class="dot reprovado"></i>${c.reprovado} reprovado${c.reprovado===1?'':'s'}</span>
+     <span class="chip"><i class="dot"></i>${c.pendente} aguardando</span>`;
+}
+function grade() {
+  const ord = [...POSTS.posts].sort((a,b)=>b.data.localeCompare(a.data));
+  document.getElementById('grade').innerHTML = ord.map(p => { const r = atual(p), st = r ? r.status : 'pendente';
+    return `<a href="#${p.id}" aria-label="${esc(p.tema)}">${thumb(p)}<span class="tipo">${I[p.tipo]}</span><span class="st ${st}">${statusTxt(st)}</span></a>`; }).join('');
+}
+function ligarCarrossel(el) {
+  const m = el.querySelector('.midia[data-n]'); if (!m) return;
+  const tr = m.querySelector('.trilho'), n = +m.dataset.n, cont = m.querySelector('.cont'),
+        e = m.querySelector('.esq'), d = m.querySelector('.dir'), pts = el.querySelectorAll('.pontos i');
+  const at = () => { const i = Math.round(tr.scrollLeft / tr.clientWidth);
+    if (cont) cont.textContent = `${i+1}/${n}`; if (e) e.hidden = i===0; if (d) d.hidden = i===n-1;
+    pts.forEach((p,k)=>p.classList.toggle('on',k===i)); };
+  tr.addEventListener('scroll', () => requestAnimationFrame(at), {passive:true});
+  e && e.addEventListener('click', () => tr.scrollBy({left:-tr.clientWidth, behavior:'smooth'}));
+  d && d.addEventListener('click', () => tr.scrollBy({left: tr.clientWidth, behavior:'smooth'}));
+}
+function ligarFotos(el, p) {
+  const box = el.querySelector('.fotos'); if (!box) return;
+  const inp = box.querySelector('input[type=file]'), msg = box.querySelector('.msg'), grid = box.querySelector('.miniaturas');
+  const ligarMini = m => { const b = m.querySelector('button'); b.addEventListener('click', async () => {
+      if (!b.classList.contains('conf')) { b.classList.add('conf'); b.textContent = 'Remover?'; setTimeout(()=>{ if (b.isConnected) { b.classList.remove('conf'); b.textContent = '✕'; } }, 4000); return; }
+      b.disabled = true; m.classList.add('enviando');
+      try { await API.removerFoto(+m.dataset.id); FOTOS[p.id] = (FOTOS[p.id]||[]).filter(f => String(f.id) !== m.dataset.id); m.remove(); msg.className='msg'; msg.textContent = 'Foto removida.'; }
+      catch (e) { m.classList.remove('enviando'); b.disabled = false; msg.className='msg erro'; msg.textContent = 'Não consegui remover. Tente de novo.'; }
+    }); };
+  grid.querySelectorAll('.mini').forEach(ligarMini);
+  inp.addEventListener('change', async () => {
+    const files = [...inp.files]; inp.value = ''; if (!files.length) return;
+    let ok = 0;
+    for (let i = 0; i < files.length; i++) {
+      msg.className = 'msg'; msg.textContent = `Enviando ${i+1} de ${files.length}…`;
+      const tmp = document.createElement('div'); tmp.className = 'mini enviando';
+      tmp.innerHTML = `<img src="${URL.createObjectURL(files[i])}" alt="">`; grid.appendChild(tmp);
+      try {
+        const {blob, nome} = await reduzir(files[i]);
+        const r = await API.enviarFoto(p, blob, nome);
+        (FOTOS[p.id] = FOTOS[p.id] || []).push(r);
+        tmp.className = 'mini'; tmp.dataset.id = r.id; if (r.url) tmp.querySelector('img').src = r.url;
+        tmp.insertAdjacentHTML('beforeend', '<button type="button">✕</button>'); ligarMini(tmp); ok++;
+      } catch (e) { tmp.remove(); msg.className = 'msg erro'; msg.textContent = `Não consegui enviar "${files[i].name}". Confira a internet e tente de novo.`; }
+    }
+    if (ok) { msg.className = 'msg'; msg.textContent = ok === 1 ? 'Foto enviada.' : `${ok} fotos enviadas.`; }
+  });
+}
+function ligarCard(el, p) {
+  ligarFotos(el, p);
+  ligarCarrossel(el);
+  el.querySelector('.ver').addEventListener('click', ev => { const l = ev.target.closest('.leg'); l.classList.toggle('aberta'); ev.target.textContent = l.classList.contains('aberta') ? 'menos' : 'mais'; });
+  el.querySelectorAll('.botoes button').forEach(b => b.addEventListener('click', async () => {
+    const status = b.dataset.acao, txt = el.querySelector('textarea').value.trim(), msg = el.querySelector('.msg');
+    if (status === 'reprovado' && !txt) { msg.className = 'msg erro'; msg.textContent = 'Conte no comentário o que precisa mudar.'; el.querySelector('textarea').focus(); return; }
+    el.querySelectorAll('.botoes button').forEach(x => x.disabled = true);
+    msg.className = 'msg'; msg.textContent = 'Salvando…';
+    try {
+      const r = await API.salvar(p, status, txt);
+      (RESP[p.id] = RESP[p.id] || []).unshift({versao:p.versao, status, comentario:txt, created_at:(r && r.created_at) || new Date().toISOString()});
+      RESP[p.id] = RESP[p.id].filter((x,i,a)=> a.findIndex(y=>y.versao===x.versao)===i);
+      const novo = document.createElement('div'); novo.innerHTML = card(p, POSTS.posts.indexOf(p));
+      const art = novo.firstElementChild; el.replaceWith(art); ligarCard(art, p); resumo(); grade();
+    } catch (err) {
+      msg.className = 'msg erro'; msg.textContent = 'Não consegui salvar. Confira a internet e tente de novo.';
+      el.querySelectorAll('.botoes button').forEach(x => x.disabled = false);
+    }
+  }));
+}
+function montar() {
+  document.getElementById('mes').textContent = POSTS.mes;
+  document.getElementById('p-handle').textContent = POSTS.perfil.handle;
+  document.getElementById('p-n').textContent = POSTS.posts.length;
+  document.getElementById('p-bio').innerHTML = `<b>${esc(POSTS.perfil.nome)}</b><span class="cat">${esc(POSTS.perfil.categoria)}</span>${POSTS.perfil.bio.map(l=>`<span style="color:var(--ink)">${esc(l)}</span>`).join('')}`;
+  const lista = document.getElementById('lista');
+  lista.innerHTML = POSTS.posts.map(card).join('');
+  lista.querySelectorAll('.post').forEach((el,i) => ligarCard(el, POSTS.posts[i]));
+  resumo(); grade();
+}
+async function iniciar() {
+  POSTS = window.POSTS_INLINE || await (await fetch('posts.json', {cache:'no-store'})).json();
+  if (CONFIG.backend === 'supabase') {
+    const portao = document.getElementById('portao'), f = document.getElementById('form-senha'), err = document.getElementById('erro-senha');
+    const tentar = async s => { API.senha = s; const rows = await API.carregar();
+      RESP = {}; rows.forEach(r => (RESP[r.post_id] = RESP[r.post_id] || []).push(r));
+      FOTOS = {}; try { (await API.fotos()).forEach(f => (FOTOS[f.post_id] = FOTOS[f.post_id] || []).push(f)); } catch (e) {} };
+    const salva = sessionStorage.getItem('previa-senha');
+    try { if (salva) { await tentar(salva); montar(); return; } } catch(e) { sessionStorage.removeItem('previa-senha'); }
+    portao.hidden = false;
+    f.addEventListener('submit', async ev => { ev.preventDefault(); err.textContent = '';
+      const s = document.getElementById('senha').value.trim();
+      try { await tentar(s); try { sessionStorage.setItem('previa-senha', s); } catch(e){} portao.hidden = true; montar(); }
+      catch(e) { err.textContent = e.message === 'senha' ? 'Senha incorreta.' : 'Não consegui conectar. Tente de novo.'; } });
+  } else montar();
+}
+iniciar();
+</script>
+</body>
+</html>

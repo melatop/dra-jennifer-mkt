@@ -1,0 +1,89 @@
+{
+  "mes": "Dezembro 2026",
+  "mes_id": "2026-12",
+  "perfil": {
+    "handle": "jenniferaragao.vet",
+    "nome": "Dra. Jennifer Aragão",
+    "categoria": "Médica veterinária",
+    "bio": [
+      "Medicina felina 🐈",
+      "Atendimento em Contagem e Grande BH",
+      "Agende pelo link abaixo ⬇️"
+    ]
+  },
+  "posts": [
+    {
+      "id": "2026-12-01-natal",
+      "versao": 1,
+      "data": "2026-12-01",
+      "tipo": "carrossel",
+      "tema": "Gatos e decoração de Natal",
+      "imagens": [
+        "img/2026-12-01-natal/01.jpg",
+        "img/2026-12-01-natal/02.jpg",
+        "img/2026-12-01-natal/03.jpg",
+        "img/2026-12-01-natal/04.jpg",
+        "img/2026-12-01-natal/05.jpg",
+        "img/2026-12-01-natal/06.jpg"
+      ],
+      "legenda": "Bolinha balançando, luz piscando e galho para escalar: do ponto de vista do seu gato, a árvore de Natal é o brinquedo do ano. 🎄\n\nDá para ter árvore e gato na mesma sala com alguns cuidados. Fitas, festão e barbante podem ser engolidos e ficar presos no intestino. Lírios, comuns nos arranjos de fim de ano, são tóxicos para os rins dos gatos, inclusive o pólen e a água do vaso. E uma árvore bem firme evita queda e susto.\n\nSe o seu gato mastigou algo da decoração, vomitou ou parou de comer, não espere passar: procure atendimento veterinário.\n\nSalve este post para quando for montar a decoração e mande para quem tem gato e árvore em casa.\n\nAtendo em Contagem e na Grande BH. Agende pelo link da bio.\n\n#gatos #medicinafelina #natalcomgatos #comportamentofelino #contagem #veterinariabh #jenniferaragaovet"
+    },
+    {
+      "id": "2026-12-03-apresentacao",
+      "versao": 1,
+      "data": "2026-12-03",
+      "tipo": "foto",
+      "tema": "Apresentação: quem cuida do seu gato",
+      "briefing": {
+        "titulo": "Retrato da Dra. com um dos gatos",
+        "itens": [
+          "Você sentada, de jaleco, com o Zack, o Fred ou o Raul no colo ou ao lado, olhando para a câmera e sorrindo.",
+          "Luz natural de janela, de frente ou de lado. Sem flash.",
+          "Fundo limpo: parede lisa ou consultório arrumado, sem material clínico à mostra.",
+          "Celular na vertical, na altura dos olhos. Tirar várias e escolher depois.",
+          "Alternativa: você examinando um paciente com manejo gentil (só com autorização de imagem do tutor)."
+        ]
+      },
+      "legenda": "Faz um tempo que eu não apareço por aqui, então vale começar pelo começo: prazer, eu sou a Jennifer.\n\nSou médica veterinária e me dedico à medicina felina, em Contagem e na Grande BH. Gato não é um cachorro pequeno: ele tem fisiologia, comportamento e jeito de adoecer próprios. Por isso a consulta precisa respeitar o tempo dele, com ambiente calmo e manejo gentil.\n\nPor aqui eu vou dividir o que mais aparece no consultório: comportamento, prevenção, alimentação e os sinais que merecem atenção.\n\nMe conta nos comentários: qual é o nome do seu gato? 🐈\n\n#gatos #medicinafelina #veterinariafelina #gatosdeinstagram #contagem #veterinariabh #jenniferaragaovet"
+    },
+    {
+      "id": "2026-12-08-piscada-lenta",
+      "versao": 1,
+      "data": "2026-12-08",
+      "tipo": "reels",
+      "tema": "Piscada lenta",
+      "capa": {
+        "kicker": "Reels · com Zack, Fred e Raul",
+        "titulo": "Seu gato faz <em>isso</em> pra você?"
+      },
+      "roteiro": [
+        {
+          "tempo": "0–3 s",
+          "cena": "Close no Zack piscando devagar para a câmera.",
+          "texto": "Seu gato faz isso pra você?"
+        },
+        {
+          "tempo": "3–15 s",
+          "cena": "Você no sofá, falando para a câmera.",
+          "fala": "Essa piscada lenta é um sinal de que ele está tranquilo com você. Gatos fazem isso com quem consideram seguro."
+        },
+        {
+          "tempo": "15–28 s",
+          "cena": "Você olha para o Fred e fecha os olhos devagar.",
+          "fala": "E dá para responder: olhe para ele, feche os olhos bem devagar e abra de novo."
+        },
+        {
+          "tempo": "28–35 s",
+          "cena": "Raul olhando, responde ou vira a cara.",
+          "texto": "Às vezes ele responde. Às vezes ignora. Faz parte."
+        },
+        {
+          "tempo": "35–40 s",
+          "cena": "Você sorrindo para a câmera.",
+          "fala": "Testa aí e me conta se o seu respondeu."
+        }
+      ],
+      "legenda": "Piscada lenta: o jeito felino de dizer \"tô tranquilo com você\".\n\nUm estudo com gatos domésticos mostrou que eles tendem a piscar devagar de volta quando a pessoa faz o gesto primeiro, e a se aproximar mais de quem faz isso. É uma forma simples de comunicação, sem pegar no colo nem insistir.\n\nComo fazer: olhe para o seu gato com o rosto relaxado, feche os olhos devagar e abra de novo. Dê tempo para ele responder.\n\nTestou? Me conta nos comentários se o seu respondeu. 😄\n\n#gatos #comportamentofelino #medicinafelina #gatosdeinstagram #contagem #veterinariabh #jenniferaragaovet"
+    }
+  ]
+}

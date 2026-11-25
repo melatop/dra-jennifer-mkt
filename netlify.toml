@@ -1,9 +1,20 @@
+# Branch "previa": prévia do feed para aprovação (deploy de branch, sem custo de créditos).
 [[redirects]]
   from = "/"
-  to = "/a-selva-em-casa/"
+  to = "/previa/"
   status = 302
 
 [[headers]]
-  for = "/*/img/*"
+  for = "/*"
   [headers.values]
-    Cache-Control = "public, max-age=604800"
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/previa/posts.json"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/previa/index.html"
+  [headers.values]
+    Cache-Control = "no-cache"
