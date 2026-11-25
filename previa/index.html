@@ -153,6 +153,12 @@ button,textarea{font:inherit;color:inherit}
 .aprov{margin-top:14px}
 .aprov label{display:block;font-size:13px;font-weight:700;color:var(--muted);margin-bottom:6px}
 .aprov textarea{width:100%;min-height:84px;resize:vertical;border:1.5px solid #E4D3DA;border-radius:14px;padding:12px 14px;background:#fff;font-size:15px}
+.caixa-com{position:relative}
+.caixa-com textarea{padding-right:58px}
+.mic{position:absolute;right:10px;bottom:12px;width:40px;height:40px;border-radius:50%;border:0;background:var(--tp);color:var(--mauve-d);cursor:pointer;display:flex;align-items:center;justify-content:center}
+.mic svg{width:20px;height:20px}
+.mic.on{background:var(--no);color:#fff;animation:pulsa 1.2s infinite}
+@keyframes pulsa{50%{box-shadow:0 0 0 8px rgba(192,57,43,.18)}}
 .aprov textarea:focus{outline:none;border-color:var(--mauve)}
 .botoes{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
 .botoes button{border:0;border-radius:999px;padding:13px 10px;font-weight:700;font-size:16px;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:transform .08s,opacity .15s}
@@ -476,7 +482,8 @@ ${p.briefing ? `<div class="fotos" data-post="${p.id}">
     </div>` : ''}
     <div class="aprov">
       <label for="c-${p.id}">Comentários da Dra.</label>
-      <textarea id="c-${p.id}" placeholder="O que precisa mudar? (opcional para aprovar)">${r && r.comentario ? esc(r.comentario) : ''}</textarea>
+      <div class="caixa-com"><textarea id="c-${p.id}" placeholder="O que precisa mudar? (opcional para aprovar)">${r && r.comentario ? esc(r.comentario) : ''}</textarea>
+      ${VOZ ? `<button type="button" class="mic" aria-label="Falar o comentário" title="Falar o comentário"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button>` : ''}</div>
       <div class="botoes">
         <button class="b-ok" data-acao="aprovado">${I.ok} Aprovar</button>
         <button class="b-no" data-acao="reprovado">${I.no} Reprovar</button>
@@ -538,7 +545,22 @@ function ligarFotos(el, p) {
     if (ok) { msg.className = 'msg'; msg.textContent = ok === 1 ? 'Foto enviada.' : `${ok} fotos enviadas.`; }
   });
 }
+const VOZ = window.SpeechRecognition || window.webkitSpeechRecognition;
+function ligarMic(el) {
+  const b = el.querySelector('.mic'); if (!b) return;
+  const ta = el.querySelector('textarea'); let rec = null;
+  b.addEventListener('click', () => {
+    if (rec) { rec.stop(); return; }
+    rec = new VOZ(); rec.lang = 'pt-BR'; rec.continuous = true; rec.interimResults = true;
+    const base = ta.value ? ta.value.replace(/\s*$/, ' ') : '';
+    rec.onresult = ev => { let t = ''; for (let i = 0; i < ev.results.length; i++) t += ev.results[i][0].transcript; ta.value = base + t; };
+    rec.onend = () => { rec = null; b.classList.remove('on'); };
+    rec.onerror = ev => { const m = el.querySelector('.aprov .msg'); if (m && ev.error === 'not-allowed') { m.className = 'msg erro'; m.textContent = 'Libere o microfone no navegador para ditar.'; } };
+    rec.start(); b.classList.add('on');
+  });
+}
 function ligarCard(el, p) {
+  ligarMic(el);
   ligarFotos(el, p);
   ligarCarrossel(el);
   el.querySelector('.ver').addEventListener('click', ev => { const l = ev.target.closest('.leg'); l.classList.toggle('aberta'); ev.target.textContent = l.classList.contains('aberta') ? 'menos' : 'mais'; });
