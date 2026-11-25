@@ -1,0 +1,23 @@
+{
+ "saida": "/home/claude/previa/v3/out/ano-novo",
+ "slides": [
+  {
+   "nome": "arte",
+   "foto": "ano-novo.jpg",
+   "foco": "center 50%",
+   "logo": true,
+   "topo": 60,
+   "tamanho": 70,
+   "traco": true,
+   "titulo": "Que 2027 venha<br><mark>com muito ronrom!</mark>",
+   "subtitulo": "Obrigada por cuidar tão bem deles.",
+   "altura_foto": 700,
+   "setas": [
+    [
+     935,
+     330
+    ]
+   ]
+  }
+ ]
+}

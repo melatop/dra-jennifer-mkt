@@ -1,0 +1,34 @@
+{
+ "saida": "/home/claude/previa/v3/out/viagem",
+ "slides": [
+  {
+   "nome": "capa",
+   "foto": "viagem-capa.jpg",
+   "foco": "center 50%",
+   "tamanho": 72,
+   "titulo": "Vai viajar?<br><mark>E o gato, fica com quem?</mark>",
+   "subtitulo": "Como organizar as férias dele também"
+  },
+  {
+   "nome": "passo-1",
+   "foto": "viagem-1.jpg",
+   "foco": "center 50%",
+   "titulo": "Um cuidador que<br><mark>vá até a sua casa.</mark>",
+   "card": "Para a maioria dos gatos, ficar no próprio território é menos estressante. Uma visita por dia, no mínimo."
+  },
+  {
+   "nome": "passo-2",
+   "foto": "viagem-2.jpg",
+   "foco": "center 50%",
+   "titulo": "Água e areia<br><mark>em dobro.</mark>",
+   "card": "Mais de um ponto de água fresca e uma caixa de areia extra. Assim nada falta entre uma visita e outra."
+  },
+  {
+   "nome": "passo-3",
+   "foto": "viagem-3.jpg",
+   "foco": "center 50%",
+   "titulo": "Contatos<br><mark>à mão.</mark>",
+   "card": "Deixe com o cuidador seu telefone, o contato do veterinário e a rotina do seu gato: apetite e hábitos."
+  }
+ ]
+}

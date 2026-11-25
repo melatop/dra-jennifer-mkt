@@ -1,0 +1,33 @@
+{
+ "saida": "/home/claude/previa/v3/out/reveillon",
+ "slides": [
+  {
+   "nome": "capa",
+   "foto": "rev-capa.jpg",
+   "foco": "center 50%",
+   "titulo": "A virada é festa.<br><mark>Para o gato, é susto.</mark>",
+   "subtitulo": "Como preparar a casa para os fogos"
+  },
+  {
+   "nome": "passo-1",
+   "foto": "rev-1.jpg",
+   "foco": "center 55%",
+   "titulo": "Um refúgio<br><mark>só dele.</mark>",
+   "card": "Um cômodo calmo com cama, água, caixa de areia e um esconderijo, como uma caixa ou a de transporte aberta."
+  },
+  {
+   "nome": "passo-2",
+   "foto": "rev-2.jpg",
+   "foco": "center 50%",
+   "titulo": "Janelas e portas<br><mark>fechadas.</mark>",
+   "card": "Com medo, o gato pode tentar fugir ou pular. Feche tudo antes dos fogos e confira as telas de proteção."
+  },
+  {
+   "nome": "passo-3",
+   "foto": "rev-3.jpg",
+   "foco": "center 50%",
+   "titulo": "Deixe ele<br><mark>quietinho.</mark>",
+   "card": "Não force colo nem tire do esconderijo. Se o medo é forte todo ano, converse com o veterinário com antecedência."
+  }
+ ]
+}

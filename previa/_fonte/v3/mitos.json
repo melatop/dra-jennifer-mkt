@@ -1,0 +1,39 @@
+{
+ "saida": "/home/claude/previa/v3/out/mitos",
+ "slides": [
+  {
+   "nome": "capa",
+   "foto": "mitos-capa.jpg",
+   "foco": "center 45%",
+   "titulo": "Mito ou verdade?<br><mark>3 frases sobre gatos</mark>",
+   "subtitulo": "que todo mundo repete por aí"
+  },
+  {
+   "nome": "mito-1",
+   "foto": "mitos-1.jpg",
+   "foco": "center 40%",
+   "tamanho": 64,
+   "titulo": "“Gato que não sai de casa<br><mark>não precisa de veterinário.”</mark>",
+   "subtitulo": "Mito.",
+   "card": "Gatos escondem bem os sinais de doença. O check-up regular ajuda a encontrar problemas cedo."
+  },
+  {
+   "nome": "mito-2",
+   "foto": "mitos-2.jpg",
+   "foco": "center 50%",
+   "tamanho": 70,
+   "titulo": "“Leite é um<br><mark>bom agrado para o gato.”</mark>",
+   "subtitulo": "Mito.",
+   "card": "Muitos gatos adultos não digerem bem a lactose, e o leite pode causar diarreia. Água fresca é o que ele precisa."
+  },
+  {
+   "nome": "mito-3",
+   "foto": "mitos-3.jpg",
+   "foco": "center 50%",
+   "tamanho": 70,
+   "titulo": "“Ronronar é sempre<br><mark>sinal de felicidade.”</mark>",
+   "subtitulo": "Meia verdade.",
+   "card": "Muitas vezes, sim. Mas gatos também ronronam quando sentem dor ou estresse. Observe o contexto."
+  }
+ ]
+}

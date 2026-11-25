@@ -1,0 +1,33 @@
+{
+ "saida": "/home/claude/previa/v3/out/natal",
+ "slides": [
+  {
+   "nome": "capa",
+   "foto": "natal-capa.jpg",
+   "foco": "center 55%",
+   "titulo": "A árvore chegou.<br><mark>E o seu gato já reparou.</mark>",
+   "subtitulo": "3 cuidados para festas sem susto"
+  },
+  {
+   "nome": "fitas",
+   "foto": "natal-fitas.jpg",
+   "foco": "center 10%",
+   "titulo": "Fitas e festão:<br><mark>melhor não usar.</mark>",
+   "card": "Se engolidos, fios e fitas podem ficar presos no intestino, uma emergência. Prefira enfeites grandes e inquebráveis."
+  },
+  {
+   "nome": "lirio",
+   "foto": "natal-lirio.jpg",
+   "foco": "center 40%",
+   "titulo": "Lírio é bonito, mas<br><mark>perigoso para gatos.</mark>",
+   "card": "Todas as partes do lírio, até o pólen e a água do vaso, são tóxicas para os rins dos gatos."
+  },
+  {
+   "nome": "arvore",
+   "foto": "natal-arvore.jpg",
+   "foco": "center 20%",
+   "titulo": "Árvore firme e<br><mark>fios protegidos.</mark>",
+   "card": "Base pesada ou presa na parede, enfeites frágeis no alto e os fios do pisca-pisca fora do alcance."
+  }
+ ]
+}
