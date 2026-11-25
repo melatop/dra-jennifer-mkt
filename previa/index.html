@@ -41,6 +41,7 @@ button,textarea{font:inherit;color:inherit}
 .perfil .linha{display:flex;align-items:center;gap:18px}
 .avatar{border-radius:50%;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex:none;overflow:hidden}
 .avatar img{height:72%;width:auto}
+.avatar img.foto{width:100%;height:100%;object-fit:cover}
 .perfil .avatar{width:78px;height:78px;box-shadow:0 0 0 3px #fff,0 0 0 5px var(--pink)}
 .perfil .handle{font-weight:700;font-size:18px}
 .perfil .nums{display:flex;gap:18px;font-size:13px;color:var(--muted);margin-top:4px}
@@ -129,6 +130,11 @@ button,textarea{font:inherit;color:inherit}
 .roteiro li{display:grid;grid-template-columns:64px 1fr;gap:10px;font-size:14px}
 .roteiro li .t{font-weight:700;color:var(--teal-d)}
 .roteiro li .fala{font-style:italic;color:var(--mauve-d)}
+.midia img.ilustra{width:100%;height:100%;object-fit:cover}
+.roteiro ul.brief{list-style:none;margin-top:10px;display:flex;flex-direction:column;gap:8px;font-size:14px}
+.roteiro ul.brief li{display:block;padding-left:16px;position:relative}
+.roteiro ul.brief li::before{content:"";position:absolute;left:0;top:.55em;width:6px;height:6px;border-radius:50%;background:var(--pink)}
+.roteiro .nota{font-size:12px;color:var(--muted);margin:10px 0 4px}
 .roteiro li .tela{font-size:13px;color:var(--muted)}
 
 /* aprovação */
@@ -206,7 +212,7 @@ footer{text-align:center;font-size:13px;color:var(--muted);padding:40px 20px 60p
     <div class="perfil">
       <div class="cab">
         <div class="linha">
-          <div class="avatar"><img src="img/mark.png" alt="" width="371" height="624"></div>
+          <div class="avatar"><img class="foto" src="img/avatar.jpg" alt="Dra. Jennifer Aragão" width="150" height="150"></div>
           <div>
             <div class="handle" id="p-handle"></div>
             <div class="nums"><span><b id="p-n"></b> posts no mês</span></div>
@@ -321,6 +327,7 @@ const anteriores = p => (RESP[p.id] || []).filter(r => r.versao < p.versao);
 /* ---------- render ---------- */
 function thumb(p) {
   if (p.tipo === 'carrossel' || p.imagens) return `<img src="${p.imagens[0]}" alt="" loading="lazy">`;
+  if (p.tipo === 'foto' && p.ilustracao) return `<img src="${p.ilustracao}" alt="" loading="lazy">`;
   if (p.tipo === 'foto') return `<div class="thumb-txt foto"><small>Foto a tirar</small><b>${esc(p.tema)}</b></div>`;
   return `<div class="thumb-txt reels"><small>Reels</small><b>${p.capa.titulo.replace(/<\/?em>/g,'')}</b></div>`;
 }
@@ -332,6 +339,7 @@ function midia(p) {
       ${n>1?`<span class="cont">1/${n}</span><button class="seta esq" hidden aria-label="Anterior">${I.esq}</button><button class="seta dir" aria-label="Próximo">${I.dir}</button>`:''}
     </div>`;
   }
+  if (p.tipo === 'foto' && p.ilustracao) return `<div class="midia"><img class="ilustra" src="${p.ilustracao}" alt="Ilustração de referência da foto" width="1080" height="1350"></div>`;
   if (p.tipo === 'foto') return `<div class="midia"><div class="briefing">
       <div class="cam">${I.foto}</div><div class="kicker">Foto a tirar · briefing</div>
       <h3>${esc(p.briefing.titulo)}</h3>
@@ -340,6 +348,9 @@ function midia(p) {
       <div class="k">${esc(p.capa.kicker)}</div><h3>${p.capa.titulo}</h3></div></div>`;
 }
 function roteiro(p) {
+  if (p.tipo === 'foto' && p.ilustracao && p.briefing) return `<details class="roteiro" open><summary>Briefing da foto: ${esc(p.briefing.titulo)}</summary>
+    <ul class="brief">${p.briefing.itens.map(t=>`<li>${esc(t)}</li>`).join('')}</ul>
+    <p class="nota">A ilustração é só referência de enquadramento e posição.</p></details>`;
   if (!p.roteiro) return '';
   return `<details class="roteiro"><summary>Ver roteiro do vídeo</summary><ol>${p.roteiro.map(r=>`
     <li><span class="t">${esc(r.tempo)}</span><span>${esc(r.cena)}
@@ -356,7 +367,7 @@ function card(p, idx) {
       <span class="pill ${st}">${statusTxt(st)}</span>
     </div>
     <div class="ig">
-      <div class="h"><div class="avatar"><img src="img/mark.png" alt=""></div>
+      <div class="h"><div class="avatar"><img class="foto" src="img/avatar.jpg" alt=""></div>
         <div><b>${esc(POSTS.perfil.handle)}</b><span>Contagem, Minas Gerais</span></div><span class="mais">${I.mais}</span></div>
       ${midia(p)}
       <div class="acoes-wrap"><div class="acoes">${I.coracao}${I.coment}${I.envia}<span class="salvar">${I.salvar}</span></div>
