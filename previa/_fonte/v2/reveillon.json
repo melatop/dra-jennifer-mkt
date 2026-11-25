@@ -1,0 +1,53 @@
+{
+ "saida": "/home/claude/previa/v2/out/reveillon",
+ "slides": [
+  {
+   "tipo": "capa",
+   "nome": "capa",
+   "foto": "capa-reveillon.png",
+   "referencia": true,
+   "titulo": "A virada é festa.<br><mark>Para o gato, é susto.</mark>",
+   "subtitulo": "Como preparar a casa para os fogos"
+  },
+  {
+   "tipo": "topico",
+   "nome": "passo-1",
+   "rotulo": "Passo 01",
+   "titulo": "Um refúgio<br><mark>só dele.</mark>",
+   "corpo": "Um cômodo calmo com cama, água, caixa de areia e um esconderijo, como a caixa de transporte aberta.",
+   "figurinha": "fig-dica.png"
+  },
+  {
+   "tipo": "topico",
+   "nome": "passo-2",
+   "rotulo": "Passo 02",
+   "titulo": "Janelas e portas<br><mark>fechadas.</mark>",
+   "corpo": "Com medo, o gato pode tentar fugir ou pular. Feche tudo antes dos fogos e confira as telas de proteção.",
+   "figurinha": "fig-nao-faca.png"
+  },
+  {
+   "tipo": "topico",
+   "nome": "passo-3",
+   "rotulo": "Passo 03",
+   "titulo": "Deixe ele<br><mark>quietinho.</mark>",
+   "corpo": "Não tire o gato do esconderijo nem force colo. Fique por perto, com som ambiente ou a TV ligada.",
+   "figurinha": "fig-sem-problemas.png"
+  },
+  {
+   "tipo": "topico",
+   "nome": "passo-4",
+   "rotulo": "Passo 04",
+   "titulo": "Medo forte todo ano?<br><mark>Converse antes.</mark>",
+   "corpo": "Se ele entra em pânico com os fogos, fale com o veterinário com antecedência para planejar juntos.",
+   "figurinha": "fig-hora-certa.png"
+  },
+  {
+   "tipo": "cta",
+   "nome": "cta",
+   "titulo": "Feliz virada<br><mark>para você e para ele!</mark>",
+   "subtitulo": "Salve e mande para quem tem gato.",
+   "botao": "Agende pelo link da bio",
+   "figurinha": "fig-obrigada.png"
+  }
+ ]
+}

@@ -66,7 +66,10 @@ button,textarea{font:inherit;color:inherit}
 /* miniaturas sem imagem */
 .thumb-txt{width:100%;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:10px 10px 32px;font-family:'Caladea',serif;font-weight:700;font-size:14px;line-height:1.1}
 .thumb-txt.foto{background:var(--tp);color:var(--mauve-d)}
-.thumb-txt.reels{background:var(--mauve-d);color:#FBF5F7}
+.thumb-txt.reels{background:linear-gradient(170deg,#FDF4F7,#F3DCE5);color:#6D2E46}
+.thumb-txt.reels small{color:#87495E}
+.thumb-txt.reels{justify-content:flex-start;padding-top:14px;position:relative;overflow:hidden}
+.thumb-txt .tfig{position:absolute;left:50%;transform:translateX(-50%);bottom:-4px;height:58%;width:auto;max-width:none}
 .thumb-txt b{font:inherit;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .thumb-txt small{font-family:'Carlito',sans-serif;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px;opacity:.85}
 
@@ -116,12 +119,13 @@ button,textarea{font:inherit;color:inherit}
 .briefing li::before{content:"";position:absolute;left:0;top:.55em;width:7px;height:7px;border-radius:50%;background:var(--pink)}
 
 /* reels */
-.capa-reels{height:100%;background:var(--mauve-d);color:#FBF5F7;display:flex;flex-direction:column;justify-content:flex-end;padding:30px 28px;position:relative}
-.capa-reels .play{position:absolute;top:50%;left:50%;transform:translate(-50%,-70%);width:64px;height:64px;border-radius:50%;border:2px solid rgba(251,245,247,.8);display:flex;align-items:center;justify-content:center}
-.capa-reels .play svg{width:24px;height:24px;margin-left:4px}
-.capa-reels .k{font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#A9D3D9}
-.capa-reels h3{font-size:38px;line-height:1.05;margin-top:10px}
-.capa-reels h3 em{font-style:normal;color:#F0B9C8}
+.capa-reels{height:100%;background:linear-gradient(170deg,#FDF4F7 0%,#F8E6EC 55%,#F3DCE5 100%);color:#6D2E46;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:34px 26px 0;position:relative;text-align:center;overflow:hidden}
+.capa-reels .k{font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#fff;background:#87495E;padding:6px 14px;border-radius:999px}
+.capa-reels h3{font-size:34px;line-height:1.2;margin-top:16px}
+.capa-reels h3 mark,.capa-reels h3 em{font-style:normal;background:#CFE8EA;color:#6D2E46;padding:0 10px;border-radius:14px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.capa-reels .fig{position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);height:56%;width:auto;max-width:none;filter:drop-shadow(0 6px 12px rgba(109,46,70,.18))}
+.capa-reels .play{position:absolute;top:58%;right:22px;width:56px;height:56px;border-radius:50%;background:rgba(135,73,94,.92);color:#fff;display:flex;align-items:center;justify-content:center;z-index:2}
+.capa-reels .play svg{width:22px;height:22px;margin-left:3px}
 .roteiro{border-top:1px solid var(--line);margin:0 12px;padding:10px 0 4px}
 .roteiro summary{cursor:pointer;font-weight:700;font-size:14px;color:var(--mauve);list-style:none}
 .roteiro summary::-webkit-details-marker{display:none}
@@ -409,7 +413,7 @@ function thumb(p) {
   if (p.tipo === 'carrossel' || p.imagens) return `<img src="${p.imagens[0]}" alt="">`;
   if (p.tipo === 'foto' && p.ilustracao) return `<img src="${p.ilustracao}" alt="" loading="lazy">`;
   if (p.tipo === 'foto') return `<div class="thumb-txt foto"><small>Foto a tirar</small><b>${esc(p.tema)}</b></div>`;
-  return `<div class="thumb-txt reels"><small>Reels</small><b>${p.capa.titulo.replace(/<\/?em>/g,'')}</b></div>`;
+  return `<div class="thumb-txt reels"><small>Reels</small><b>${p.capa.titulo.replace(/<\/?(em|mark)>/g,'')}</b>${p.capa.figurinha ? `<img class="tfig" src="${p.capa.figurinha}" alt="">` : ''}</div>`;
 }
 function midia(p) {
   if (p.imagens && p.imagens.length) {
@@ -425,12 +429,12 @@ function midia(p) {
       <h3>${esc(p.briefing.titulo)}</h3>
       <ul>${p.briefing.itens.map(t=>`<li>${esc(t)}</li>`).join('')}</ul></div></div>`;
   return `<div class="midia"><div class="capa-reels"><div class="play">${I.play}</div>
-      <div class="k">${esc(p.capa.kicker)}</div><h3>${p.capa.titulo}</h3></div></div>`;
+      <div class="k">${esc(p.capa.kicker)}</div><h3>${p.capa.titulo}</h3>${p.capa.figurinha ? `<img class="fig" src="${p.capa.figurinha}" alt="">` : ''}</div></div>`;
 }
 function roteiro(p) {
-  if (p.tipo === 'foto' && p.ilustracao && p.briefing) return `<details class="roteiro" open><summary>Briefing da foto: ${esc(p.briefing.titulo)}</summary>
+  if (p.briefing && (p.ilustracao || p.capa_a_tirar)) return `<details class="roteiro" open><summary>${p.capa_a_tirar ? '' : 'Briefing da foto: '}${esc(p.briefing.titulo)}</summary>
     <ul class="brief">${p.briefing.itens.map(t=>`<li>${esc(t)}</li>`).join('')}</ul>
-    <p class="nota">A ilustração é só referência de enquadramento e posição.</p></details>`;
+    <p class="nota">${p.capa_a_tirar ? 'A ilustração da capa fica só até chegar a sua foto.' : 'A ilustração é só referência de enquadramento e posição.'}</p></details>`;
   const guia = p.gravacao ? `<details class="roteiro" open><summary>O que gravar</summary>
     <p class="sub-tit">Antes de começar</p><ul class="brief">${p.gravacao.antes.map(t=>`<li>${esc(t)}</li>`).join('')}</ul>
     <p class="sub-tit">Takes</p><ol class="takes">${p.gravacao.takes.map((t,i)=>`<li><b><span class="n">${i+1}</span>${esc(t.titulo)}</b>
@@ -463,8 +467,8 @@ function card(p, idx) {
         <span class="data">${dataLonga(p.data)}</span></div>
       ${roteiro(p)}
     </div>
-${p.tipo === 'foto' ? `<div class="fotos" data-post="${p.id}">
-      <h4>Suas fotos para este post</h4>
+${p.briefing ? `<div class="fotos" data-post="${p.id}">
+      <h4>${p.capa_a_tirar ? 'Sua foto para a capa' : 'Suas fotos para este post'}</h4>
       <p class="dica">Tire as fotos seguindo o briefing e envie aqui. Pode mandar mais de uma; eu escolho a melhor e monto o post.</p>
       <div class="miniaturas">${(FOTOS[p.id]||[]).map(f=>`<div class="mini" data-id="${f.id}"><img src="${f.url}" alt=""><button type="button">✕</button></div>`).join('')}</div>
       <label class="add">${I.clip} Adicionar fotos<input type="file" accept="image/*" multiple></label>

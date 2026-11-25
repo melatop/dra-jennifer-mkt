@@ -1,0 +1,13 @@
+{
+ "saida": "/home/claude/previa/v2/out/ano-novo",
+ "slides": [
+  {
+   "tipo": "cta",
+   "nome": "arte",
+   "titulo": "Que 2027 venha<br><mark>com muito ronrom!</mark>",
+   "subtitulo": "Obrigada por cuidar tão bem deles.",
+   "figurinha": "fig-amor-patinhas.png",
+   "fig_h": 360
+  }
+ ]
+}

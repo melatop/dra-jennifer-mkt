@@ -1,0 +1,53 @@
+{
+ "saida": "/home/claude/previa/v2/out/natal",
+ "slides": [
+  {
+   "tipo": "capa",
+   "nome": "capa",
+   "foto": "capa-natal.png",
+   "referencia": true,
+   "titulo": "A árvore chegou.<br><mark>E o seu gato já reparou.</mark>",
+   "subtitulo": "3 cuidados para festas sem susto"
+  },
+  {
+   "tipo": "topico",
+   "nome": "por-que",
+   "rotulo": "Por quê?",
+   "titulo": "Para ele, a árvore é<br><mark>um brinquedo gigante.</mark>",
+   "corpo": "Galhos para escalar, bolinhas que balançam e luzes que piscam. Para um caçador nato, faz todo o sentido.",
+   "figurinha": "fig-hmm.png"
+  },
+  {
+   "tipo": "topico",
+   "nome": "cuidado-1",
+   "rotulo": "Cuidado 01",
+   "titulo": "Fitas e festão:<br><mark>melhor não usar.</mark>",
+   "corpo": "Se engolidos, podem ficar presos no intestino, uma emergência. Prefira enfeites grandes e inquebráveis.",
+   "figurinha": "fig-nao-faca.png"
+  },
+  {
+   "tipo": "topico",
+   "nome": "cuidado-2",
+   "rotulo": "Cuidado 02",
+   "titulo": "Lírio é bonito, mas<br><mark>perigoso para gatos.</mark>",
+   "corpo": "Todas as partes do lírio, até o pólen e a água do vaso, são tóxicas para os rins. Deixe fora de casa.",
+   "figurinha": "fig-dica.png"
+  },
+  {
+   "tipo": "topico",
+   "nome": "cuidado-3",
+   "rotulo": "Cuidado 03",
+   "titulo": "Árvore firme e<br><mark>fios protegidos.</mark>",
+   "corpo": "Base pesada ou presa na parede, enfeites frágeis no alto e fios do pisca-pisca fora do alcance.",
+   "figurinha": "fig-tudo-certo.png"
+  },
+  {
+   "tipo": "cta",
+   "nome": "cta",
+   "titulo": "Festas tranquilas<br><mark>começam em casa.</mark>",
+   "subtitulo": "Ficou com dúvida? Me chama!",
+   "botao": "Agende pelo link da bio",
+   "figurinha": "fig-obrigada.png"
+  }
+ ]
+}

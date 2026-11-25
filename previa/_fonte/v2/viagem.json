@@ -1,0 +1,54 @@
+{
+ "saida": "/home/claude/previa/v2/out/viagem",
+ "slides": [
+  {
+   "tipo": "capa",
+   "nome": "capa",
+   "foto": "capa-viagem.png",
+   "referencia": true,
+   "titulo": "Vai viajar?<br><mark>E o gato, fica com quem?</mark>",
+   "tamanho": 74,
+   "subtitulo": "Como organizar as férias dele também"
+  },
+  {
+   "tipo": "topico",
+   "nome": "por-que",
+   "rotulo": "Por quê?",
+   "titulo": "No território dele,<br><mark>costuma ser melhor.</mark>",
+   "corpo": "Para a maioria dos gatos, ficar em casa é menos estressante do que viajar junto ou ir para um lugar desconhecido.",
+   "figurinha": "fig-dica.png"
+  },
+  {
+   "tipo": "topico",
+   "nome": "passo-1",
+   "rotulo": "Passo 01",
+   "titulo": "Um cuidador que<br><mark>vá até a sua casa.</mark>",
+   "corpo": "Pelo menos uma visita por dia para conferir água, comida, caixa de areia e o próprio gato.",
+   "figurinha": "fig-anotado.png"
+  },
+  {
+   "tipo": "topico",
+   "nome": "passo-2",
+   "rotulo": "Passo 02",
+   "titulo": "Água e areia<br><mark>em dobro.</mark>",
+   "corpo": "Mais de um ponto de água fresca e uma caixa de areia extra. Assim nada falta entre uma visita e outra.",
+   "figurinha": "fig-tudo-certo.png"
+  },
+  {
+   "tipo": "topico",
+   "nome": "passo-3",
+   "rotulo": "Passo 03",
+   "titulo": "Contatos<br><mark>à mão.</mark>",
+   "corpo": "Seu telefone, o contato do veterinário e o que é normal para o seu gato: apetite, hábitos e rotina.",
+   "figurinha": "fig-te-respondo.png"
+  },
+  {
+   "tipo": "cta",
+   "nome": "cta",
+   "titulo": "Boa viagem!<br><mark>Ele te espera em casa.</mark>",
+   "subtitulo": "Ficou com dúvida? Me chama!",
+   "botao": "Agende pelo link da bio",
+   "figurinha": "fig-ate-mais.png"
+  }
+ ]
+}
