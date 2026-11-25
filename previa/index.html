@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
+<base href="/previa/">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>Prévia do feed · Dra. Jennifer Aragão</title>
@@ -326,7 +327,8 @@ const anteriores = p => (RESP[p.id] || []).filter(r => r.versao < p.versao);
 
 /* ---------- render ---------- */
 function thumb(p) {
-  if (p.tipo === 'carrossel' || p.imagens) return `<img src="${p.imagens[0]}" alt="" loading="lazy">`;
+  if (p.thumb) return `<img src="${p.thumb}" alt="" width="360" height="480">`;
+  if (p.tipo === 'carrossel' || p.imagens) return `<img src="${p.imagens[0]}" alt="">`;
   if (p.tipo === 'foto' && p.ilustracao) return `<img src="${p.ilustracao}" alt="" loading="lazy">`;
   if (p.tipo === 'foto') return `<div class="thumb-txt foto"><small>Foto a tirar</small><b>${esc(p.tema)}</b></div>`;
   return `<div class="thumb-txt reels"><small>Reels</small><b>${p.capa.titulo.replace(/<\/?em>/g,'')}</b></div>`;
@@ -495,6 +497,10 @@ async function iniciar() {
       catch(e) { err.textContent = e.message === 'senha' ? 'Senha incorreta.' : 'Não consegui conectar. Tente de novo.'; } });
   } else montar();
 }
+document.addEventListener('error', e => {
+  const i = e.target; if (i.tagName !== 'IMG' || i.dataset.tentou) return;
+  i.dataset.tentou = '1'; const u = i.getAttribute('src'); if (u && !u.startsWith('data:') && !u.startsWith('blob:')) i.src = u + (u.includes('?') ? '&' : '?') + 'r=' + Date.now();
+}, true);
 iniciar();
 </script>
 </body>
