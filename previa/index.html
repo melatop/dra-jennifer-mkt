@@ -159,6 +159,13 @@ button,textarea{font:inherit;color:inherit}
 .mic svg{width:20px;height:20px}
 .mic.on{background:var(--no);color:#fff;animation:pulsa 1.2s infinite}
 @keyframes pulsa{50%{box-shadow:0 0 0 8px rgba(192,57,43,.18)}}
+.coments{margin-top:16px;border-top:1px solid var(--line);padding-top:12px}
+.coments h4{font-size:13px;font-weight:700;color:var(--muted);margin-bottom:8px}
+.com{display:flex;gap:10px;padding:8px 0}
+.com .av{width:32px;height:32px;border-radius:50%;object-fit:cover;flex:none}
+.com p{font-size:14px;line-height:1.4}
+.com .quando{display:block;font-size:12px;color:var(--muted);margin-top:3px}
+.com .quando b.aprovado{color:var(--ok)}.com .quando b.reprovado{color:var(--no)}
 .aprov textarea:focus{outline:none;border-color:var(--mauve)}
 .botoes{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
 .botoes button{border:0;border-radius:999px;padding:13px 10px;font-weight:700;font-size:16px;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:transform .08s,opacity .15s}
@@ -481,15 +488,19 @@ ${p.briefing ? `<div class="fotos" data-post="${p.id}">
       <p class="msg"></p>
     </div>` : ''}
     <div class="aprov">
-      <label for="c-${p.id}">Comentários da Dra.</label>
-      <div class="caixa-com"><textarea id="c-${p.id}" placeholder="O que precisa mudar? (opcional para aprovar)">${r && r.comentario ? esc(r.comentario) : ''}</textarea>
+      <label for="c-${p.id}">Novo comentário</label>
+      <div class="caixa-com"><textarea id="c-${p.id}" placeholder="Escreva um comentário (opcional para aprovar)"></textarea>
       ${VOZ ? `<button type="button" class="mic" aria-label="Falar o comentário" title="Falar o comentário"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button>` : ''}</div>
       <div class="botoes">
         <button class="b-ok" data-acao="aprovado">${I.ok} Aprovar</button>
         <button class="b-no" data-acao="reprovado">${I.no} Reprovar</button>
       </div>
       <p class="msg">${r ? `${statusTxt(st)} em ${new Date(r.created_at).toLocaleString('pt-BR',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'})}` : ''}</p>
-      ${hist.length?`<div class="historico">${hist.map(h=>`<p><b>Versão ${h.versao}</b> · ${statusTxt(h.status)}${h.comentario?`: “${esc(h.comentario)}”`:''}</p>`).join('')}</div>`:''}
+      ${(RESP[p.id]||[]).length ? `<div class="coments"><h4>Comentários</h4>${(RESP[p.id]||[]).map(c=>`
+        <div class="com"><img class="av" src="img/avatar.jpg" alt=""><div>
+          <p><b>Dra. Jennifer</b> ${c.comentario ? esc(c.comentario) : `<i>${c.status==='aprovado'?'Aprovou':'Reprovou'} sem comentário.</i>`}</p>
+          <span class="quando">${new Date(c.created_at).toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit',year:'numeric'})} às ${new Date(c.created_at).toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})} · <b class="${c.status}">${c.status==='aprovado'?'Aprovado':'Reprovado'}</b>${p.versao>1||c.versao>1?` · versão ${c.versao}`:''}</span>
+        </div></div>`).join('')}</div>` : ''}
     </div>
   </article>`;
 }
@@ -572,7 +583,6 @@ function ligarCard(el, p) {
     try {
       const r = await API.salvar(p, status, txt);
       (RESP[p.id] = RESP[p.id] || []).unshift({versao:p.versao, status, comentario:txt, created_at:(r && r.created_at) || new Date().toISOString()});
-      RESP[p.id] = RESP[p.id].filter((x,i,a)=> a.findIndex(y=>y.versao===x.versao)===i);
       const novo = document.createElement('div'); novo.innerHTML = card(p, POSTS.posts.indexOf(p));
       const art = novo.firstElementChild; el.replaceWith(art); ligarCard(art, p); atualizar();
     } catch (err) {
