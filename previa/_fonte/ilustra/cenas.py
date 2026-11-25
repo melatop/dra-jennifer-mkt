@@ -21,8 +21,8 @@ def img(nome, x, y, w, flip=False):
     return f'<image href="{png(nome)}" x="{x}" y="{y}" width="{w}" height="{h:.0f}"{t}/>'
 
 
-def dra(x, y, s, bracos):
-    return f'<g transform="translate({x} {y}) scale({s})">{dra_svg(bracos, standalone=False)}</g>'
+def dra(x, y, s, bracos, roupa="jaleco"):
+    return f'<g transform="translate({x} {y}) scale({s})">{dra_svg(bracos, standalone=False, roupa=roupa)}</g>'
 
 
 def selo():
@@ -56,12 +56,38 @@ def mesa(y):
             f'<path d="M300 {y-6} h480 l20 40 h-520 z" fill="#F2B8C6" stroke="{INK}" stroke-width="10" stroke-linejoin="round"/>')
 
 
+def guitarra(x, y, s, rot=-12):
+    """guitarra (superstrat preta, estilo Ibanez GIO) pendurada na parede"""
+    return (f'<g transform="translate({x} {y}) rotate({rot}) scale({s})">'
+            f'<path d="M-6 -40 v-10" stroke="{INK}" stroke-width="8"/><path d="M-30 -40 h48 l-8 -26 h-32 z" fill="#5A5F6A" stroke="{INK}" stroke-width="8" stroke-linejoin="round"/>'
+            f'<rect x="-18" y="-40" width="36" height="300" rx="6" fill="#B8814E" stroke="{INK}" stroke-width="10"/>'
+            + "".join(f'<path d="M-18 {y0}h36" stroke="#E8D8BE" stroke-width="4"/>' for y0 in range(-10, 250, 32))
+            + f'<path d="M-24 250 C-70 230 -96 260 -84 300 C-76 330 -110 360 -96 410 C-80 470 -20 480 0 470 C40 486 104 470 112 400 C118 350 84 330 92 296 C100 260 74 226 30 250 C20 236 6 230 -10 238 Z" fill="#1E1F24" stroke="{INK}" stroke-width="12" stroke-linejoin="round"/>'
+            f'<rect x="-30" y="300" width="60" height="22" rx="4" fill="#E9E9EE" stroke="{INK}" stroke-width="6"/><rect x="-30" y="380" width="60" height="22" rx="4" fill="#E9E9EE" stroke="{INK}" stroke-width="6"/>'
+            f'<path d="M-30 424 h60" stroke="#C9CCD3" stroke-width="10" stroke-linecap="round"/>'
+            f'<circle cx="64" cy="420" r="10" fill="#C9CCD3" stroke="{INK}" stroke-width="5"/><circle cx="80" cy="392" r="10" fill="#C9CCD3" stroke="{INK}" stroke-width="5"/>'
+            f'<path d="M-4 -40 V440 M4 -40 V440" stroke="#EDEDED" stroke-width="2"/></g>')
+
+
+def violao(x, y, s, rot=10):
+    """violão de madeira clara pendurado na parede"""
+    return (f'<g transform="translate({x} {y}) rotate({rot}) scale({s})">'
+            f'<path d="M-6 -40 v-10" stroke="{INK}" stroke-width="8"/><path d="M-28 -40 h56 l-6 -34 h-44 z" fill="#8A5A3B" stroke="{INK}" stroke-width="8" stroke-linejoin="round"/>'
+            f'<rect x="-20" y="-40" width="40" height="260" rx="6" fill="#6B4430" stroke="{INK}" stroke-width="10"/>'
+            + "".join(f'<path d="M-20 {y0}h40" stroke="#D8C3A0" stroke-width="4"/>' for y0 in range(-10, 220, 30))
+            + f'<path d="M0 214 C-70 214 -96 260 -84 310 C-76 340 -116 370 -110 430 C-102 510 -40 530 0 530 C40 530 102 510 110 430 C116 370 76 340 84 310 C96 260 70 214 0 214 Z" fill="#E2B27A" stroke="{INK}" stroke-width="12" stroke-linejoin="round"/>'
+            f'<circle cx="0" cy="340" r="38" fill="#3A2418" stroke="{INK}" stroke-width="8"/><circle cx="0" cy="340" r="50" fill="none" stroke="#B98552" stroke-width="6"/>'
+            f'<rect x="-46" y="440" width="92" height="18" rx="6" fill="#6B4430" stroke="{INK}" stroke-width="6"/>'
+            f'<path d="M-4 -40 V448 M4 -40 V448" stroke="#F4EBDD" stroke-width="2"/></g>')
+
+
 def cena_apresentacao():
-    return (f'<rect width="{W}" height="{H}" fill="#F7E9EF"/>'
-            f'<rect y="1050" width="{W}" height="300" fill="#E6D2C3"/>'
-            + janela(70, 230, 230, 300)
-            + img("sofa.png", -110, 170, 1300)
-            + dra(215, 150, 0.65, "frente")
+    return (f'<rect width="{W}" height="{H}" fill="#D3D6DB"/>'
+            f'<rect y="1050" width="{W}" height="300" fill="#CDB49A"/>'
+            + janela(60, 200, 200, 280)
+            + guitarra(760, 165, 0.6, -8) + violao(965, 170, 0.56, 10)
+            + img("sofa-capuccino.png", -110, 170, 1300)
+            + dra(215, 150, 0.65, "frente", "casa")
             + img("gato-zack.png", 390, 620, 300)
             + selo())
 
@@ -78,12 +104,14 @@ def cena_consulta():
 
 
 def cena_natal():
-    return (f'<rect width="{W}" height="{H}" fill="#F9EFE6"/>'
-            f'<rect y="1000" width="{W}" height="350" fill="#E9D3BF"/>'
+    return (f'<rect width="{W}" height="{H}" fill="#D3D6DB"/>'
+            f'<rect y="1000" width="{W}" height="350" fill="#CDB49A"/>'
             f'<path d="M0 120 Q180 190 360 120 T720 120 T1080 120" fill="none" stroke="{INK}" stroke-width="6"/>'
             + "".join(f'<circle cx="{x}" cy="{y}" r="12" fill="{c}" stroke="{INK}" stroke-width="6"/>' for x, y, c in [(90, 150, "#F2C14E"), (270, 150, "#D1899D"), (450, 150, "#5897A0"), (630, 150, "#F2C14E"), (810, 150, "#D1899D"), (990, 150, "#5897A0")])
             + arvore(240, 300, 0.95)
-            + dra(400, 540, 0.68, "frente")
+            + guitarra(680, 240, 0.5, -8) + violao(890, 245, 0.48, 10)
+            + img("sofa-capuccino.png", 300, 380, 900)
+            + dra(400, 540, 0.68, "frente", "casa")
             + img("gato-zack.png", 590, 1010, 270)
             + img("gato-fred.png", 50, 1030, 240)
             + img("gato-raul.png", 290, 1070, 200, flip=True)

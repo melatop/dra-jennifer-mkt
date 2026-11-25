@@ -8,6 +8,7 @@ PELE, PELE_S = "#F7CBAA", "#E9AE8C"
 CABELO, CABELO_S, CABELO_L = "#E8C27A", "#C99A4E", "#F6DDA4"
 JALECO, JALECO_S = "#FFFFFF", "#E4E1E6"
 SCRUB = "#5897A0"
+BLUSA, BLUSA_S = "#B9D6F0", "#9DC0E2"
 ESTETO = "#3B3F4A"
 BOCHECHA = "#F2A3A8"
 SW = 12
@@ -100,10 +101,29 @@ def _bracos_frente():
     )
 
 
-def dra_svg(bracos="cruzados", standalone=True):
-    corpo = (_cabelo_tras() + _tronco() + _estetoscopio()
-             + (_bracos_cruzados() if bracos == "cruzados" else _bracos_frente())
-             + _rosto() + _franja())
+def _tronco_casa():
+    return (
+        f'<path d="M500 530 L340 562 C276 578 238 628 234 700 L228 1200 L772 1200 L766 700 C762 628 724 578 660 562 Z" fill="{BLUSA}" stroke="{INK}" stroke-width="{SW}" stroke-linejoin="round"/>'
+        f'<path d="M420 552 C440 620 560 620 580 552 Z" fill="{PELE_S}" stroke="{INK}" stroke-width="10" stroke-linejoin="round"/>'
+        f'<path d="M420 552 C440 620 560 620 580 552" fill="none" stroke="{BLUSA_S}" stroke-width="16" stroke-linecap="round" transform="translate(0 10)"/>'
+        f'<path d="M330 760 C360 840 360 980 340 1100 M670 760 C640 840 640 980 660 1100" fill="none" stroke="{BLUSA_S}" stroke-width="8" stroke-linecap="round"/>'
+    )
+
+
+def _bracos_frente_casa():
+    return _bracos_frente().replace(f'fill="{JALECO}"', f'fill="{BLUSA}"')
+
+
+def _bracos_cruzados_casa():
+    return _bracos_cruzados().replace(f'fill="{JALECO}"', f'fill="{BLUSA}"').replace(f'stroke="{JALECO_S}"', f'stroke="{BLUSA_S}"')
+
+
+def dra_svg(bracos="cruzados", standalone=True, roupa="jaleco"):
+    if roupa == "casa":
+        meio = _tronco_casa() + (_bracos_cruzados_casa() if bracos == "cruzados" else _bracos_frente_casa())
+    else:
+        meio = _tronco() + _estetoscopio() + (_bracos_cruzados() if bracos == "cruzados" else _bracos_frente())
+    corpo = _cabelo_tras() + meio + _rosto() + _franja()
     g = f'<g>{corpo}</g>'
     if not standalone:
         return g
@@ -113,3 +133,4 @@ def dra_svg(bracos="cruzados", standalone=True):
 if __name__ == "__main__":
     for b in ("cruzados", "frente"):
         open(f"dra-{b}.svg", "w").write(dra_svg(b))
+        open(f"dra-{b}-casa.svg", "w").write(dra_svg(b, roupa="casa"))
