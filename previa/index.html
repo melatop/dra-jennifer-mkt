@@ -136,6 +136,13 @@ button,textarea{font:inherit;color:inherit}
 .roteiro ul.brief li{display:block;padding-left:16px;position:relative}
 .roteiro ul.brief li::before{content:"";position:absolute;left:0;top:.55em;width:6px;height:6px;border-radius:50%;background:var(--pink)}
 .roteiro .nota{font-size:12px;color:var(--muted);margin:10px 0 4px}
+.roteiro .sub-tit{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--teal-d);margin:12px 0 0}
+.roteiro ol.takes{list-style:none;margin-top:8px;display:flex;flex-direction:column;gap:12px}
+.roteiro ol.takes li{display:flex;flex-direction:column;gap:3px;font-size:14px;background:var(--tt);border-radius:12px;padding:10px 12px}
+.roteiro ol.takes li>b{display:flex;align-items:center;gap:8px;color:var(--mauve-d)}
+.roteiro ol.takes .n{width:22px;height:22px;border-radius:50%;background:var(--teal);color:#fff;font-size:12px;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.roteiro ol.takes .meta{font-size:13px;color:var(--muted)}
+.roteiro ol.takes .meta b{color:var(--ink)}
 .roteiro li .tela{font-size:13px;color:var(--muted)}
 
 /* aprovação */
@@ -424,8 +431,14 @@ function roteiro(p) {
   if (p.tipo === 'foto' && p.ilustracao && p.briefing) return `<details class="roteiro" open><summary>Briefing da foto: ${esc(p.briefing.titulo)}</summary>
     <ul class="brief">${p.briefing.itens.map(t=>`<li>${esc(t)}</li>`).join('')}</ul>
     <p class="nota">A ilustração é só referência de enquadramento e posição.</p></details>`;
-  if (!p.roteiro) return '';
-  return `<details class="roteiro"><summary>Ver roteiro do vídeo</summary><ol>${p.roteiro.map(r=>`
+  const guia = p.gravacao ? `<details class="roteiro" open><summary>O que gravar</summary>
+    <p class="sub-tit">Antes de começar</p><ul class="brief">${p.gravacao.antes.map(t=>`<li>${esc(t)}</li>`).join('')}</ul>
+    <p class="sub-tit">Takes</p><ol class="takes">${p.gravacao.takes.map((t,i)=>`<li><b><span class="n">${i+1}</span>${esc(t.titulo)}</b>
+      <span>${esc(t.como)}</span><span class="meta"><b>Enquadramento:</b> ${esc(t.enquadre)}</span><span class="meta"><b>Duração:</b> ${esc(t.duracao)}</span></li>`).join('')}</ol>
+    ${p.gravacao.extras && p.gravacao.extras.length ? `<p class="sub-tit">Extras</p><ul class="brief">${p.gravacao.extras.map(t=>`<li>${esc(t)}</li>`).join('')}</ul>` : ''}
+    <p class="nota">${esc(p.gravacao.envio)}</p></details>` : '';
+  if (!p.roteiro) return guia;
+  return guia + `<details class="roteiro"><summary>Ver roteiro do vídeo (falas e textos)</summary><ol>${p.roteiro.map(r=>`
     <li><span class="t">${esc(r.tempo)}</span><span>${esc(r.cena)}
       ${r.fala?`<br><span class="fala">“${esc(r.fala)}”</span>`:''}
       ${r.texto?`<br><span class="tela">Texto na tela: ${esc(r.texto)}</span>`:''}</span></li>`).join('')}</ol></details>`;

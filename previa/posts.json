@@ -86,7 +86,52 @@
           "fala": "Testa aí e me conta se o seu respondeu."
         }
       ],
-      "legenda": "Piscada lenta: o jeito felino de dizer \"tô tranquilo com você\".\n\nUm estudo com gatos domésticos mostrou que eles tendem a piscar devagar de volta quando a pessoa faz o gesto primeiro, e a se aproximar mais de quem faz isso. É uma forma simples de comunicação, sem pegar no colo nem insistir.\n\nComo fazer: olhe para o seu gato com o rosto relaxado, feche os olhos devagar e abra de novo. Dê tempo para ele responder.\n\nTestou? Me conta nos comentários se o seu respondeu. 😄\n\n#gatos #comportamentofelino #medicinafelina #gatosdeinstagram #contagem #veterinariabh #jenniferaragaovet"
+      "legenda": "Piscada lenta: o jeito felino de dizer \"tô tranquilo com você\".\n\nUm estudo com gatos domésticos mostrou que eles tendem a piscar devagar de volta quando a pessoa faz o gesto primeiro, e a se aproximar mais de quem faz isso. É uma forma simples de comunicação, sem pegar no colo nem insistir.\n\nComo fazer: olhe para o seu gato com o rosto relaxado, feche os olhos devagar e abra de novo. Dê tempo para ele responder.\n\nTestou? Me conta nos comentários se o seu respondeu. 😄\n\n#gatos #comportamentofelino #medicinafelina #gatosdeinstagram #contagem #veterinariabh #jenniferaragaovet",
+      "gravacao": {
+        "antes": [
+          "Celular na vertical, câmera traseira, 1080p ou 4K a 30 fps. Limpe a lente antes.",
+          "Luz de janela de frente ou de lado. Evite gravar de costas para a janela.",
+          "Celular em modo Não Perturbe, para nenhuma notificação cortar o vídeo.",
+          "Comece a gravar uns segundos antes da ação e pare uns segundos depois. Sobra é bom; eu corto na edição.",
+          "Grave cada take 2 ou 3 vezes. Não precisa sair perfeito, só natural."
+        ],
+        "takes": [
+          {
+            "titulo": "Zack piscando devagar",
+            "como": "Com ele deitado e calmo, apoie o celular na altura dos olhos dele e deixe gravando 1 a 2 minutos. Por trás do celular, pisque devagar para ele: ele tende a responder.",
+            "enquadre": "Close no rosto, a uns 40 cm. Foco nos olhos.",
+            "duracao": "1–2 min (eu escolho o trecho)"
+          },
+          {
+            "titulo": "Você no sofá explicando",
+            "como": "Sente no sofá com a parede cinza e os instrumentos ao fundo. Fale as duas primeiras falas do roteiro olhando para a câmera, uma por vez, com pausa entre elas.",
+            "enquadre": "Celular apoiado (tripé ou pilha de livros) na altura dos seus olhos, a 1 m. Da cintura para cima.",
+            "duracao": "10–20 s cada fala"
+          },
+          {
+            "titulo": "Você piscando para o Fred",
+            "como": "Olhe para o Fred, feche os olhos devagar e abra de novo. Repita algumas vezes com calma.",
+            "enquadre": "De lado, mostrando o seu perfil e o dele no mesmo quadro.",
+            "duracao": "30 s a 1 min"
+          },
+          {
+            "titulo": "Raul respondendo (ou não)",
+            "como": "Faça a piscada para o Raul. Se ele responder, ótimo; se ignorar ou virar a cara, também serve, porque é a piada do vídeo.",
+            "enquadre": "Close nele, câmera na altura dele.",
+            "duracao": "30 s a 1 min"
+          },
+          {
+            "titulo": "Fechamento",
+            "como": "Fale a última frase do roteiro olhando para a câmera e fique 3 segundos sorrindo em silêncio no final (é onde entra o texto na tela).",
+            "enquadre": "Igual ao take 2.",
+            "duracao": "10 s"
+          }
+        ],
+        "extras": [
+          "3 ou 4 trechos de 5 segundos dos gatos relaxados (deitados, se espreguiçando, de olhos semicerrados). Servem para cobrir cortes."
+        ],
+        "envio": "Depois de gravar, mande os vídeos para o Pedro pelo WhatsApp ou Google Drive (sem compactar, se der). Ele faz a edição."
+      }
     },
     {
       "id": "2026-12-10-mitos",
@@ -177,7 +222,53 @@
           "texto": "Marca aqui quem tem um padeiro em casa 🥖"
         }
       ],
-      "legenda": "Amassar pãozinho é um dos comportamentos mais fofos dos gatos, e tem explicação. 🥖\n\nÉ um hábito que vem da fase de filhote, quando eles amassavam a barriga da mãe para estimular a descida do leite. Na vida adulta, costuma aparecer quando o gato está relaxado e confortável. E como as patas têm glândulas de cheiro, também é uma forma de marcar território, incluindo você.\n\nSe as unhas incomodam, uma manta dobrada no colo resolve.\n\nMarca aqui quem tem um padeiro em casa!\n\n#amassarpaozinho #comportamentofelino #gatos #medicinafelina #contagem #veterinariabh #jenniferaragaovet"
+      "legenda": "Amassar pãozinho é um dos comportamentos mais fofos dos gatos, e tem explicação. 🥖\n\nÉ um hábito que vem da fase de filhote, quando eles amassavam a barriga da mãe para estimular a descida do leite. Na vida adulta, costuma aparecer quando o gato está relaxado e confortável. E como as patas têm glândulas de cheiro, também é uma forma de marcar território, incluindo você.\n\nSe as unhas incomodam, uma manta dobrada no colo resolve.\n\nMarca aqui quem tem um padeiro em casa!\n\n#amassarpaozinho #comportamentofelino #gatos #medicinafelina #contagem #veterinariabh #jenniferaragaovet",
+      "gravacao": {
+        "antes": [
+          "Celular na vertical, câmera traseira, 1080p ou 4K a 30 fps. Limpe a lente antes.",
+          "Luz de janela de frente ou de lado. Evite gravar de costas para a janela.",
+          "Celular em modo Não Perturbe, para nenhuma notificação cortar o vídeo.",
+          "Comece a gravar uns segundos antes da ação e pare uns segundos depois. Sobra é bom; eu corto na edição.",
+          "Grave cada take 2 ou 3 vezes. Não precisa sair perfeito, só natural."
+        ],
+        "takes": [
+          {
+            "titulo": "Close das patas amassando",
+            "como": "Coloque uma manta macia e felpuda no sofá ou no seu colo, no horário em que o Fred costuma deitar. Deixe o celular pronto e grave quando ele começar sozinho. Não force: se não rolar no dia, tenta em outro.",
+            "enquadre": "Bem perto das patas, a uns 30 cm, de cima ou de lado. Foco nas patas e na manta.",
+            "duracao": "15–30 s"
+          },
+          {
+            "titulo": "Você no sofá explicando",
+            "como": "Com um dos gatos no colo, se ele topar. Fale a explicação do roteiro em duas partes: a do filhote e a do cheiro nas patas.",
+            "enquadre": "Celular apoiado na altura dos seus olhos, a 1 m, da cintura para cima. Sofá e instrumentos ao fundo.",
+            "duracao": "10–20 s cada parte"
+          },
+          {
+            "titulo": "Pata do Zack abrindo e fechando",
+            "como": "Quando o Zack estiver amassando ou espreguiçando, grave só a pata. Se as unhas aparecerem, melhor ainda.",
+            "enquadre": "Close extremo na pata.",
+            "duracao": "10–20 s"
+          },
+          {
+            "titulo": "Raul amassando o seu colo",
+            "como": "Com a manta no colo, espere o Raul subir e amassar. Reaja de forma natural (sorrir, olhar para ele).",
+            "enquadre": "Câmera fixa mostrando você e ele, do peito para baixo ou da cintura para cima.",
+            "duracao": "20–40 s"
+          },
+          {
+            "titulo": "Fechamento",
+            "como": "Olhe para a câmera, sorria e fique 3 segundos em silêncio no final (entra o texto “Marca aqui quem tem um padeiro em casa”).",
+            "enquadre": "Igual ao take 2.",
+            "duracao": "5–10 s"
+          }
+        ],
+        "extras": [
+          "Trechos curtos dos três gatos deitados na manta, de olhos fechados ou ronronando.",
+          "Se a unha incomodar no colo, use a manta dobrada: é a dica da legenda e pode aparecer no vídeo."
+        ],
+        "envio": "Depois de gravar, mande os vídeos para o Pedro pelo WhatsApp ou Google Drive (sem compactar, se der). Ele faz a edição."
+      }
     },
     {
       "id": "2026-12-24-natal",
