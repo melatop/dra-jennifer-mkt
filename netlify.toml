@@ -1,12 +1,13 @@
 [[redirects]]
   from = "/previa"
-  to = "/previa/"
-  status = 301
+  to = "https://previa--jenniferaragao-vet.netlify.app/previa/"
+  status = 302
+  force = true
 
 [[redirects]]
   from = "/previa/*"
   to = "https://previa--jenniferaragao-vet.netlify.app/previa/:splat"
-  status = 200
+  status = 302
   force = true
 
 [[redirects]]
