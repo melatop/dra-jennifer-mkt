@@ -1,4 +1,15 @@
 [[redirects]]
+  from = "/previa"
+  to = "/previa/"
+  status = 301
+
+[[redirects]]
+  from = "/previa/*"
+  to = "https://previa--jenniferaragao-vet.netlify.app/previa/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/"
   to = "/a-selva-em-casa/"
   status = 302
