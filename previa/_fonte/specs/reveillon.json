@@ -1,0 +1,59 @@
+{
+ "saida": "/home/claude/previa/work/reveillon/png",
+ "logo": "logo.png",
+ "handle": "@jenniferaragao.vet",
+ "slides": [
+  {
+   "tipo": "enfase",
+   "nome": "capa",
+   "kicker": "31 de dezembro",
+   "topo": "<svg viewBox=\"0 0 920 110\" fill=\"none\" stroke-width=\"3\" stroke-linecap=\"round\"><g stroke=\"#F0B9C8\"><path d=\"M120 55l0-34M120 55l0 34M120 55l-34 0M120 55l34 0M120 55l-24-24M120 55l24 24M120 55l-24 24M120 55l24-24\"/></g><g stroke=\"#A9D3D9\"><path d=\"M460 50l0-26M460 50l0 26M460 50l-26 0M460 50l26 0M460 50l-18-18M460 50l18 18M460 50l-18 18M460 50l18-18\"/></g><g stroke=\"#F0B9C8\"><path d=\"M790 58l0-30M790 58l0 30M790 58l-30 0M790 58l30 0M790 58l-21-21M790 58l21 21M790 58l-21 21M790 58l21-21\"/></g></svg>",
+   "titulo": "A virada é festa.<br>Para o gato,<br>é <span class=\"kw\">susto</span>.",
+   "corpo": "Fogos estão entre os maiores motivos de fuga e estresse em gatos. Dá para preparar a casa antes.",
+   "destaque": "Preparar antes <b>=</b> virada tranquila."
+  },
+  {
+   "tipo": "dica",
+   "nome": "passo-1",
+   "numero": "01",
+   "rotulo": "Passo",
+   "icone": "<svg viewBox=\"0 0 176 150\" fill=\"none\" stroke=\"#5897A0\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20 56h120v84H20z\"/><path d=\"M20 56 40 28h120l-20 28M160 28v84l-20 28\"/><path d=\"M54 140v-34c0-14 52-14 52 0v34\" stroke=\"#D1899D\"/></svg>",
+   "titulo": "Um <span class=\"kw\">refúgio</span><br>só dele.",
+   "corpo": "Um cômodo calmo com cama, água, caixa de areia e um esconderijo, como a caixa de transporte aberta."
+  },
+  {
+   "tipo": "dica",
+   "nome": "passo-2",
+   "numero": "02",
+   "rotulo": "Passo",
+   "icone": "<svg viewBox=\"0 0 176 150\" fill=\"none\" stroke=\"#5897A0\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"20\" y=\"14\" width=\"120\" height=\"122\" rx=\"6\"/><path d=\"M80 14v122M20 75h120\"/><path d=\"M150 50v50M150 50l-10 10M150 50l10 10\" stroke=\"#D1899D\"/><path d=\"M34 30l32 32M94 30l32 32M34 90l32 32M94 90l32 32\" stroke-opacity=\".3\"/></svg>",
+   "titulo": "Janelas e portas<br><span class=\"kw\">fechadas</span>.",
+   "corpo": "Com medo, o gato pode tentar fugir ou pular. Feche tudo antes dos fogos e confira as telas de proteção."
+  },
+  {
+   "tipo": "dica",
+   "nome": "passo-3",
+   "numero": "03",
+   "rotulo": "Passo",
+   "icone": "<svg viewBox=\"0 0 176 150\" fill=\"none\" stroke=\"#5897A0\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"10\" y=\"20\" width=\"120\" height=\"84\" rx=\"10\"/><path d=\"M50 130h40M70 104v26\"/><path d=\"M146 46c8 8 8 24 0 32M160 36c14 14 14 38 0 52\" stroke=\"#D1899D\"/></svg>",
+   "titulo": "Deixe ele<br><span class=\"kw\">quietinho</span>.",
+   "corpo": "Não tire o gato do esconderijo nem force colo. Fique por perto, com som ambiente ou a TV ligada."
+  },
+  {
+   "tipo": "dica",
+   "nome": "passo-4",
+   "numero": "04",
+   "rotulo": "Passo",
+   "icone": "<svg viewBox=\"0 0 176 150\" fill=\"none\" stroke=\"#5897A0\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"14\" y=\"26\" width=\"128\" height=\"114\" rx=\"12\"/><path d=\"M14 58h128M46 14v24M110 14v24\"/><path d=\"M56 96l14 14 28-30\" stroke=\"#D1899D\"/></svg>",
+   "titulo": "Medo forte todo ano?<br><span class=\"kw\">Converse</span> antes.",
+   "corpo": "Se o seu gato entra em pânico com os fogos, fale com o veterinário com antecedência para planejar juntos."
+  },
+  {
+   "tipo": "cta",
+   "nome": "cta",
+   "titulo": "Feliz virada para<br>você e <span class=\"kw\">para ele</span>.",
+   "subtitulo": "Salve e mande para quem tem gato.",
+   "botao": "Agende pelo link da bio"
+  }
+ ]
+}

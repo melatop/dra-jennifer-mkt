@@ -1,0 +1,49 @@
+{
+ "saida": "/home/claude/previa/work/mitos/png",
+ "logo": "logo.png",
+ "handle": "@jenniferaragao.vet",
+ "slides": [
+  {
+   "tipo": "enfase",
+   "nome": "capa",
+   "kicker": "Mito ou verdade",
+   "topo": "<svg viewBox=\"0 0 920 110\" fill=\"none\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M10 14h170a14 14 0 0 1 14 14v40a14 14 0 0 1-14 14H70l-30 22V82H24A14 14 0 0 1 10 68V28a14 14 0 0 1 14-14z\" stroke=\"#A9D3D9\"/><path d=\"M370 14h170a14 14 0 0 1 14 14v40a14 14 0 0 1-14 14h-110l-30 22V82h-16a14 14 0 0 1-14-14V28a14 14 0 0 1 14-14z\" stroke=\"#F0B9C8\"/><path d=\"M730 14h170a14 14 0 0 1 14 14v40a14 14 0 0 1-14 14H790l-30 22V82h-16a14 14 0 0 1-14-14V28a14 14 0 0 1 14-14z\" stroke=\"#A9D3D9\"/><path d=\"M50 48h104M410 48h104M770 48h104\" stroke=\"#FBF5F7\" stroke-opacity=\".5\"/></svg>",
+   "titulo": "Três frases sobre gatos que <span class=\"kw\">todo mundo</span> repete.",
+   "corpo": "E que merecem uma revisão. Vamos uma por uma?"
+  },
+  {
+   "tipo": "dica",
+   "nome": "mito-1",
+   "numero": "01",
+   "rotulo": "Mito",
+   "icone": "<svg viewBox=\"0 0 176 150\" fill=\"none\" stroke=\"#5897A0\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M14 72 70 24l56 48\"/><path d=\"M26 62v76h88V62\"/><path d=\"M56 138v-34h28v34\"/><path d=\"M140 40v40c0 14 10 24 18 24s14-8 14-18\" stroke=\"#D1899D\"/><circle cx=\"140\" cy=\"34\" r=\"6\" stroke=\"#D1899D\"/><circle cx=\"172\" cy=\"80\" r=\"4\" stroke=\"#D1899D\"/></svg>",
+   "titulo": "“Gato que não sai<br>de casa dispensa<br>o <span class=\"kw\">veterinário</span>.”",
+   "corpo": "Gatos escondem bem os sinais de doença. O check-up regular ajuda a encontrar problemas cedo, antes que apareçam em casa."
+  },
+  {
+   "tipo": "dica",
+   "nome": "mito-2",
+   "numero": "02",
+   "rotulo": "Mito",
+   "icone": "<svg viewBox=\"0 0 176 150\" fill=\"none\" stroke=\"#5897A0\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M48 20h56l-8 118H56z\"/><path d=\"M52 60h48\"/><path d=\"M60 20c0-8 32-8 32 0\" stroke-opacity=\".55\"/><path d=\"M122 56l40 40M162 56l-40 40\" stroke=\"#D1899D\"/></svg>",
+   "titulo": "“Leite é um bom<br><span class=\"kw\">agrado</span> para o gato.”",
+   "corpo": "Muitos gatos adultos não digerem bem a lactose, e o leite pode causar diarreia. O que ele precisa é de água fresca."
+  },
+  {
+   "tipo": "dica",
+   "nome": "mito-3",
+   "numero": "03",
+   "rotulo": "Meia verdade",
+   "icone": "<svg viewBox=\"0 0 176 150\" fill=\"none\" stroke=\"#5897A0\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M40 128c-14-10-20-26-20-44 0-30 22-50 50-50s50 20 50 50c0 18-6 34-20 44z\"/><path d=\"M28 50 22 14l30 18M112 50l6-36-30 18\"/><path d=\"M56 82h.01M84 82h.01\" stroke-width=\"7\"/><path d=\"M64 100c4 4 8 4 12 0\" stroke-opacity=\".7\"/><path d=\"M138 64c8 10 8 30 0 40M152 54c13 16 13 44 0 60\" stroke=\"#D1899D\"/></svg>",
+   "titulo": "“Ronronar é sinal<br>de que ele está <span class=\"kw\">feliz</span>.”",
+   "corpo": "Muitas vezes, sim. Mas gatos também ronronam quando sentem dor ou estresse. Vale observar o contexto."
+  },
+  {
+   "tipo": "cta",
+   "nome": "cta",
+   "titulo": "Na dúvida, pergunte<br>a quem <span class=\"kw\">entende</span>.",
+   "subtitulo": "Qual mito você já ouviu por aí?",
+   "botao": "Agende pelo link da bio"
+  }
+ ]
+}

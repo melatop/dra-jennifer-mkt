@@ -1,0 +1,49 @@
+{
+ "saida": "/home/claude/previa/work/viagem/png",
+ "logo": "logo.png",
+ "handle": "@jenniferaragao.vet",
+ "slides": [
+  {
+   "tipo": "enfase",
+   "nome": "capa",
+   "kicker": "Férias de fim de ano",
+   "topo": "<svg viewBox=\"0 0 920 110\" fill=\"none\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"10\" y=\"30\" width=\"110\" height=\"74\" rx=\"12\" stroke=\"#A9D3D9\"/><path d=\"M42 30V18h46v12M10 60h110\" stroke=\"#A9D3D9\"/><path d=\"M160 66c120-60 260-60 380 0s260 60 360 0\" stroke=\"#F0B9C8\" stroke-dasharray=\"4 14\"/></svg>",
+   "titulo": "Você vai viajar.<br>E o gato, fica<br>com <span class=\"kw\">quem</span>?",
+   "corpo": "Para a maioria dos gatos, ficar no próprio território é menos estressante do que ir junto. O segredo é organizar."
+  },
+  {
+   "tipo": "dica",
+   "nome": "passo-1",
+   "numero": "01",
+   "rotulo": "Passo",
+   "icone": "<svg viewBox=\"0 0 176 150\" fill=\"none\" stroke=\"#5897A0\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M14 72 70 24l56 48\"/><path d=\"M26 62v76h88V62\"/><circle cx=\"140\" cy=\"46\" r=\"16\" stroke=\"#D1899D\"/><path d=\"M140 62v60M140 104h14M140 118h10\" stroke=\"#D1899D\"/></svg>",
+   "titulo": "Um cuidador que<br>vá até a <span class=\"kw\">sua casa</span>.",
+   "corpo": "Pelo menos uma visita por dia para conferir água, comida, caixa de areia e o próprio gato. Conte antes como ele é."
+  },
+  {
+   "tipo": "dica",
+   "nome": "passo-2",
+   "numero": "02",
+   "rotulo": "Passo",
+   "icone": "<svg viewBox=\"0 0 176 150\" fill=\"none\" stroke=\"#5897A0\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M8 90h70l-8 34H16z\"/><path d=\"M98 90h70l-8 34h-54z\"/><path d=\"M24 104c8-6 14 6 22 0s14 6 22 0M114 104c8-6 14 6 22 0s14 6 22 0\" stroke=\"#D1899D\"/><path d=\"M43 70V40M133 70V40\" stroke-opacity=\".4\"/></svg>",
+   "titulo": "Água e areia<br>em <span class=\"kw\">dobro</span>.",
+   "corpo": "Deixe mais de um ponto de água fresca e uma caixa de areia extra, limpa. Assim nada falta entre as visitas."
+  },
+  {
+   "tipo": "dica",
+   "nome": "passo-3",
+   "numero": "03",
+   "rotulo": "Passo",
+   "icone": "<svg viewBox=\"0 0 176 150\" fill=\"none\" stroke=\"#5897A0\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"20\" y=\"10\" width=\"90\" height=\"130\" rx=\"14\"/><path d=\"M52 124h26\"/><path d=\"M40 40h50M40 60h50M40 80h30\" stroke-opacity=\".6\"/><path d=\"M134 54c10 0 20 10 20 20M134 34c22 0 40 18 40 40\" stroke=\"#D1899D\"/></svg>",
+   "titulo": "Contatos<br><span class=\"kw\">à mão</span>.",
+   "corpo": "Deixe com o cuidador o seu telefone, o contato do veterinário e o que é normal para o seu gato: apetite, hábitos e rotina."
+  },
+  {
+   "tipo": "cta",
+   "nome": "cta",
+   "titulo": "Boa viagem.<br>Ele te <span class=\"kw\">espera</span> em casa.",
+   "subtitulo": "Ficou com dúvida? Fale comigo.",
+   "botao": "Agende pelo link da bio"
+  }
+ ]
+}

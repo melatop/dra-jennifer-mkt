@@ -1,0 +1,57 @@
+{
+ "saida": "/home/claude/previa/work/natal/png",
+ "logo": "logo.png",
+ "handle": "@jenniferaragao.vet",
+ "slides": [
+  {
+   "tipo": "enfase",
+   "nome": "capa",
+   "kicker": "Dezembro · Gatos e festas",
+   "topo": "<svg viewBox=\"0 0 920 110\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3\"><path d=\"M0 10Q230 80 460 10Q690 80 920 10\" stroke=\"#F0B9C8\"/><path d=\"M115 36v20\" stroke=\"#A9D3D9\"/><circle cx=\"115\" cy=\"70\" r=\"14\" stroke=\"#A9D3D9\"/><path d=\"M230 45v20\" stroke=\"#F0B9C8\"/><circle cx=\"230\" cy=\"79\" r=\"14\" stroke=\"#F0B9C8\"/><path d=\"M345 36v20\" stroke=\"#A9D3D9\"/><circle cx=\"345\" cy=\"70\" r=\"14\" stroke=\"#A9D3D9\"/><path d=\"M575 36v20\" stroke=\"#F0B9C8\"/><circle cx=\"575\" cy=\"70\" r=\"14\" stroke=\"#F0B9C8\"/><path d=\"M690 45v20\" stroke=\"#A9D3D9\"/><circle cx=\"690\" cy=\"79\" r=\"14\" stroke=\"#A9D3D9\"/><path d=\"M805 36v20\" stroke=\"#F0B9C8\"/><circle cx=\"805\" cy=\"70\" r=\"14\" stroke=\"#F0B9C8\"/></svg>",
+   "titulo": "A árvore chegou.<br>E o seu gato já<br><span class=\"kw\">reparou</span>.",
+   "corpo": "Três cuidados simples para as festas serem tranquilas para todo mundo da casa, inclusive para ele.",
+   "destaque": "Prevenir <b>=</b> festa sem susto."
+  },
+  {
+   "tipo": "texto",
+   "nome": "identificacao",
+   "topo": "<svg viewBox=\"0 0 120 130\" fill=\"none\" stroke=\"#5897A0\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M60 8 30 52h14L20 86h16L10 118h100L84 86h16L76 52h14z\"/><path d=\"M60 118v10\"/><circle cx=\"44\" cy=\"74\" r=\"5\" stroke=\"#D1899D\"/><circle cx=\"78\" cy=\"100\" r=\"5\" stroke=\"#D1899D\"/></svg><span class=\"op\">=</span><svg viewBox=\"0 0 150 120\" fill=\"none\" stroke=\"#5897A0\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M10 100c30-60 60-80 100-84\"/><path d=\"M40 70l-10-14M64 48l-6-16M90 30l2-14\" stroke-opacity=\".55\"/><path d=\"M110 16c10 6 18 18 20 34\" stroke=\"#D1899D\"/><circle cx=\"130\" cy=\"62\" r=\"12\"/></svg><span class=\"op\">+</span><svg viewBox=\"0 0 120 120\" fill=\"none\" stroke=\"#5897A0\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M10 20c20 20 30 40 30 60s20 30 40 20 30-30 30-50\"/><circle cx=\"40\" cy=\"52\" r=\"6\" stroke=\"#D1899D\"/><circle cx=\"80\" cy=\"100\" r=\"6\"/><circle cx=\"108\" cy=\"62\" r=\"6\" stroke=\"#D1899D\"/></svg>",
+   "titulo": "Para ele, árvore =<br><span class=\"kw\">brinquedo</span> gigante.",
+   "corpo": "Galhos para escalar, bolinhas que balançam, luzes que piscam. Para um caçador nato, faz todo o sentido. A prevenção fica com a gente."
+  },
+  {
+   "tipo": "dica",
+   "nome": "dica-1",
+   "numero": "01",
+   "rotulo": "Cuidado",
+   "icone": "<svg viewBox=\"0 0 176 150\" fill=\"none\" stroke=\"#5897A0\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M10 120c20-30 40 10 60-20s40 10 60-20 30-10 40-30\"/><path d=\"M18 132c20-30 40 10 60-20s40 10 60-20 24-8 30-22\" stroke-opacity=\".45\"/><path d=\"M88 40c-14-16-34-14-34 0s20 14 34 0zM88 40c14-16 34-14 34 0s-20 14-34 0zM88 40l-12 26M88 40l12 26\" stroke=\"#D1899D\"/></svg>",
+   "titulo": "Fitas e festão:<br>melhor <span class=\"kw\">não usar</span>.",
+   "corpo": "Se engolidos, fios e fitas podem ficar presos no intestino, uma emergência. Prefira enfeites grandes, inquebráveis e sem pendurinhos."
+  },
+  {
+   "tipo": "dica",
+   "nome": "dica-2",
+   "numero": "02",
+   "rotulo": "Cuidado",
+   "icone": "<svg viewBox=\"0 0 176 150\" fill=\"none\" stroke=\"#5897A0\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M88 72C80 46 84 22 88 10c4 12 8 36 0 62zM88 72C66 56 48 52 34 54c10 10 30 22 54 18zM88 72c22-16 40-20 54-18-10 10-30 22-54 18zM88 72c-18 10-30 22-36 34 14 0 28-12 36-34zM88 72c18 10 30 22 36 34-14 0-28-12-36-34z\"/><path d=\"M88 72v70M88 118c-14-4-24-12-30-24M88 126c14-4 24-12 30-24\" stroke-opacity=\".55\"/><path d=\"M88 72l-8-26M88 72l8-26M88 72l-18-18M88 72l18-18\" stroke=\"#D1899D\"/><circle cx=\"80\" cy=\"44\" r=\"3\" stroke=\"#D1899D\"/><circle cx=\"96\" cy=\"44\" r=\"3\" stroke=\"#D1899D\"/></svg>",
+   "titulo": "Lírio é bonito.<br>Para gato, é <span class=\"kw\">perigoso</span>.",
+   "corpo": "Todas as partes do lírio, até o pólen e a água do vaso, são tóxicas para os rins dos gatos. Mantenha-o longe de casa."
+  },
+  {
+   "tipo": "dica",
+   "nome": "dica-3",
+   "numero": "03",
+   "rotulo": "Cuidado",
+   "icone": "<svg viewBox=\"0 0 176 150\" fill=\"none\" stroke=\"#5897A0\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M82 8 52 50h14L42 84h16L32 118h100L106 84h16L98 50h14z\"/><path d=\"M66 118v12h32v-12\"/><path d=\"M46 136h72\"/><path d=\"M164 6v140\" stroke-opacity=\".45\"/><path d=\"M104 30h60\" stroke=\"#D1899D\" stroke-dasharray=\"6 8\"/></svg>",
+   "titulo": "Árvore <span class=\"kw\">firme</span>,<br>fios protegidos.",
+   "corpo": "Base pesada ou presa na parede, enfeites frágeis lá no alto e os fios do pisca-pisca protegidos contra mordidas."
+  },
+  {
+   "tipo": "cta",
+   "nome": "cta",
+   "titulo": "Festas tranquilas<br>começam em <span class=\"kw\">casa</span>.",
+   "subtitulo": "Ficou com dúvida? Fale comigo.",
+   "botao": "Agende pelo link da bio"
+  }
+ ]
+}

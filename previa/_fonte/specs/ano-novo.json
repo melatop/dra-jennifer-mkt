@@ -1,0 +1,14 @@
+{
+ "saida": "/home/claude/previa/work/ano-novo/png",
+ "logo": "logo.png",
+ "handle": "@jenniferaragao.vet",
+ "slides": [
+  {
+   "tipo": "cta",
+   "nome": "arte",
+   "titulo": "Que 2027 venha<br>com muito <span class=\"kw\">ronrom</span>.",
+   "subtitulo": "Obrigada por cuidar tão bem deles.",
+   "botao": "Nos vemos em 2027"
+  }
+ ]
+}
