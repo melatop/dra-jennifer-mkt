@@ -29,23 +29,16 @@
     },
     {
       "id": "2026-12-03-apresentacao",
-      "versao": 1,
+      "versao": 2,
       "data": "2026-12-03",
       "tipo": "foto",
       "tema": "Apresentação: quem cuida do seu gato",
-      "briefing": {
-        "titulo": "Você no sofá da sala com um dos gatos",
-        "itens": [
-          "Você sentada no sofá, com o Zack, o Fred ou o Raul no colo ou ao lado, olhando para a câmera e sorrindo.",
-          "Roupa de casa clara, num tom suave: um azul clarinho combina com a paleta do perfil.",
-          "Fundo: a parede cinza com a guitarra e o violão aparecendo. Sem bagunça e sem objetos soltos no sofá.",
-          "Luz natural de janela, de frente ou de lado. Sem flash.",
-          "Celular na vertical, na altura dos olhos. Tirar várias e escolher depois."
-        ]
-      },
       "legenda": "👋🐾 Faz um tempo que eu não apareço por aqui, então vale começar pelo começo: prazer, eu sou a Jennifer.\n\nSou médica veterinária, com atendimento clínico geral e um cuidado especial com os gatos, em Contagem e na Grande BH. Gato não é um cachorro pequeno: ele tem fisiologia, comportamento e jeito de adoecer próprios. Por isso a consulta precisa respeitar o tempo dele, com ambiente calmo e manejo gentil.\n\nPor aqui eu vou dividir o que mais aparece no consultório: comportamento, prevenção, alimentação e os sinais que merecem atenção.\n\nMe conta nos comentários: qual é o nome do seu gato? 🐈\n\n#gatos #medicinaveterinaria #veterinaria #gatosdeinstagram #contagem #veterinariabh #jenniferaragaovet",
-      "ilustracao": "img/2026-12-03-apresentacao/referencia.jpg",
-      "thumb": "img/2026-12-03-apresentacao/thumb.jpg"
+      "thumb": "img/2026-12-03-apresentacao/thumb.jpg",
+      "imagens": [
+        "img/2026-12-03-apresentacao/foto-1.jpg"
+      ],
+      "fonte_fotos": "Ensaio profissional 2025 (pasta Fotos profissionais, Drive FitzLab)"
     },
     {
       "id": "2026-12-08-piscada-lenta",
@@ -149,23 +142,17 @@
     },
     {
       "id": "2026-12-15-consulta",
-      "versao": 1,
+      "versao": 2,
       "data": "2026-12-15",
       "tipo": "foto",
       "tema": "Bastidores: como é uma consulta felina",
-      "briefing": {
-        "titulo": "Você atendendo um gato com calma",
-        "itens": [
-          "Você na mesa de atendimento, examinando um gato tranquilo, com as mãos leves (sem contenção pela nuca e sem toalha apertada).",
-          "Se der, o gato saindo sozinho da caixa de transporte, ou explorando a mesa enquanto você observa.",
-          "Ângulo de lado ou de cima, com seu rosto e o gato no quadro. Luz clara, sem flash.",
-          "Mesa arrumada: sem seringa, material ou exame à mostra.",
-          "Só com paciente cujo tutor autorizou o uso da imagem. Se preferir, use um dos seus gatos."
-        ]
-      },
       "legenda": "🩺🐱 Muita gente me pergunta como é a consulta de um gato comigo. A resposta curta: no tempo dele.\n\nO gato chega num lugar estranho, com cheiros e barulhos novos. Por isso eu deixo ele sair da caixa quando quiser, converso com o tutor enquanto ele explora e uso manipulação gentil, sem pressa. Um gato menos estressado também deixa o exame mais fiel, porque o estresse altera batimentos, pressão e até a glicose.\n\nSe o seu gato sofre só de ver a caixa de transporte, me conta nos comentários. Tenho dicas para isso também.\n\nAgende pelo link da bio.\n\n#consultafelina #manejogentil #gatos #medicinaveterinaria #contagem #veterinariabh #jenniferaragaovet",
-      "ilustracao": "img/2026-12-15-consulta/referencia.jpg",
-      "thumb": "img/2026-12-15-consulta/thumb.jpg"
+      "thumb": "img/2026-12-15-consulta/thumb.jpg",
+      "imagens": [
+        "img/2026-12-15-consulta/foto-1.jpg",
+        "img/2026-12-15-consulta/foto-2.jpg"
+      ],
+      "fonte_fotos": "Ensaio profissional 2025 (pasta Fotos profissionais, Drive FitzLab)"
     },
     {
       "id": "2026-12-17-viagem",
