@@ -259,6 +259,14 @@ footer{text-align:center;font-size:13px;color:var(--muted);padding:40px 20px 60p
 .portao input{width:100%;border:1.5px solid #E4D3DA;border-radius:999px;padding:12px 16px;font:inherit;text-align:center;margin-top:14px}
 .portao button{margin-top:12px;width:100%;border:0;border-radius:999px;padding:12px;background:var(--mauve);color:#fff;font:inherit;font-weight:700;cursor:pointer}
 .portao .erro{color:var(--no);font-size:13px;margin-top:8px;min-height:18px}
+/* ---------- postar: copiar legenda e baixar ---------- */
+.postar{display:flex;flex-wrap:wrap;gap:8px;padding:10px 12px 4px}
+.postar button{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 14px;font:700 14px/1 inherit;color:var(--mauve-d);cursor:pointer}
+.postar button.b-baixar{background:var(--teal);border-color:var(--teal);color:#fff}
+.postar button svg{width:18px;height:18px;flex:none}
+.postar button{white-space:nowrap}
+.postar button:disabled{opacity:.5;cursor:default}
+.postar .msg-postar{flex-basis:100%;font-size:13px;color:var(--muted);margin:2px 2px 0;min-height:1em}
 </style>
 </head>
 <body>
@@ -478,6 +486,7 @@ function card(p, idx) {
       <div class="leg"><div class="txt"><b>${esc(POSTS.perfil.handle)}</b> ${esc(p.legenda)}</div>
         <button type="button" class="ver">mais</button>
         <span class="data">${dataLonga(p.data)}</span></div>
+      ${postar(p, st)}
       ${roteiro(p)}
     </div>
 ${p.briefing ? `<div class="fotos" data-post="${p.id}">
@@ -570,7 +579,59 @@ function ligarMic(el) {
     rec.start(); b.classList.add('on');
   });
 }
+// Arquivos finais para postar: p.postar (lista explícita) ou as imagens do post; Reels usam p.video.
+function arquivosFinais(p) {
+  if (p.postar && p.postar.length) return p.postar;
+  if (p.tipo === 'reels') return p.video ? [p.video] : [];
+  if (p.capa_a_tirar) return [];
+  return p.imagens || [];
+}
+function postar(p, st) {
+  const fs = arquivosFinais(p);
+  let baixar = '', aviso = '';
+  if (st !== 'aprovado') aviso = 'O download libera depois que você aprovar o post.';
+  else if (!fs.length) aviso = p.tipo === 'reels' ? 'O vídeo final ainda não está aqui. Assim que eu editar, ele aparece para baixar.' : 'A arte final ainda não está pronta (falta a foto). Assim que chegar, libera o download.';
+  else baixar = `<button type="button" class="b-baixar">${I.salvar} Baixar para postar${fs.length>1?` (${fs.length})`:''}</button>`;
+  return `<div class="postar">${baixar}<button type="button" class="b-copiar">${I.coment} Copiar legenda</button><p class="msg-postar">${aviso}</p></div>`;
+}
+async function copiarTexto(t) {
+  try { await navigator.clipboard.writeText(t); return true; } catch (e) {
+    const ta = document.createElement('textarea'); ta.value = t; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select(); let ok = false; try { ok = document.execCommand('copy'); } catch (_) {}
+    ta.remove(); return ok; }
+}
+function ligarPostar(el, p) {
+  const box = el.querySelector('.postar'); if (!box) return;
+  const msg = box.querySelector('.msg-postar');
+  box.querySelector('.b-copiar').addEventListener('click', async () => {
+    msg.textContent = await copiarTexto(p.legenda) ? 'Legenda copiada ✓ É só colar no Instagram.' : 'Não consegui copiar. Segure no texto da legenda para copiar.';
+  });
+  const bb = box.querySelector('.b-baixar'); if (!bb) return;
+  bb.addEventListener('click', async () => {
+    bb.disabled = true; msg.textContent = 'Preparando os arquivos…';
+    const copiou = await copiarTexto(p.legenda);
+    try {
+      const fs = arquivosFinais(p), files = [];
+      for (let i = 0; i < fs.length; i++) {
+        const r = await fetch(fs[i]); if (!r.ok) throw new Error('arquivo');
+        const b = await r.blob(), ext = (fs[i].split('?')[0].split('.').pop() || 'jpg').toLowerCase();
+        files.push(new File([b], `${p.id}-${String(i+1).padStart(2,'0')}.${ext}`, {type: b.type || (ext==='mp4'?'video/mp4':'image/'+(ext==='jpg'?'jpeg':ext))}));
+      }
+      const leg = copiou ? ' A legenda já está copiada.' : '';
+      if (navigator.canShare && navigator.canShare({files})) {
+        try { await navigator.share({files}); msg.textContent = 'Pronto.' + leg + ' No iPhone, escolha "Salvar imagens" (ou "Salvar vídeo").'; }
+        catch (e) { msg.textContent = e.name === 'AbortError' ? 'Cancelado.' : 'Não consegui abrir o compartilhamento. Tente de novo.'; }
+      } else {
+        for (const f of files) { const a = document.createElement('a'); a.href = URL.createObjectURL(f); a.download = f.name;
+          document.body.appendChild(a); a.click(); a.remove(); await new Promise(r => setTimeout(r, 400)); }
+        msg.textContent = `${files.length === 1 ? 'Arquivo baixado' : files.length + ' arquivos baixados, na ordem do post'}.` + leg;
+      }
+    } catch (e) { msg.textContent = 'Não consegui baixar. Confira a internet e tente de novo.'; }
+    bb.disabled = false;
+  });
+}
 function ligarCard(el, p) {
+  ligarPostar(el, p);
   ligarMic(el);
   ligarFotos(el, p);
   ligarCarrossel(el);
