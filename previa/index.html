@@ -455,9 +455,9 @@ function midia(p) {
       <div class="k">${esc(p.capa.kicker)}</div><h3>${p.capa.titulo}</h3>${p.capa.figurinha ? `<img class="fig" src="${p.capa.figurinha}" alt="">` : ''}</div></div>`;
 }
 function roteiro(p) {
-  if (p.briefing && (p.ilustracao || p.capa_a_tirar)) return `<details class="roteiro" open><summary>${p.capa_a_tirar ? '' : 'Briefing da foto: '}${esc(p.briefing.titulo)}</summary>
+  if (p.briefing && (p.ilustracao || p.capa_a_tirar || p.foto_provisoria)) return `<details class="roteiro" open><summary>${p.capa_a_tirar ? '' : p.foto_provisoria ? 'Sugestão de foto nova: ' : 'Briefing da foto: '}${esc(p.briefing.titulo)}</summary>
     <ul class="brief">${p.briefing.itens.map(t=>`<li>${esc(t)}</li>`).join('')}</ul>
-    <p class="nota">${p.capa_a_tirar ? 'A ilustração da capa fica só até chegar a sua foto.' : 'A ilustração é só referência de enquadramento e posição.'}</p></details>`;
+    <p class="nota">${p.capa_a_tirar ? 'A ilustração da capa fica só até chegar a sua foto.' : p.foto_provisoria ? 'A foto de agora é do ensaio de 2025 e fica até chegar a sua foto nova. Se preferir postar com ela mesmo, é só aprovar.' : 'A ilustração é só referência de enquadramento e posição.'}</p></details>`;
   const guia = p.gravacao ? `<details class="roteiro" open><summary>O que gravar</summary>
     <p class="sub-tit">Antes de começar</p><ul class="brief">${p.gravacao.antes.map(t=>`<li>${esc(t)}</li>`).join('')}</ul>
     <p class="sub-tit">Takes</p><ol class="takes">${p.gravacao.takes.map((t,i)=>`<li><b><span class="n">${i+1}</span>${esc(t.titulo)}</b>

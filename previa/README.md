@@ -22,3 +22,7 @@ Este branch não deve ser mesclado no `main`.
 - `Dra. Jennifer – Marketing/Reels editados (final)/`: MP4 final após a edição (privada).
 - No `posts.json`, `pasta_videos` = link da pasta do post; a página mostra o botão "Enviar vídeos" no bloco "O que gravar".
 - Para um mês novo: criar a pasta `AAAA-MM` e uma subpasta por Reels dentro de "envio" e preencher `pasta_videos`.
+
+## Foto provisória
+- `foto_provisoria: true` + `briefing`: o post mostra a foto atual (ex.: ensaio profissional 2025, pasta "Fotos profissionais" do Drive FitzLab) e a "Sugestão de foto nova". Quando ela enviar a foto, trocar `imagens`, remover `foto_provisoria` e subir `versao`.
+- O gato cinza do ensaio de 2025 é o Zack (gato da casa; não precisa de termo de imagem).
