@@ -16,3 +16,9 @@ Este branch não deve ser mesclado no `main`.
 - Arquivos baixados: `postar` (lista explícita, se existir) → senão `video` nos Reels → senão `imagens`. Se `capa_a_tirar` for true, o download fica bloqueado até a capa real entrar.
 - Celular: menu de compartilhar do sistema (iPhone: "Salvar imagens"). Computador: baixa os arquivos em ordem.
 - Reels: colocar o MP4 final em `img/<post-id>/reels.mp4` e preencher `"video"` no `posts.json`.
+
+## Vídeos dos Reels (Google Drive do Pedro)
+- `Dra. Jennifer – Marketing/Vídeos dos Reels (envio)/AAAA-MM/AAAA-MM-DD · Tema/`: brutos que ela envia. A pasta "envio" está aberta para qualquer pessoa com o link enviar arquivos.
+- `Dra. Jennifer – Marketing/Reels editados (final)/`: MP4 final após a edição (privada).
+- No `posts.json`, `pasta_videos` = link da pasta do post; a página mostra o botão "Enviar vídeos" no bloco "O que gravar".
+- Para um mês novo: criar a pasta `AAAA-MM` e uma subpasta por Reels dentro de "envio" e preencher `pasta_videos`.

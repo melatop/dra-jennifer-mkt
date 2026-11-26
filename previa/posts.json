@@ -128,8 +128,9 @@
         "extras": [
           "3 ou 4 trechos de 5 segundos dos gatos relaxados (deitados, se espreguiçando, de olhos semicerrados). Servem para cobrir cortes."
         ],
-        "envio": "Depois de gravar, mande os vídeos para o Pedro pelo WhatsApp ou Google Drive (sem compactar, se der). Ele faz a edição."
-      }
+        "envio": "Depois de gravar, toque em \"Enviar vídeos\" e suba os arquivos originais pelo app do Google Drive (sem passar pelo WhatsApp, que reduz a qualidade)."
+      },
+      "pasta_videos": "https://drive.google.com/drive/folders/1gUAhSdIYRp-NHuddrCO5ZFADr8MvvXqk"
     },
     {
       "id": "2026-12-10-mitos",
@@ -263,8 +264,9 @@
           "Trechos curtos dos três gatos deitados na manta, de olhos fechados ou ronronando.",
           "Se a unha incomodar no colo, use a manta dobrada: é a dica da legenda e pode aparecer no vídeo."
         ],
-        "envio": "Depois de gravar, mande os vídeos para o Pedro pelo WhatsApp ou Google Drive (sem compactar, se der). Ele faz a edição."
-      }
+        "envio": "Depois de gravar, toque em \"Enviar vídeos\" e suba os arquivos originais pelo app do Google Drive (sem passar pelo WhatsApp, que reduz a qualidade)."
+      },
+      "pasta_videos": "https://drive.google.com/drive/folders/11VGBNOpH7DojkKoRhO43Wf3arNBmu2aE"
     },
     {
       "id": "2026-12-24-natal",

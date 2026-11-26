@@ -259,6 +259,8 @@ footer{text-align:center;font-size:13px;color:var(--muted);padding:40px 20px 60p
 .portao input{width:100%;border:1.5px solid #E4D3DA;border-radius:999px;padding:12px 16px;font:inherit;text-align:center;margin-top:14px}
 .portao button{margin-top:12px;width:100%;border:0;border-radius:999px;padding:12px;background:var(--mauve);color:#fff;font:inherit;font-weight:700;cursor:pointer}
 .portao .erro{color:var(--no);font-size:13px;margin-top:8px;min-height:18px}
+.b-videos{display:inline-flex;align-items:center;gap:6px;margin:8px 0 4px;background:var(--teal);color:#fff;border-radius:999px;padding:9px 14px;font-weight:700;font-size:14px;text-decoration:none}
+.b-videos svg{width:18px;height:18px}
 /* ---------- postar: copiar legenda e baixar ---------- */
 .postar{display:flex;flex-wrap:wrap;gap:8px;padding:10px 12px 4px}
 .postar button{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 14px;font:700 14px/1 inherit;color:var(--mauve-d);cursor:pointer}
@@ -461,7 +463,8 @@ function roteiro(p) {
     <p class="sub-tit">Takes</p><ol class="takes">${p.gravacao.takes.map((t,i)=>`<li><b><span class="n">${i+1}</span>${esc(t.titulo)}</b>
       <span>${esc(t.como)}</span><span class="meta"><b>Enquadramento:</b> ${esc(t.enquadre)}</span><span class="meta"><b>Duração:</b> ${esc(t.duracao)}</span></li>`).join('')}</ol>
     ${p.gravacao.extras && p.gravacao.extras.length ? `<p class="sub-tit">Extras</p><ul class="brief">${p.gravacao.extras.map(t=>`<li>${esc(t)}</li>`).join('')}</ul>` : ''}
-    <p class="nota">${esc(p.gravacao.envio)}</p></details>` : '';
+    <p class="nota">${esc(p.gravacao.envio)}</p>
+    ${p.pasta_videos ? `<a class="b-videos" href="${p.pasta_videos}" target="_blank" rel="noopener">${I.envia} Enviar vídeos</a>` : ''}</details>` : '';
   if (!p.roteiro) return guia;
   return guia + `<details class="roteiro"><summary>Ver roteiro do vídeo (falas e textos)</summary><ol>${p.roteiro.map(r=>`
     <li><span class="t">${esc(r.tempo)}</span><span>${esc(r.cena)}
