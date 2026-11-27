@@ -1,12 +1,12 @@
 [[redirects]]
   from = "/previa"
-  to = "https://previa--jenniferaragao-vet.netlify.app/previa/"
+  to = "https://provador-cubic.netlify.app/dra-jennifer/"
   status = 302
   force = true
 
 [[redirects]]
   from = "/previa/*"
-  to = "https://previa--jenniferaragao-vet.netlify.app/previa/:splat"
+  to = "https://provador-cubic.netlify.app/dra-jennifer/"
   status = 302
   force = true
 
