@@ -5,12 +5,12 @@
 <base href="/previa/">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Prévia do feed · Dra. Jennifer Aragão</title>
-<meta name="theme-color" content="#87495E">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg fill='%2387495E'%3E%3Cellipse cx='9' cy='16' rx='3.6' ry='4.6'/%3E%3Cellipse cx='16' cy='8.5' rx='3.6' ry='4.8'/%3E%3Cellipse cx='24' cy='8.5' rx='3.6' ry='4.8'/%3E%3Cellipse cx='31' cy='16' rx='3.6' ry='4.6'/%3E%3Cpath d='M20 19c-5 0-10 6-10 11 0 4 3 5 6 4.4 2-.4 2.7-1 4-1s2 .6 4 1c3 .6 6-.4 6-4.4 0-5-5-11-10-11z'/%3E%3C/g%3E%3C/svg%3E">
+<title>Provador · Dra. Jennifer Aragão</title>
+<meta name="theme-color" content="#F5F5F7">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%237C5CFF'/%3E%3Cstop offset='.6' stop-color='%23E0569B'/%3E%3Cstop offset='1' stop-color='%23FF9A4C'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='24' fill='url(%23g)'/%3E%3Cg fill='none' stroke='%23fff' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M41 30a9 9 0 1 1 9 9v6'/%3E%3Cpath d='M50 45L86 68q5 4-1 6H16q-6-2-1-6z'/%3E%3C/g%3E%3C/svg%3E">
 <script src="config.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Caladea:ital,wght@0,400;0,700;1,400&family=Carlito:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caladea:ital,wght@0,400;0,700;1,400&family=Carlito:wght@400;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--mauve:#87495E;--mauve-d:#6D2E46;--teal:#5897A0;--teal-d:#3D6E76;--pink:#D1899D;--ink:#2D2D2D;--tp:#FAEEF3;--tt:#F0F8F9;--bg:#FCF8F9;--line:#E9DCE2;--muted:#7A6E73;--ok:#2E7D46;--no:#C0392B}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -269,14 +269,116 @@ footer{text-align:center;font-size:13px;color:var(--muted);padding:40px 20px 60p
 .postar button{white-space:nowrap}
 .postar button:disabled{opacity:.5;cursor:default}
 .postar .msg-postar{flex-basis:100%;font-size:13px;color:var(--muted);margin:2px 2px 0;min-height:1em}
+
+/* ================= Identidade do app Provador =================
+   O "chrome" (barra lateral, cabeçalho, pop-up, aprovação, envio de fotos,
+   botões de postar, senha) usa a identidade do Provador.
+   O feed falso (perfil, grade e card do post) mantém a identidade do cliente. */
+:root{--pv-ink:#1D1D1F;--pv-muted:#6E6E73;--pv-bg:#F5F5F7;--pv-line:#E5E5EA;--pv-soft:#F2F2F7;--pv-acc:#7C5CFF;
+  --pv-grad:linear-gradient(135deg,#7C5CFF 0%,#E0569B 60%,#FF9A4C 100%);--pv-ok:#34C759;--pv-ok-t:#1F9D45;--pv-no:#FF3B30;--pv-no-t:#D70015}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--pv-bg);color:var(--pv-ink);letter-spacing:-.005em}
+h1,h2,h3{font-family:'Inter',system-ui,sans-serif;letter-spacing:-.025em}
+.kicker{color:var(--pv-muted);letter-spacing:.06em;font-weight:600}
+/* feed falso: fontes e cores do cliente */
+.perfil,.ig .h,.ig .leg,.midia,.grade{font-family:'Carlito','Calibri',sans-serif;letter-spacing:0;color:var(--ink)}
+.midia h3,.thumb-txt{font-family:'Caladea','Cambria',serif;letter-spacing:0}
+.midia .kicker{color:var(--teal-d);letter-spacing:2.5px;font-weight:700}
+/* ícone do app */
+.pv-ico{width:34px;height:34px;border-radius:10px;background:var(--pv-grad);display:inline-flex;align-items:center;justify-content:center;flex:none;box-shadow:0 4px 12px -4px rgba(124,92,255,.55)}
+.pv-ico svg{width:70%;height:70%}
+/* barra lateral */
+.barra{background:#fff;border-right:1px solid var(--pv-line)}
+.barra-topo{padding:20px 18px 14px}
+.barra-topo b{font-family:'Inter',sans-serif;font-size:19px;font-weight:700;color:var(--pv-ink);letter-spacing:-.025em}
+.barra-topo .kicker{font-size:11px;margin-top:2px}
+.conta{display:flex;align-items:center;gap:10px;margin:0 12px 12px;padding:10px;border-radius:14px;background:var(--pv-soft)}
+.conta img{width:38px;height:38px;border-radius:50%;object-fit:cover;flex:none}
+.conta b{display:block;font-size:14px;font-weight:600;line-height:1.2}
+.conta span{font-size:12px;color:var(--pv-muted)}
+.conta>div{min-width:0}.conta b,.conta>div>span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+.chip{background:#fff;border:1px solid var(--pv-line);font-weight:600;color:var(--pv-ink)}
+.dot{background:#C7C7CC}.dot.aprovado{background:var(--pv-ok)}.dot.reprovado{background:var(--pv-no)}
+.itens{border-top:1px solid var(--pv-line)}
+.item{border-radius:12px;position:relative}
+.item:hover{background:var(--pv-soft)}
+.item.ativo{background:rgba(124,92,255,.10)}
+.item.ativo::before{content:"";position:absolute;left:0;top:10px;bottom:10px;width:3px;border-radius:3px;background:var(--pv-grad)}
+.item .t{color:var(--pv-ink);font-weight:600}
+.item small{color:var(--pv-muted)}
+/* cabeçalho */
+.principal .top h1{color:var(--pv-ink);font-weight:700;font-size:36px}
+.principal .top p{color:var(--pv-muted)}
+.abrir-barra{border-color:var(--pv-line);color:var(--pv-ink);font-weight:600}
+.legenda-grade{color:var(--pv-muted)}
+/* pop-up */
+.modal-fundo{background:rgba(0,0,0,.42);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.modal-caixa{background:var(--pv-bg);border-radius:28px;box-shadow:0 30px 80px rgba(0,0,0,.28)}
+.modal .fechar{background:#fff;color:var(--pv-ink);box-shadow:0 1px 6px rgba(0,0,0,.15)}
+.post-meta h2{color:var(--pv-ink);font-size:22px;font-weight:700}
+.pill{letter-spacing:0;text-transform:none;font-size:13px;font-weight:600;background:var(--pv-soft);color:var(--pv-muted)}
+.pill.aprovado{background:#E3F8E8;color:var(--pv-ok-t)}.pill.reprovado{background:#FFE5E3;color:var(--pv-no-t)}
+/* postar */
+.postar{padding:12px 12px 4px;font-family:'Inter',sans-serif}
+.postar button{border:0;background:var(--pv-soft);color:var(--pv-ink);border-radius:14px;padding:11px 16px;font:600 14px/1 'Inter',sans-serif}
+.postar button.b-baixar{background:var(--pv-ink);color:#fff}
+.postar .msg-postar{color:var(--pv-muted)}
+/* briefing, o que gravar e roteiro (orientação do app) */
+.roteiro{border-top:1px solid var(--pv-line);font-family:'Inter',sans-serif}
+.roteiro summary{color:var(--pv-ink);font-weight:600}
+.roteiro .sub-tit{color:var(--pv-acc);letter-spacing:.08em}
+.roteiro li .t{color:var(--pv-acc)}
+.roteiro li .fala{color:#3A3A3C}
+.roteiro ul.brief li::before{background:var(--pv-acc)}
+.roteiro ol.takes li{background:var(--pv-bg)}
+.roteiro ol.takes li>b{color:var(--pv-ink)}
+.roteiro ol.takes .n{background:var(--pv-grad)}
+.roteiro ol.takes .meta,.roteiro .nota,.roteiro li .tela{color:var(--pv-muted)}
+.roteiro ol.takes .meta b{color:var(--pv-ink)}
+.b-videos{background:var(--pv-ink);border-radius:14px;font-weight:600}
+/* envio de fotos */
+.fotos{border:1.5px dashed #D1D1D6;border-radius:20px}
+.fotos h4{color:var(--pv-ink);font-weight:600}
+.fotos p.dica{color:var(--pv-muted)}
+.fotos .add{background:var(--pv-soft);color:var(--pv-ink);border-radius:14px;font-weight:600}
+.mini{background:var(--pv-soft)}.mini button.conf{background:var(--pv-no)}
+/* aprovação */
+.aprov label,.coments h4{color:var(--pv-muted);font-weight:600}
+.aprov textarea{border:1.5px solid var(--pv-line);border-radius:16px}
+.aprov textarea:focus{border-color:var(--pv-acc);box-shadow:0 0 0 4px rgba(124,92,255,.14)}
+.mic{background:var(--pv-soft);color:var(--pv-ink)}
+.mic.on{background:var(--pv-no)}
+.botoes button{border-radius:16px;padding:14px 10px;font-weight:700}
+.b-ok{background:var(--pv-ok)}.b-no{background:var(--pv-no)}
+.aprov .msg,.com .quando{color:var(--pv-muted)}
+.aprov .msg.erro{color:var(--pv-no-t)}
+.coments{border-top:1px solid var(--pv-line)}
+.com .quando b.aprovado{color:var(--pv-ok-t)}.com .quando b.reprovado{color:var(--pv-no-t)}
+.historico{border-left-color:var(--pv-line);color:var(--pv-muted)}
+/* senha */
+.portao{background:var(--pv-bg)}
+.portao form{border:0;border-radius:28px;padding:40px 30px 30px;box-shadow:0 20px 60px -20px rgba(30,20,60,.18)}
+.pv-ico-g{width:76px;height:76px;border-radius:22px;box-shadow:0 14px 30px -10px rgba(124,92,255,.55)}
+.pv-nome{font-size:34px;font-weight:700;letter-spacing:-.035em;margin-top:16px}
+.pv-sub{font-size:14px;color:var(--pv-muted);margin-top:4px}
+.pv-sub b{color:var(--pv-ink);font-weight:600}
+.portao input{border:1.5px solid var(--pv-line);border-radius:14px;margin-top:22px}
+.portao input:focus{outline:none;border-color:var(--pv-acc);box-shadow:0 0 0 4px rgba(124,92,255,.14)}
+.portao button{background:var(--pv-grad);border-radius:14px;font-weight:600}
+.portao .erro{color:var(--pv-no-t)}
+/* rodapé */
+footer{color:var(--pv-muted)}
+.pv-assina{display:inline-flex;align-items:center;gap:8px;font-weight:700;color:var(--pv-ink);font-size:15px;margin-bottom:6px}
+.pv-assina .pv-ico{width:24px;height:24px;border-radius:7px}
+@media(max-width:900px){.veu-barra.aberta{background:rgba(0,0,0,.35)}.modal-caixa{border-radius:0}}
 </style>
 </head>
 <body>
 
 <div class="portao" id="portao" hidden>
   <form id="form-senha">
-    <img src="img/logo.png" alt="Dra. Jennifer Aragão – Medicina Veterinária" width="1018" height="624">
-    <div class="kicker">Prévia do feed</div>
+    <span class="pv-ico pv-ico-g"><svg viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M41 30a9 9 0 1 1 9 9v6"/><path d="M50 45L86 68q5 4-1 6H16q-6-2-1-6z"/></svg></span>
+    <div class="pv-nome">Provador</div>
+    <p class="pv-sub">Prévia do feed de <b>@<span id="portao-handle"></span></b></p>
     <input type="password" id="senha" placeholder="Senha" autocomplete="current-password" required>
     <button type="submit">Entrar</button>
     <p class="erro" id="erro-senha"></p>
@@ -285,10 +387,11 @@ footer{text-align:center;font-size:13px;color:var(--muted);padding:40px 20px 60p
 
 <aside class="barra" id="barra" aria-label="Lista de posts">
   <div class="barra-topo">
-    <img src="img/mark.png" alt="" width="371" height="624">
-    <div><div class="kicker">Prévia do feed</div><b id="mes-b"></b></div>
+    <span class="pv-ico"><svg viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M41 30a9 9 0 1 1 9 9v6"/><path d="M50 45L86 68q5 4-1 6H16q-6-2-1-6z"/></svg></span>
+    <div><b>Provador</b><div class="kicker" id="mes-b"></div></div>
     <button type="button" class="fechar-barra" id="fechar-barra" aria-label="Fechar lista">✕</button>
   </div>
+  <div class="conta"><img src="img/avatar.jpg" alt="" width="150" height="150"><div><b id="conta-nome"></b><span>@<span id="conta-handle"></span></span></div></div>
   <div class="resumo" id="resumo"></div>
   <nav class="itens" id="itens"></nav>
 </aside>
@@ -323,7 +426,7 @@ footer{text-align:center;font-size:13px;color:var(--muted);padding:40px 20px 60p
     <div class="grade" id="grade"></div>
   </div>
   <p class="legenda-grade">A grade mostra o mais recente primeiro, como no perfil.</p>
-  <footer>Dra. Jennifer Aragão · Médica Veterinária · Contagem e Grande BH · Prévia interna, não publicada</footer>
+  <footer><span class="pv-assina"><span class="pv-ico"><svg viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M41 30a9 9 0 1 1 9 9v6"/><path d="M50 45L86 68q5 4-1 6H16q-6-2-1-6z"/></svg></span>Provador</span><br>Prévia interna de @<span id="rodape-handle"></span>, não publicada · by Cubic Inteligência</footer>
 </main>
 
 <div class="modal" id="modal" hidden>
@@ -355,9 +458,9 @@ const I = {
   play:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 3.5v17l14-8.5z"/></svg>'
 };
 const ICST = {
-  aprovado:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#2E7D46"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
-  reprovado:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#C0392B"/><path d="M8.5 8.5l7 7M15.5 8.5l-7 7" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/></svg>',
-  pendente:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="#B8AAB0" stroke-width="2"/><path d="M12 7v5l3 2" fill="none" stroke="#B8AAB0" stroke-width="2" stroke-linecap="round"/></svg>'
+  aprovado:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#34C759"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  reprovado:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#FF3B30"/><path d="M8.5 8.5l7 7M15.5 8.5l-7 7" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/></svg>',
+  pendente:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="#AEAEB2" stroke-width="2"/><path d="M12 7v5l3 2" fill="none" stroke="#AEAEB2" stroke-width="2" stroke-linecap="round"/></svg>'
 };
 const ROTULO = {carrossel:'Carrossel', foto:'Foto a tirar', reels:'Reels', imagem:'Imagem'};
 const DIAS = ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'];
@@ -703,6 +806,8 @@ function montar() {
 }
 async function iniciar() {
   POSTS = window.POSTS_INLINE || await (await fetch('posts.json', {cache:'no-store'})).json();
+  ['portao-handle','conta-handle','rodape-handle'].forEach(id => document.getElementById(id).textContent = POSTS.perfil.handle);
+  document.getElementById('conta-nome').textContent = POSTS.perfil.nome;
   if (CONFIG.backend === 'supabase') {
     const portao = document.getElementById('portao'), f = document.getElementById('form-senha'), err = document.getElementById('erro-senha');
     const tentar = async s => { API.senha = s; const rows = await API.carregar();
