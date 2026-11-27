@@ -369,7 +369,21 @@ h1,h2,h3{font-family:'Inter',system-ui,sans-serif;letter-spacing:-.025em}
 footer{color:var(--pv-muted)}
 .pv-assina{display:inline-flex;align-items:center;gap:8px;font-weight:700;color:var(--pv-ink);font-size:15px;margin-bottom:6px}
 .pv-assina .pv-ico{width:24px;height:24px;border-radius:7px}
-@media(max-width:900px){.veu-barra.aberta{background:rgba(0,0,0,.35)}.modal-caixa{border-radius:0}}
+/* cabeçalho do post no pop-up */
+.modal-caixa{overflow-x:hidden}
+.modal-caixa .post-meta{display:block;padding-right:0;margin-bottom:14px}
+.post-meta .kicker{font-size:12px;letter-spacing:.04em;padding-right:52px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:34px}
+.pm-linha{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.pm-linha h2{min-width:0;font-size:24px;line-height:1.15}
+.pm-linha .pill{flex:none}
+.modal-caixa>*,.modal-caixa .post>*{max-width:100%}
+@media(max-width:900px){
+  .veu-barra.aberta{background:rgba(0,0,0,.35)}
+  .modal-caixa{border-radius:0;padding:calc(12px + env(safe-area-inset-top)) 16px 96px}
+  .modal .fechar{position:fixed;top:calc(10px + env(safe-area-inset-top));right:14px;margin:0;float:none}
+  .pm-linha h2{font-size:22px}
+  .modal .nav{width:40px;height:40px;bottom:calc(14px + env(safe-area-inset-bottom));background:rgba(255,255,255,.9);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+}
 </style>
 </head>
 <body>
@@ -579,9 +593,8 @@ function card(p, idx) {
   const hist = anteriores(p);
   return `<article class="post" id="${p.id}">
     <div class="post-meta">
-      <div><div class="kicker">Post ${String(idx+1).padStart(2,'0')} · ${ROTULO[p.tipo]} · ${dataLonga(p.data)}${p.versao>1?` · versão ${p.versao}`:''}</div>
-      <h2>${esc(p.tema)}</h2></div>
-      <span class="pill ${st}">${statusTxt(st)}</span>
+      <div class="kicker">Post ${String(idx+1).padStart(2,'0')} · ${ROTULO[p.tipo]} · ${diaCurto(p.data)}${p.versao>1?` · v${p.versao}`:''}</div>
+      <div class="pm-linha"><h2>${esc(p.tema)}</h2><span class="pill ${st}">${statusTxt(st)}</span></div>
     </div>
     <div class="ig">
       <div class="h"><div class="avatar"><img class="foto" src="img/avatar.jpg" alt=""></div>
